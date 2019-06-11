@@ -21,6 +21,7 @@ export default class StudentDetail extends Component {
                             {this.props.student.name}
                         </h4>
                         <h6 className="card-title">Student Grade: {this.props.student.grade}</h6>
+                        <h6 className="card-title">Parent Information: {this.props.student.parentContact}</h6>
                         <h6 className="card-title">Assigned Teachers: {}</h6>
                         <button
                             onClick={

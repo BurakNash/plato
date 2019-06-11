@@ -4,6 +4,7 @@
       "id": 1,
       "name": "Burak Kaya Koc",
       "grade": "A",
+      "parentContact": "aaas",
       "teacherId": 2
     },
     {
@@ -35,7 +36,7 @@
     {
       "id": 2,
       "name": "Mr.Adam",
-      "schoolId": 1
+      "schoolId": 2
     },
     {
       "id": 3,

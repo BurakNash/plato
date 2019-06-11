@@ -6,6 +6,7 @@ export default class StudentEditForm extends Component {
     state = {
       studentName: "",
       grade: "",
+      parentContact: "",
       teacherId: ""
     }
 
@@ -26,6 +27,7 @@ export default class StudentEditForm extends Component {
           id: this.props.match.params.studentId,
           name: this.state.studentName,
           grade: this.state.grade,
+          parentContact: this.state.parentContact,
           teacherId: parseInt(this.state.teacherId)
         };
 
@@ -40,6 +42,7 @@ export default class StudentEditForm extends Component {
         this.setState({
           studentName: student.name,
           grade: student.grade,
+          parentContact: student.parentContact,
           teacherId: student.teacherId
         });
       });
@@ -70,6 +73,17 @@ export default class StudentEditForm extends Component {
                 onChange={this.handleFieldChange}
                 id="grade"
                 value = {this.state.grade}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="parentContact">Parent Information</label>
+              <input
+                type="text"
+                required
+                className="form-control"
+                onChange={this.handleFieldChange}
+                id="parentContact"
+                value = {this.state.parentContact}
               />
             </div>
             <div className="form-group">
