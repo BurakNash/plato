@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import { withRouter } from "react-router";
 
 import StudentList from "./student/StudentList";
-import LocationList from "./location/LocationList";
+import SchoolList from "./school/SchoolList";
 import TeacherList from "./teacher/TeacherList";
 import TeacherEditForm from "./teacher/TeacherEditForm";
 
@@ -13,7 +13,7 @@ import TeacherForm from "./teacher/TeacherForm";
 
 import StudentManager from "../modules/StudentManager";
 import OwnerManager from "../modules/OwnerManager";
-import LocationManager from "../modules/LocationManager";
+import SchoolManager from "../modules/SchoolManager";
 import TeacherManager from "../modules/TeacherManager";
 import StudentForm from "./student/StudentForm";
 import StudentEditForm from "./student/StudentEditForm";
@@ -27,7 +27,7 @@ class ApplicationViews extends Component {
     studentOwners: [],
     teachers: [],
     students: [],
-    locations: []
+    schools: []
   };
 
   _redirectToStudentList = async () => {
@@ -89,8 +89,8 @@ class ApplicationViews extends Component {
       .then((students) => (newState.students = students))
       .then(() => TeacherManager.getAll())
       .then((teachers) => (newState.teachers = teachers))
-      .then(() => LocationManager.getAll())
-      .then((locations) => (newState.locations = locations))
+      .then(() => SchoolManager.getAll())
+      .then((schools) => (newState.schools = schools))
       .then(() => OwnerManager.getAll())
       .then((owners) => (newState.owners = owners))
       .then(() =>
@@ -110,8 +110,8 @@ class ApplicationViews extends Component {
 
         <AuthRoute
           path="/"
-          Destination={LocationList}
-          locations={this.state.locations}
+          Destination={SchoolList}
+          schools={this.state.schools}
         />
 
         <AuthRoute

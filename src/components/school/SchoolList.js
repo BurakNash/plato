@@ -1,20 +1,20 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 import { Link } from "react-router-dom";
 
-import "./Location.css";
+import "./School.css";
 
-export default class LocationList extends Component {
+export default class SchoolList extends Component {
   componentDidMount() {
   }
 
   render() {
     return (
       <section className="list">
-        {this.props.locations.map((business) => (
+        {this.props.schools.map((business) => (
           <div key={business.id} className="card ">
             <div className="card-body">
               <h4 className="card-title">
-                <Link className="nav-link" to={`/locations/${business.id}`}>
+                <Link className="nav-link" to={`/schools/${business.id}`}>
                   {business.name}
                 </Link>
               </h4>
