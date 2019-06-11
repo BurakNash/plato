@@ -7,8 +7,11 @@ export default class StudentDetail extends Component {
     state = {
         saveDisabled: false
     }
-
+   
     render() {
+        //const teacher = this.props.teachers.find(a =>
+           // a.id === parseInt(this.props.match.params.teacherId))
+            
         return (
             <section className="student">
                 <div key={this.props.student.id} className="card">
@@ -18,6 +21,7 @@ export default class StudentDetail extends Component {
                             {this.props.student.name}
                         </h4>
                         <h6 className="card-title">Student Grade: {this.props.student.grade}</h6>
+                        <h6 className="card-title">Assigned Teachers: {}</h6>
                         <button
                             onClick={
                                 () => {

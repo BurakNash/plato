@@ -34,15 +34,18 @@
   "teachers": [
     {
       "id": 2,
-      "name": "Mr.Adam"
+      "name": "Mr.Adam",
+      "locationId": 2
     },
     {
       "id": 3,
-      "name": "Mr.Bryan"
+      "name": "Mr.Bryan",
+      "locationId": 1
     },
     {
       "name": "Burak",
-      "id": 4
+      "id": 4,
+      "locationId": 1
     }
   ],
   "locations": [
