@@ -195,6 +195,7 @@ class ApplicationViews extends Component {
               return (
                 <TeacherEditForm
                   {...props}
+                  schools={this.state.schools}
                   teachers={this.state.teachers}
                   updateTeacher={this.updateTeacher}
                 />

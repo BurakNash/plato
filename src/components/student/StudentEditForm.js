@@ -80,7 +80,7 @@ export default class StudentEditForm extends Component {
                 onChange={this.handleFieldChange}
                 value = {this.state.teacherId}
               >
-                <option value="">Select an teacher</option>
+                <option value="undefined">Select an teacher</option>
                 {this.props.teachers.map(e => (
                   <option key={e.id} id={e.id} value={e.id}>
                     {e.name}
