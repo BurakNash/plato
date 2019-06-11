@@ -5,6 +5,7 @@ import { withRouter } from "react-router";
 import StudentList from "./student/StudentList";
 import LocationList from "./location/LocationList";
 import TeacherList from "./teacher/TeacherList";
+import TeacherEditForm from "./teacher/TeacherEditForm";
 
 import StudentDetail from "./student/StudentDetail";
 import TeacherDetail from "./teacher/TeacherDetail";
@@ -55,6 +56,10 @@ class ApplicationViews extends Component {
   };
   addTeacher = async (teacher) => {
     await TeacherManager.addTeacher(teacher);
+    this._redirectToTeacherList();
+  };
+  updateTeacher = async (teacher) => {
+    await TeacherManager.updateTeacher(teacher);
     this._redirectToTeacherList();
   };
 
@@ -181,7 +186,25 @@ class ApplicationViews extends Component {
               return <Redirect to="/login" />;
             }
           }}
+
         />
+        <Route
+          path="/teachers/:teacherId(\d+)/edit"
+          render={(props) => {
+            if (this.isAuthenticated()) {
+              return (
+                <TeacherEditForm
+                  {...props}
+                  teachers={this.state.teachers}
+                  updateTeacher={this.updateTeacher}
+                />
+              );
+            } else {
+              return <Redirect to="/login" />;
+            }
+          }}
+        />
+
 
         <Route
           exact

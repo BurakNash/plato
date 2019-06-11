@@ -26,12 +26,27 @@ class TeacherList extends Component {
 
         <section className="">
           {this.props.teachers.map((teacher) => (
-            <div key={`teacher-${teacher.id}`} teacher={teacher}>
+            <div key={`teacher-${teacher.id}`} teacher={teacher} >
               <div className="">
                 <Link className="teacher-link" to={`/teachers/${teacher.id}`}>
                   {teacher.name}
                 </Link>
-              </div>
+
+                </div>
+          <button
+            type="button"
+            className=""
+            onClick={() => {
+              this.props.history.push(
+                `/teachers/${teacher.id}/edit`
+              );
+              
+            }}
+          >
+            Edit
+          </button>
+        
+             
 
               <h6 className="">Students</h6>
               <div className="">

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import TaskManager from "../../modules/TaskManager"
-import { Button, Card, Col } from "reactstrap"
+import TeacherManager from "../../modules/TeacherManager"
 
 
-export default class TaskEditForm extends Component {
+
+export default class TeacherEditForm extends Component {
 
     state = {
         name: "",
-        info: ""
+        //info: ""
     }
  
     handleFieldChange = evt => {
@@ -16,36 +16,36 @@ export default class TaskEditForm extends Component {
         this.setState(stateToChange)
     }
  
-    updateExistingTask = evt => {
+    updateTeacher = evt => {
         evt.preventDefault()
  
-        const editedTask = {
-            id: this.props.match.params.taskId,
+        const editedTeacher = {
+            id: this.props.match.params.teacherId,
             name: this.state.name,
-            info: this.state.info
+            //info: this.state.info
         };
  
-        this.props.updateTasks(editedTask)
-            .then(() => this.props.history.push("/tasks"))
+        this.props.updateTeacher(editedTeacher)
+            .then(() => this.props.history.push("/teachers"))
     }
     componentDidMount() {
-        TaskManager.get(this.props.match.params.taskId)
-            .then(tasks => {
+        TeacherManager.get(this.props.match.params.teacherId)
+            .then(teachers => {
                 this.setState({
-                    name: tasks.name,
-                    info: tasks.info
+                    name: teachers.name,
+                    //info: teachers.info
                 });
             });
     }
     render() {
         return (
-            <>  <Card style={{ width: "20em", height: "20em" }}>
+          
  
-                <Col md="auto">
-                    <form className="taskForm">
+                
+                    <form className="teacherForm">
  
                         <div className="form-group">
-                            <label htmlFor="name">Task name</label>
+                            <label htmlFor="name">Teacher name</label>
                             <input
                                 type="text"
                                 required
@@ -55,33 +55,23 @@ export default class TaskEditForm extends Component {
                                 value={this.state.name || ""}
                             />
                         </div>
-                        <div className="form-group">
-                            <label htmlFor="info">Info</label>
-                            <input
-                                type="text"
-                                required
-                                // className="form-control"
-                                onChange=
-                                {this.handleFieldChange}
-                                id="info"
-                                value={this.state.info || ""}
-                            />
-                        </div>
+                        
+                        
                         <div>
-                            <Button
+                            <button
                                 type="submit"
                                 color="danger"
                                 size="sm"
-                                onClick={this.updateExistingTask}
-                            >Submit</Button>
+                                onClick={this.updateTeacher}
+                            >Submit</button>
                         </div>
  
  
                     </form>
-                </Col>
+                
  
-            </Card>
-            </>
+            
+            
         );
     }
  }
