@@ -198,7 +198,9 @@ class ApplicationViews extends Component {
           path="/teachers/new"
           render={(props) => {
             if (this.isAuthenticated()) {
-              return <TeacherForm {...props} addTeacher={this.addTeacher} teachers={this.state.teachers}/>;
+              return <TeacherForm {...props} addTeacher={this.addTeacher} 
+              schools={this.state.schools}
+              teachers={this.state.teachers}/>;
             } else {
               return <Redirect to="/login" />;
             }

@@ -4,7 +4,10 @@ import TeacherManager from "../../modules/TeacherManager";
 export default class TeacherEditForm extends Component {
   state = {
     name: "",
-    School: ""
+    email: "",
+    subjects:"",
+    school: "",
+
     //info: ""
   };
 
@@ -23,7 +26,10 @@ export default class TeacherEditForm extends Component {
       const editedTeacher = {
         id: this.props.match.params.teacherId,
         name: this.state.name,
+        email: this.state.email,
+        subjects: this.state.subjects,
         schoolId: parseInt(this.state.schoolId)
+
         //info: this.state.info
       };
 
@@ -37,6 +43,8 @@ export default class TeacherEditForm extends Component {
     .then((teachers) => {
       this.setState({
         name: teachers.name,
+        email: teachers.email,
+        subjects: teachers.subjects,
         schoolId: teachers.schoolId
         //info: teachers.info
       });
@@ -54,6 +62,28 @@ export default class TeacherEditForm extends Component {
             onChange={this.handleFieldChange}
             id="name"
             value={this.state.name || ""}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">E-mail</label>
+          <input
+            type="text"
+            required
+            // className="form-control"
+            onChange={this.handleFieldChange}
+            id="email"
+            value={this.state.email || ""}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="subjects">Subjects</label>
+          <input
+            type="text"
+            required
+            // className="form-control"
+            onChange={this.handleFieldChange}
+            id="subjects"
+            value={this.state.subjects || ""}
           />
         </div>
         <div className="form-group">
