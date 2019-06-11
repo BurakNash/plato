@@ -1,0 +1,81 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Burak Kaya Koc",
+      "grade": "A",
+      "teacherId": 2
+    },
+    {
+      "id": 2,
+      "name": "Mr Jag",
+      "grade": "Ba",
+      "teacherId": 3
+    },
+    {
+      "name": "Nicole",
+      "grade": "C",
+      "teacherId": 2,
+      "id": 3
+    },
+    {
+      "name": "Tuesday boy",
+      "grade": "8",
+      "teacherId": 3,
+      "id": 4
+    }
+  ],
+  "teachers": [
+    {
+      "id": 2,
+      "name": "Mr.Adam"
+    },
+    {
+      "id": 3,
+      "name": "Mr.Bryan"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Norman Binkley Elementary School"
+    },
+    {
+      "id": 2,
+      "name": "Nashville Software School"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": ""
+    },
+    {
+      "id": 2,
+      "name": ""
+    },
+    {
+      "id": 3,
+      "name": ""
+    },
+    {
+      "id": 4,
+      "name": ""
+    },
+    {
+      "id": 5,
+      "name": ""
+    },
+    {
+      "id": 6,
+      "name": ""
+    }
+  ],
+  "studentOwners": [
+    {
+      "id": 1,
+      "studentId": 1,
+      "ownerId": 5
+    }
+  ]
+}

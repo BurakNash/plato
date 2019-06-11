@@ -1,0 +1,28 @@
+.ownerList {
+    font-size: 0.75em;
+}
+
+.icon--dog {
+    width: 50px;
+    height: 50px;
+}
+
+.studentcard {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: row-wrap;
+    border-style: solid;
+    flex-grow: 3;
+    align-self: auto;
+    background-color: gold
+    
+    
+}
+.buttons {
+    float: right;
+    
+}
+.studentname {
+   
+}

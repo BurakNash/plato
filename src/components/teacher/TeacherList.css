@@ -1,0 +1,18 @@
+
+
+.teachers {
+    background-color: rgb(171, 171, 194);
+    flex-direction: column;
+    margin: 0.9cm;
+    display: grid;
+    width: auto;
+   
+}
+
+.teacher-link {
+    color: red;
+    background-color: cornflowerblue;
+    font-size: 20px;
+    text-decoration: underline;
+    
+}
