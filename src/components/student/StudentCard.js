@@ -19,10 +19,10 @@ class StudentCard extends Component {
       <React.Fragment>
         <div className="studentcard"
         key={this.props.student.id}>
-            
-          
+ 
           <div className="studentname">
-              {this.props.student.name}({ownerStringArray.join(", ")})
+              {this.props.student.name}
+              ({ownerStringArray.join(", ")})
               <div className="buttons">
               <button
                 type="button"

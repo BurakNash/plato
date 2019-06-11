@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import "./Student.css"
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 
 export default class StudentDetail extends Component {
@@ -30,12 +30,9 @@ export default class StudentDetail extends Component {
                             }
                             
                             disabled={ this.state.saveDisabled }
-                            className="">Delete</button>
+                            className="deletedetails"><b>Delete:</b> {this.props.student.name}</button>
                     </div>
                 </div>
-                <Link className="" to={`/students/{student.id}/edit`}>
-                  lll
-                </Link>
             </section>
         )
     }

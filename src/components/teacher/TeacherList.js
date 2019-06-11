@@ -5,16 +5,13 @@ import "./Teacher.css";
 import StudentCard from "../student/StudentCard";
 
 class TeacherList extends Component {
-    componentDidMount() {
-      }
-    
-componentDidUpdate(prevProps, prevState) {
-      }
+  componentDidMount() {}
+
+  componentDidUpdate(prevProps, prevState) {}
 
   render() {
     return (
-    
-<React.Fragment>
+      <React.Fragment>
         <div className="centerChildren">
           <button
             type="button"
@@ -28,12 +25,9 @@ componentDidUpdate(prevProps, prevState) {
         </div>
 
         <section className="">
-        {this.props.teachers.map((teacher) => (
-            <div key={`teacher-${teacher.id}`}
-            teacher={teacher}>
+          {this.props.teachers.map((teacher) => (
+            <div key={`teacher-${teacher.id}`} teacher={teacher}>
               <div className="">
-             
-              
                 <Link className="teacher-link" to={`/teachers/${teacher.id}`}>
                   {teacher.name}
                 </Link>
@@ -44,13 +38,13 @@ componentDidUpdate(prevProps, prevState) {
                 {this.props.students
                   .filter((std) => std.teacherId === teacher.id)
                   .map((std) => (
-                    <StudentCard key={std.id} student={std} {...this.props} />
+                    <StudentCard key={std.id} student={std} {...this.props}  />
                   ))}
               </div>
             </div>
           ))}
         </section>
-        </React.Fragment>
+      </React.Fragment>
     );
   }
 }

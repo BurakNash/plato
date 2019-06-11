@@ -196,6 +196,7 @@ class ApplicationViews extends Component {
                   owners={this.state.owners}
                   studentOwners={this.state.studentOwners}
                   loadTeachers={this.getAllTeachers}
+                  {...props}
                 />
               );
             } else {
