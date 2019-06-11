@@ -6,6 +6,7 @@ export default class StudentForm extends Component {
   state = {
     studentName: "",
     grade: "",
+    parentContact: "",
     teacherId: "",
     saveEnabled: false
   }
@@ -29,6 +30,7 @@ export default class StudentForm extends Component {
       const student = {
         name: this.state.studentName,
         grade: this.state.grade,
+        parentContact: this.state.parentContact,
         // Make sure the teacherId is saved to the database as a number since it is a foreign key.
         teacherId: parseInt(this.state.teacherId)
       }
@@ -67,6 +69,17 @@ export default class StudentForm extends Component {
               onChange={this.handleFieldChange}
               id="grade"
               placeholder="Student Grade"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="parentContact">Parent Information</label>
+            <input
+                  type="text"
+                  required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="parentContact"
+                  value = {this.state.parentContact}
             />
           </div>
           <div className="form-group">

@@ -4,6 +4,7 @@ import { withRouter } from "react-router";
 
 import StudentList from "./student/StudentList";
 import SchoolList from "./school/SchoolList";
+import SchoolDetail from "./school/SchoolDetail";
 import TeacherList from "./teacher/TeacherList";
 import TeacherEditForm from "./teacher/TeacherEditForm";
 
@@ -123,14 +124,30 @@ class ApplicationViews extends Component {
           dischargeStudent={this.dischargeStudent}
           loadStudents={this.getAllStudents}
         />
-
+        <Route
+          exact
+          path="/schools/:schoolId(\d+)"
+          render={(props) => {
+            if (this.isAuthenticated()) {
+              return (
+                <SchoolDetail
+                  {...props}
+                  
+                  schools={this.state.schools}
+                />
+              );
+            } else {
+              return <Redirect to="/login" />;
+            }
+          }}
+        />
         <Route
           path="/students/:studentId(\d+)"
           render={(props) => {
             if (this.isAuthenticated()) {
               const student = this.state.students.find(
                 (a) => a.id === parseInt(props.match.params.studentId)
-              ) || { id: 404, name: "404", grade: "Student Grade not found" };
+              ) || { id: 404, name: "404", grade: "Student not found" };
 
               return (
                 <StudentDetail

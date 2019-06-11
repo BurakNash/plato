@@ -24,18 +24,14 @@
       "grade": "8",
       "teacherId": 3,
       "id": 4
-    },
-    {
-      "name": "SSSS",
-      "grade": "SSS",
-      "teacherId": 3,
-      "id": 5
     }
   ],
   "teachers": [
     {
       "id": 2,
       "name": "Mr.Adam",
+      "email":"secret@gmail.com",
+      "subjects":"Math, Science, Hat Art",
       "schoolId": 2
     },
     {
@@ -52,11 +48,17 @@
   "schools": [
     {
       "id": 1,
-      "name": "Norman Binkley Elementary School"
+      "name": "Lipscomb Academy",
+      "location": "3901 Granny White Pike, Nashville, TN 37204",
+      "phone": "(615) 966-1600",
+      "numberStudents":"1,262"
     },
     {
       "id": 2,
-      "name": "Nashville Software School"
+      "name": "Nashville Software School",
+      "location": "500 Interstate Blvd S #300, Nashville, TN 37210",
+      "phone": "(615) 838-8188",
+      "numberStudents":"1,262"
     }
   ],
   "owners": [
