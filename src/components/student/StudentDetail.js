@@ -22,7 +22,7 @@ export default class StudentDetail extends Component {
                         </h4>
                         <h6 className="card-title">Student Grade: {this.props.student.grade}</h6>
                         <h6 className="card-title">Parent Information: {this.props.student.parentContact}</h6>
-                        <h6 className="card-title">Assigned Teachers: {}</h6>
+                        <h6 className="card-title">Assigned Teachers: {this.props.student.teacher.name}</h6>
                         <button
                             onClick={
                                 () => {

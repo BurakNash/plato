@@ -47,8 +47,7 @@
     {
       "name": "aaa",
       "email": "sds",
-      "date": "",
-      "schoolId": null,
+      "schoolId": 2,
       "id": 5
     }
   ],

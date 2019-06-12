@@ -84,7 +84,9 @@ export default class StudentForm extends Component {
           </div>
           <div className="form-group">
             <label htmlFor="teacher">Assign to a Teacher</label>
+            <div>
             <select
+              className="form-control"
               defaultValue=""
               name="teacher"
               id="teacherId"
@@ -97,6 +99,7 @@ export default class StudentForm extends Component {
                 </option>
               ))}
             </select>
+            </div>
           </div>
           <button
             type="submit"
