@@ -3,15 +3,9 @@
     {
       "id": 1,
       "name": "Burak Kaya Koc",
-      "grade": "A",
+      "grade": "Az",
       "parentContact": "aaas",
       "teacherId": 2
-    },
-    {
-      "id": 2,
-      "name": "Mr Jag",
-      "grade": "Ba",
-      "teacherId": 3
     },
     {
       "name": "Nicole",
@@ -24,12 +18,19 @@
       "grade": "8",
       "teacherId": 3,
       "id": 4
+    },
+    {
+      "name": "zzzz",
+      "grade": "zzz",
+      "parentContact": "zzz",
+      "teacherId": 3,
+      "id": 5
     }
   ],
   "teachers": [
     {
       "id": 2,
-      "name": "Mr.Adam",
+      "name": "Mr.Adamc",
       "email": "secret@gmail.com",
       "subjects": "Math, Science, Hat Art",
       "schoolId": 2
@@ -43,12 +44,6 @@
       "name": "Burak",
       "id": 4,
       "schoolId": 1
-    },
-    {
-      "name": "aaa",
-      "email": "sds",
-      "schoolId": 2,
-      "id": 5
     }
   ],
   "schools": [

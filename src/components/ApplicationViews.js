@@ -21,6 +21,7 @@ import StudentEditForm from "./student/StudentEditForm";
 import Login from "./auth/Login";
 import AuthRoute from "./auth/AuthRoute";
 
+
 class ApplicationViews extends Component {
   state = {
     owners: [],
@@ -76,12 +77,14 @@ class ApplicationViews extends Component {
     this.setState({ teachers: await TeacherManager.getAll() });
   };
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+  }
 
   componentDidMount() {
     const newState = {};
 
-    TeacherManager.getAll().then((teachers) => (newState.teachers = teachers));
+    TeacherManager.getAll()
+      .then((teachers) => (newState.teachers = teachers))
 
     StudentManager.getAll()
       .then((students) => (newState.students = students))
@@ -101,6 +104,7 @@ class ApplicationViews extends Component {
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
   render() {
+    
     return (
       <React.Fragment>
         <Route path="/login" component={Login} />
@@ -125,7 +129,13 @@ class ApplicationViews extends Component {
           path="/schools/:schoolId(\d+)"
           render={(props) => {
             if (this.isAuthenticated()) {
-              return <SchoolDetail {...props} schools={this.state.schools} />;
+              return (
+                <SchoolDetail
+                  {...props}
+                  
+                  schools={this.state.schools}
+                />
+              );
             } else {
               return <Redirect to="/login" />;
             }
@@ -188,18 +198,14 @@ class ApplicationViews extends Component {
           path="/teachers/new"
           render={(props) => {
             if (this.isAuthenticated()) {
-              return (
-                <TeacherForm
-                  {...props}
-                  addTeacher={this.addTeacher}
-                  schools={this.state.schools}
-                  teachers={this.state.teachers}
-                />
-              );
+              return <TeacherForm {...props} addTeacher={this.addTeacher} 
+              schools={this.state.schools}
+              teachers={this.state.teachers}/>;
             } else {
               return <Redirect to="/login" />;
             }
           }}
+
         />
         <Route
           path="/teachers/:teacherId(\d+)/edit"
@@ -218,6 +224,7 @@ class ApplicationViews extends Component {
             }
           }}
         />
+
 
         <Route
           exact
