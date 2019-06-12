@@ -39,11 +39,6 @@
       "id": 3,
       "name": "Mr.Bryan",
       "schoolId": 1
-    },
-    {
-      "name": "Burak",
-      "id": 4,
-      "schoolId": 1
     }
   ],
   "schools": [
