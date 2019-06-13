@@ -37,7 +37,7 @@ class StudentCard extends Component {
               </button>
               <button
                 onClick={() =>
-                  this.props.dischargeStudent(this.props.student.id)
+                  this.props.deleteStudent(this.props.student.id)
                 }
                 className=""
               >

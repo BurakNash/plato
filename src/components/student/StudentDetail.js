@@ -28,7 +28,7 @@ export default class StudentDetail extends Component {
                                 () => {
                                     this.setState(
                                         { saveDisabled: true },
-                                        () => this.props.dischargeStudent(this.props.student.id)
+                                        () => this.props.deleteStudent(this.props.student.id)
                                     )
 
                                 }

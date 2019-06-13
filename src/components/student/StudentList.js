@@ -27,7 +27,7 @@ class StudentList extends Component {
             <StudentCard
               key={`student-${student.id}`}
               student={student}
-              dischargeStudent={this.props.dischargeStudent}
+              deleteStudent={this.props.deleteStudent}
               owners={this.props.owners}
               studentOwners={this.props.studentOwners}
               history={this.props.history}

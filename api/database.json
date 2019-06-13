@@ -15,13 +15,6 @@
       "email": "secret@gmail.com",
       "subjects": "Math, Science, Hat Art",
       "schoolId": 2
-    },
-    {
-      "id": 3,
-      "name": "aaaa",
-      "email": "dsdsds",
-      "subjects": "asasa",
-      "schoolId": 2
     }
   ],
   "schools": [

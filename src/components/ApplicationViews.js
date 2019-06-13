@@ -42,8 +42,12 @@ class ApplicationViews extends Component {
     this.setState({ teachers: teachers });
   };
 
-  dischargeStudent = (id) => {
+  deleteStudent = (id) => {
     StudentManager.delete(id).then(this._redirectToStudentList);
+  };
+
+  deleteTeacher = async (id) => {
+    await TeacherManager.delete(id).then(this._redirectToTeacherList);
   };
 
   addStudent = async (student) => {
@@ -64,10 +68,10 @@ class ApplicationViews extends Component {
     this._redirectToTeacherList();
   };
 
-  fireTeacher = async (id) => {
-    await TeacherManager.delete(id);
-    const teachers = await TeacherManager.getAll();
-    this.setState({ teachers: teachers });
+  
+
+  getAllSchools = async () => {
+    this.setState({ students: await SchoolManager.getAll() });
   };
 
   getAllStudents = async () => {
@@ -83,8 +87,13 @@ class ApplicationViews extends Component {
   componentDidMount() {
     const newState = {};
 
+    SchoolManager.getAll()
+      .then((schools) => (newState.schools = schools))
+
     TeacherManager.getAll()
       .then((teachers) => (newState.teachers = teachers))
+      .then(() => SchoolManager.getAll())
+      .then((schools) => (newState.schools = schools))
 
     StudentManager.getAll()
       .then((students) => (newState.students = students))
@@ -92,6 +101,8 @@ class ApplicationViews extends Component {
       .then((teachers) => (newState.teachers = teachers))
       .then(() => SchoolManager.getAll())
       .then((schools) => (newState.schools = schools))
+
+      //OWNERS
       .then(() => OwnerManager.getAll())
       .then((owners) => (newState.owners = owners))
       .then(() =>
@@ -121,9 +132,10 @@ class ApplicationViews extends Component {
           owners={this.state.owners}
           students={this.state.students}
           studentOwners={this.state.studentOwners}
-          dischargeStudent={this.dischargeStudent}
+          deleteStudent={this.deleteStudent}
           loadStudents={this.getAllStudents}
         />
+
         <Route
           exact
           path="/schools/:schoolId(\d+)"
@@ -152,7 +164,7 @@ class ApplicationViews extends Component {
               return (
                 <StudentDetail
                   student={student}
-                  dischargeStudent={this.dischargeStudent}
+                  deleteStudent={this.deleteStudent}
                 />
               );
             } else {
@@ -215,7 +227,7 @@ class ApplicationViews extends Component {
                 <TeacherEditForm
                   {...props}
                   schools={this.state.schools}
-                  teachers={this.state.teachers}
+                  
                   updateTeacher={this.updateTeacher}
                 />
               );
@@ -234,7 +246,8 @@ class ApplicationViews extends Component {
               return (
                 <TeacherList
                   students={this.state.students}
-                  fireTeacher={this.fireTeacher}
+                  schools={this.state.schools}
+                  
                   teachers={this.state.teachers}
                   owners={this.state.owners}
                   studentOwners={this.state.studentOwners}
@@ -256,7 +269,7 @@ class ApplicationViews extends Component {
               return (
                 <TeacherDetail
                   {...props}
-                  fireTeacher={this.fireTeacher}
+                  deleteTeacher={this.deleteTeacher}
                   teachers={this.state.teachers}
                 />
               );

@@ -16,12 +16,12 @@ export default class TeacherDetail extends Component {
             <h4 className="card-title">{teacher.name}</h4>
             <h6 className="card-title">E-mail: {teacher.email}</h6>
             <h6 className="card-title">Subjects: {teacher.subjects}</h6>
-            <h6 className="card-title">School: {teacher.schoolId}</h6>
+            <h6 className="card-title">School: {teacher.school.name}</h6>
 
-            <center><button className="fireButton"
+            <center><button className="deleteButton"
               onClick={() =>
                 this.props
-                  .fireTeacher(teacher.id)
+                  .deleteTeacher(teacher.id)
                   .then(() => this.props.history.push("/teachers"))
               }
               
