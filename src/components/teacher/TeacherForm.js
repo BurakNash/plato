@@ -1,62 +1,86 @@
 import React, { Component } from "react";
+//import "./Teacher.css";
 
-class TeacherForm extends Component {
+export default class TeacherForm extends Component {
+  // Set initial state
   state = {
-    name: "",
+    teacherName: "",
     email: "",
     subjects: "",
-    school: ""
-  };
-  handelFieldChange = (evt) => {
+    schoolId: "",
+    saveEnabled: false
+  }
+
+  // Update state whenever an input field is edited
+  handleFieldChange = evt => {
     const stateToChange = {};
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
-  };
-  ConstructTeacher = (evt) => {
-    evt.preventDefault();
-    const teachers = {
-      name: this.state.name,
-      email: this.state.email,
-      date: this.state.subjects,
-      schoolId: parseInt(this.state.schoolId)
-    };
-    this.props
-      .addTeacher(teachers)
-      .then(() => this.props.history.push("/teachers"));
-  };
+  }
+
+  /*
+        Local method for validation, creating teacher object, and
+        invoking the function reference passed from parent component
+     */
+  constructNewTeacher = evt => {
+    evt.preventDefault()
+    if (this.state.school === "") {
+      window.alert("Please select a teacher");
+    } else {
+      const teacher = {
+        name: this.state.teacherName,
+        email: this.state.email,
+        subjects: this.state.subjects,
+        // Make sure the teacherId is saved to the database as a number since it is a foreign key.
+        schoolId: parseInt(this.state.schoolId)
+      }
+
+      
+
+      // Create the teacher and redirect user to teacher list
+      this.props.addTeacher(teacher);
+
+      this.setState({ saveEnabled: true })
+    }
+  }
 
   render() {
     return (
-      <>
-        <form>
-          <div>
-            <label htmlFor="name">Name</label>
+      <React.Fragment>
+        <form className="teacherForm">
+          <div className="form-group">
+            <label htmlFor="teacherName">Teacher name</label>
             <input
               type="text"
               required
-              onChange={this.handelFieldChange}
-              id="name"
-              placeholder="name"
+              autoFocus
+              className="form-control"
+              onChange={this.handleFieldChange}
+              id="teacherName"
+              placeholder="Teacher name"
             />
           </div>
-          <div>
-            <label htmlFor="email">E-mail</label>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
             <input
               type="text"
               required
-              onChange={this.handelFieldChange}
+              className="form-control"
+              onChange={this.handleFieldChange}
               id="email"
-              placeholder="email"
+              placeholder="Teacher Email"
             />
           </div>
-          <div>
+          <div className="form-group">
             <label htmlFor="subjects">Subjects</label>
             <input
-              type="text"
-              required
-              onChange={this.handelFieldChange}
-              id="subjects"
-              placeholder="subjects"
+                  type="text"
+                  required
+                  className="form-control"
+                  onChange={this.handleFieldChange}
+                  id="subjects"
+                  placeholder="Subjects"
+                  value = {this.state.subjects}
             />
           </div>
           <div className="form-group">
@@ -68,25 +92,23 @@ class TeacherForm extends Component {
               onChange={this.handleFieldChange}
             >
               <option value="">Select a School</option>
-              {this.props.schools.map((e) => (
+              {this.props.schools.map(e => (
                 <option key={e.id} id={e.id} value={e.id}>
                   {e.name}
                 </option>
               ))}
             </select>
           </div>
-
           <button
-            className="primary"
             type="submit"
-            onClick={this.ConstructTeacher}
+            onClick={this.constructNewTeacher}
+            disabled={this.state.saveEnabled}
+            className="btn btn-primary"
           >
-            Add New Teacher
+            Submit
           </button>
         </form>
-      </>
+      </React.Fragment>
     );
   }
 }
-
-export default TeacherForm;

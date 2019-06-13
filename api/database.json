@@ -6,25 +6,6 @@
       "grade": "Az",
       "parentContact": "aaas",
       "teacherId": 2
-    },
-    {
-      "name": "Nicole",
-      "grade": "C",
-      "teacherId": 2,
-      "id": 3
-    },
-    {
-      "name": "Tuesday boy",
-      "grade": "8",
-      "teacherId": 3,
-      "id": 4
-    },
-    {
-      "name": "zzzz",
-      "grade": "zzz",
-      "parentContact": "zzz",
-      "teacherId": 3,
-      "id": 5
     }
   ],
   "teachers": [
@@ -37,8 +18,10 @@
     },
     {
       "id": 3,
-      "name": "Mr.Bryan",
-      "schoolId": 1
+      "name": "aaaa",
+      "email": "dsdsds",
+      "subjects": "asasa",
+      "schoolId": 2
     }
   ],
   "schools": [

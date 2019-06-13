@@ -94,7 +94,7 @@ export default class TeacherEditForm extends Component {
                 onChange={this.handleFieldChange}
                 value = {this.state.schoolId}
               >
-                <option value="">Select an school</option>
+                
                 {this.props.schools.map(e => (
                   <option key={e.id} id={e.id} value={e.id}>
                     {e.name}
