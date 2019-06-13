@@ -2,25 +2,26 @@ import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { withRouter } from "react-router";
 
-import StudentList from "./student/StudentList";
-import SchoolList from "./school/SchoolList";
-import SchoolDetail from "./school/SchoolDetail";
-import TeacherList from "./teacher/TeacherList";
-import TeacherEditForm from "./teacher/TeacherEditForm";
-
-import StudentDetail from "./student/StudentDetail";
-import TeacherDetail from "./teacher/TeacherDetail";
-import TeacherForm from "./teacher/TeacherForm";
-
-import StudentManager from "../modules/StudentManager";
 import OwnerManager from "../modules/OwnerManager";
 import SchoolManager from "../modules/SchoolManager";
 import TeacherManager from "../modules/TeacherManager";
+
 import StudentForm from "./student/StudentForm";
 import StudentEditForm from "./student/StudentEditForm";
+import StudentManager from "../modules/StudentManager";
+import StudentList from "./student/StudentList";
+import StudentDetail from "./student/StudentDetail";
+
+import SchoolList from "./school/SchoolList";
+import SchoolDetail from "./school/SchoolDetail";
+
+import TeacherList from "./teacher/TeacherList";
+import TeacherEditForm from "./teacher/TeacherEditForm";
+import TeacherDetail from "./teacher/TeacherDetail";
+import TeacherForm from "./teacher/TeacherForm";
+
 import Login from "./auth/Login";
 import AuthRoute from "./auth/AuthRoute";
-
 
 class ApplicationViews extends Component {
   state = {
@@ -55,20 +56,20 @@ class ApplicationViews extends Component {
     this._redirectToStudentList();
   };
 
-  updateStudent = async (student) => {
-    await StudentManager.updateStudent(student);
-    this._redirectToStudentList();
-  };
   addTeacher = async (teacher) => {
     await TeacherManager.addTeacher(teacher);
     this._redirectToTeacherList();
   };
+
+  updateStudent = async (student) => {
+    await StudentManager.updateStudent(student);
+    this._redirectToStudentList();
+  };
+
   updateTeacher = async (teacher) => {
     await TeacherManager.updateTeacher(teacher);
     this._redirectToTeacherList();
   };
-
-  
 
   getAllSchools = async () => {
     this.setState({ students: await SchoolManager.getAll() });
@@ -81,19 +82,17 @@ class ApplicationViews extends Component {
     this.setState({ teachers: await TeacherManager.getAll() });
   };
 
-  componentDidUpdate() {
-  }
+  componentDidUpdate() {}
 
   componentDidMount() {
     const newState = {};
 
-    SchoolManager.getAll()
-      .then((schools) => (newState.schools = schools))
+    SchoolManager.getAll().then((schools) => (newState.schools = schools));
 
     TeacherManager.getAll()
       .then((teachers) => (newState.teachers = teachers))
       .then(() => SchoolManager.getAll())
-      .then((schools) => (newState.schools = schools))
+      .then((schools) => (newState.schools = schools));
 
     StudentManager.getAll()
       .then((students) => (newState.students = students))
@@ -115,7 +114,6 @@ class ApplicationViews extends Component {
   isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
 
   render() {
-    
     return (
       <React.Fragment>
         <Route path="/login" component={Login} />
@@ -134,24 +132,6 @@ class ApplicationViews extends Component {
           studentOwners={this.state.studentOwners}
           deleteStudent={this.deleteStudent}
           loadStudents={this.getAllStudents}
-        />
-
-        <Route
-          exact
-          path="/schools/:schoolId(\d+)"
-          render={(props) => {
-            if (this.isAuthenticated()) {
-              return (
-                <SchoolDetail
-                  {...props}
-                  
-                  schools={this.state.schools}
-                />
-              );
-            } else {
-              return <Redirect to="/login" />;
-            }
-          }}
         />
         <Route
           path="/students/:studentId(\d+)"
@@ -210,14 +190,18 @@ class ApplicationViews extends Component {
           path="/teachers/new"
           render={(props) => {
             if (this.isAuthenticated()) {
-              return <TeacherForm {...props} addTeacher={this.addTeacher} 
-              schools={this.state.schools}
-              teachers={this.state.teachers}/>;
+              return (
+                <TeacherForm
+                  {...props}
+                  addTeacher={this.addTeacher}
+                  schools={this.state.schools}
+                  teachers={this.state.teachers}
+                />
+              );
             } else {
               return <Redirect to="/login" />;
             }
           }}
-
         />
         <Route
           path="/teachers/:teacherId(\d+)/edit"
@@ -227,7 +211,6 @@ class ApplicationViews extends Component {
                 <TeacherEditForm
                   {...props}
                   schools={this.state.schools}
-                  
                   updateTeacher={this.updateTeacher}
                 />
               );
@@ -236,7 +219,6 @@ class ApplicationViews extends Component {
             }
           }}
         />
-
 
         <Route
           exact
@@ -247,7 +229,6 @@ class ApplicationViews extends Component {
                 <TeacherList
                   students={this.state.students}
                   schools={this.state.schools}
-                  
                   teachers={this.state.teachers}
                   owners={this.state.owners}
                   studentOwners={this.state.studentOwners}
@@ -273,6 +254,18 @@ class ApplicationViews extends Component {
                   teachers={this.state.teachers}
                 />
               );
+            } else {
+              return <Redirect to="/login" />;
+            }
+          }}
+        />
+
+        <Route
+          exact
+          path="/schools/:schoolId(\d+)"
+          render={(props) => {
+            if (this.isAuthenticated()) {
+              return <SchoolDetail {...props} schools={this.state.schools} />;
             } else {
               return <Redirect to="/login" />;
             }
