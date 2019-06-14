@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-
-
+import { Link } from "react-router-dom";
+import TeacherCard from "../teacher/TeacherCard";
 
 
 export default class SchoolDetail extends Component {
@@ -26,6 +26,36 @@ export default class SchoolDetail extends Component {
                         <h6 className="card-title">
                            Number of Students: {school.numberStudents}
                         </h6>
+                        
+
+                        <h6 className="">Students</h6>
+
+                        
+                        
+                        
+        <section className="">
+          {this.props.schools.map((school) => (
+            <div key={`school-${school.id}`} school={school} >
+              <div className="">
+                <Link className="school-link" to={`/schools/${school.id}`}>
+                  {school.name}
+                </Link>
+                </div>
+          
+              <h6 className="">Students</h6>
+              <div className="">
+                {this.props.teachers
+                
+                  .filter((std) => std.schoolId === school.id)
+                  .map((std) => (
+                    <TeacherCard key={std.id} teacher={std} {...this.props}  />
+                  ))}
+              </div>
+            </div>
+          ))}
+        </section>
+            
+
                         
                     
                                 <div className="">

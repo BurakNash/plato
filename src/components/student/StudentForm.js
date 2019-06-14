@@ -24,7 +24,7 @@ export default class StudentForm extends Component {
      */
   constructNewStudent = evt => {
     evt.preventDefault()
-    if (this.state.teacher === "") {
+    if (this.state.teacherId === "") {
       window.alert("Please select a teacher");
     } else {
       const student = {

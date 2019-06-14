@@ -87,7 +87,9 @@ class ApplicationViews extends Component {
   componentDidMount() {
     const newState = {};
 
-    SchoolManager.getAll().then((schools) => (newState.schools = schools));
+    SchoolManager.getAll().then((schools) => (newState.schools = schools))
+    .then((schools) => (newState.schools = schools))
+    .then(() => SchoolManager.getAll());
 
     TeacherManager.getAll()
       .then((teachers) => (newState.teachers = teachers))
@@ -118,6 +120,8 @@ class ApplicationViews extends Component {
       <React.Fragment>
         <Route path="/login" component={Login} />
 
+        {/*Authroute: function to route only authorized users
+        *See auth folder */}
         <AuthRoute
           path="/"
           Destination={SchoolList}
@@ -265,7 +269,15 @@ class ApplicationViews extends Component {
           path="/schools/:schoolId(\d+)"
           render={(props) => {
             if (this.isAuthenticated()) {
-              return <SchoolDetail {...props} schools={this.state.schools} />;
+              return <SchoolDetail {...props} 
+              schools={this.state.schools} 
+              teachers={this.state.teachers}
+              
+              
+              />;
+
+
+
             } else {
               return <Redirect to="/login" />;
             }
