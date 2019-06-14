@@ -5,7 +5,7 @@
       "name": "Burak Kaya Koc",
       "grade": "Az",
       "parentContact": "aaas",
-      "teacherId": 2
+      "teacherId": 3
     }
   ],
   "teachers": [
@@ -15,6 +15,13 @@
       "email": "secret@gmail.com",
       "subjects": "Math, Science, Hat Art",
       "schoolId": 2
+    },
+    {
+      "name": "Bryan",
+      "email": "asdnaisdas",
+      "subjects": "skadsad",
+      "schoolId": 2,
+      "id": 3
     }
   ],
   "schools": [

@@ -12,11 +12,11 @@
     justify-content: space-evenly;
     flex-direction: column;
     flex-wrap: row-wrap;
-    border-style: solid;
+    width: 35%;
     flex-grow: 3;
     align-self: auto;
-    background-color: gold
-    
+    background-color: lightblue;
+    margin-bottom: 1%;
     
 }
 .buttons {
