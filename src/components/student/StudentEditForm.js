@@ -103,7 +103,13 @@ export default class StudentEditForm extends Component {
               </select>
             </div>
             <button
-              type="submit"
+              type="button"
+              disabled={
+                !this.state.studentName ||
+                !this.state.grade ||
+                !this.state.parentContact ||
+                !this.state.teacherId 
+              }
               onClick={this.updateExistingStudent}
               className="btn btn-primary"
             >

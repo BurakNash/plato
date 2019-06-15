@@ -1,11 +1,11 @@
 {
   "students": [
     {
-      "id": 1,
-      "name": "Burak Kaya Koc",
-      "grade": "Az",
-      "parentContact": "aaas",
-      "teacherId": 3
+      "name": "Burak Kaya",
+      "grade": "A",
+      "parentContact": "None",
+      "teacherId": 2,
+      "id": 1
     }
   ],
   "teachers": [
@@ -66,11 +66,5 @@
       "name": ""
     }
   ],
-  "studentOwners": [
-    {
-      "id": 1,
-      "studentId": 1,
-      "ownerId": 5
-    }
-  ]
+  "studentOwners": []
 }

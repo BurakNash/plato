@@ -7,6 +7,8 @@ export default class SchoolDetail extends Component {
     const school = this.props.schools.find(
       (a) => a.id === parseInt(this.props.match.params.schoolId)
     ) || { id: 404, name: "404", grade: "School not found" };
+   
+
 
     return (
       <section className="">
@@ -23,12 +25,16 @@ export default class SchoolDetail extends Component {
               <h6 className="">Teachers:</h6>
               <div className="">
                 {this.props.teachers
-
-                  .filter((std) => std.schoolId === school.id)
+                  .filter((std) => std.schoolId === school.id )
                   .map((std) => (
                     <TeacherCard key={std.id} teacher={std} {...this.props} />
                   ))}
               </div>
+
+             
+
+
+
             </section>
 
             <div className="" />

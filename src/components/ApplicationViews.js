@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { withRouter } from "react-router";
 
+
+
 import OwnerManager from "../modules/OwnerManager";
 import SchoolManager from "../modules/SchoolManager";
 import TeacherManager from "../modules/TeacherManager";
@@ -70,6 +72,11 @@ class ApplicationViews extends Component {
     await TeacherManager.updateTeacher(teacher);
     this._redirectToTeacherList();
   };
+
+  getOneTeacher = async () => {
+    this.setState({ students: await TeacherManager.get() });
+  };
+  
 
   getAllSchools = async () => {
     this.setState({ students: await SchoolManager.getAll() });
@@ -272,7 +279,7 @@ class ApplicationViews extends Component {
               return <SchoolDetail {...props} 
               schools={this.state.schools} 
               teachers={this.state.teachers}
-              
+              students={this.state.students}
               
               />;
 
