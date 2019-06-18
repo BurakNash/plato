@@ -1,36 +1,16 @@
 {
   "users": [
     {
-      "id": 1,
-      "username": "jr",
-      "password": "jr"
-    },
-    {
-      "id": 2,
-      "username": "nss",
-      "password": "nss"
-    },
-    {
-      "username": "",
-      "password": "",
-      "id": 3
-    },
-    {
-      "username": ",jk,",
-      "password": "jk,jk",
-      "id": 4
-    },
-    {
       "email": "ffff",
       "password": "fff",
       "fullname": "fff",
-      "id": 5
+      "id": 1
     },
     {
       "email": "aaa",
       "password": "aaa",
       "fullname": "aaa",
-      "id": 6
+      "id": 2
     }
   ],
   "students": [

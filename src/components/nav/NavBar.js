@@ -39,6 +39,9 @@ class NavBar extends Component {
   render() {
     return (
       <nav>
+        <button className="btn btn-danger">
+Log Out
+        </button>
         <ul
           className="nav  mr-auto nav-justified font-weight-bold bg-muted
        "
