@@ -1,43 +1,112 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "username": "jr",
+      "password": "jr"
+    },
+    {
+      "id": 2,
+      "username": "nss",
+      "password": "nss"
+    },
+    {
+      "username": "",
+      "password": "",
+      "id": 3
+    },
+    {
+      "username": ",jk,",
+      "password": "jk,jk",
+      "id": 4
+    },
+    {
+      "email": "ffff",
+      "password": "fff",
+      "fullname": "fff",
+      "id": 5
+    },
+    {
+      "email": "aaa",
+      "password": "aaa",
+      "fullname": "aaa",
+      "id": 6
+    }
+  ],
   "students": [
     {
-      "name": "Burak Kaya",
+      "id": 1,
+      "name": "Burak Kaya Koc",
       "grade": "A",
       "parentContact": "None",
-      "teacherId": 2,
-      "id": 1
+      "teacherId": 3
     }
   ],
   "teachers": [
     {
       "id": 2,
-      "name": "Mr.Adamc",
+      "name": "Mr.Adams",
       "email": "secret@gmail.com",
       "subjects": "Math, Science, Hat Art",
       "schoolId": 2
     },
     {
+      "id": 3,
       "name": "Bryan",
       "email": "asdnaisdas",
-      "subjects": "skadsad",
-      "schoolId": 2,
-      "id": 3
+      "subjects": "gdgd",
+      "schoolId": 1
+    },
+    {
+      "id": 4,
+      "name": "tyt",
+      "email": "tyty",
+      "subjects": "tyty",
+      "schoolId": 1
+    },
+    {
+      "name": "eter",
+      "email": "terte",
+      "subjects": "ertert",
+      "schoolId": 1,
+      "id": 5
+    },
+    {
+      "name": "aaa",
+      "email": "aaa",
+      "subjects": "aaa",
+      "schoolId": 1,
+      "id": 6
     }
   ],
   "schools": [
     {
       "id": 1,
-      "name": "Lipscomb Academy",
-      "location": "3901 Granny White Pike, Nashville, TN 37204",
-      "phone": "(615) 966-1600",
-      "numberStudents": "1,262"
+      "name": "Collège Alpin Beau Soleil",
+      "location": "Rue du Village 1, 1884 Ollon, Switzerland",
+      "phone": "+41 24 496 26 26",
+      "numberStudents": "230"
     },
     {
       "id": 2,
       "name": "Nashville Software School",
       "location": "500 Interstate Blvd S #300, Nashville, TN 37210",
       "phone": "(615) 838-8188",
-      "numberStudents": "300"
+      "numberStudents": "120"
+    },
+    {
+      "id": 3,
+      "name": "Marymount International School Rome",
+      "location": "Via di Villa Lauchli, 180, 00191 Roma RM, Italy",
+      "phone": "+39 06 362 9101",
+      "numberStudents": "675"
+    },
+    {
+      "id": 4,
+      "name": " Port Moresby, Papua New Guinea",
+      "location": "Port Moresby, Papua New Guinea",
+      "phone": "+675 325 3166",
+      "numberStudents": "950"
     }
   ],
   "owners": [

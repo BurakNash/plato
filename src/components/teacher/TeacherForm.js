@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import "./Teacher.css";
+import "./Teacher.css";
 
 export default class TeacherForm extends Component {
   // Set initial state
@@ -47,7 +47,7 @@ export default class TeacherForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <form className="teacherForm">
+        <form className="inputteacher teacherForm">
           <div className="form-group">
             <label htmlFor="teacherName">Teacher name</label>
             <input
@@ -101,9 +101,16 @@ export default class TeacherForm extends Component {
           </div>
           <button
             type="submit"
+            disabled={
+              !this.state.teacherName ||
+              !this.state.email ||
+              !this.state.subjects ||
+              !this.state.schoolId ||
+              this.state.saveEnabled
+            }
             onClick={this.constructNewTeacher}
-            disabled={this.state.saveEnabled}
-            className="btn btn-primary"
+            
+            className="btn btn-warning"
           >
             Submit
           </button>

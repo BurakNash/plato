@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./TeacherList.css";
 import "./Teacher.css";
-import StudentCard from "../student/StudentCard";
+
+import teachers from "./teachers.gif";
 
 class TeacherList extends Component {
   componentDidMount() {}
@@ -13,48 +14,27 @@ class TeacherList extends Component {
     return (
       <React.Fragment>
         <div className="centerChildren">
-          <button
-            type="button"
-            className="btn btn-success"
-            onClick={() => {
-              this.props.history.push("/teachers/new");
-            }}
-          >
-            Add a New Teacher
-          </button>
+          <img className="teachergif" src={teachers} alt="" />
+          <div>
+            <button
+              type="button"
+              className="btn btn-warning"
+              onClick={() => {
+                this.props.history.push("/teachers/new");
+              }}
+            >
+              Add a New Teacher
+            </button>
+          </div>
         </div>
 
-        <section className="">
+        <section className="list-group-item bg-transparent">
           {this.props.teachers.map((teacher) => (
-            <div key={`teacher-${teacher.id}`} teacher={teacher} >
-              <div className="">
+            <div key={`teacher-${teacher.id}`} teacher={teacher}>
+              <div className="teacherlistname">
                 <Link className="teacher-link" to={`/teachers/${teacher.id}`}>
-                  {teacher.name}
+                  {teacher.name} ({teacher.school.name})
                 </Link>
-
-                </div>
-          <button
-            type="button"
-            className=""
-            onClick={() => {
-              this.props.history.push(
-                `/teachers/${teacher.id}/edit`
-              );
-              
-            }}
-          >
-            Edit
-          </button>
-        
-             
-
-              <h6 className="">Students</h6>
-              <div className="">
-                {this.props.students
-                  .filter((std) => std.teacherId === teacher.id)
-                  .map((std) => (
-                    <StudentCard key={std.id} student={std} {...this.props}  />
-                  ))}
               </div>
             </div>
           ))}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 class TeacherCard extends Component {
   render() {
     /* Reference Code
@@ -9,13 +9,15 @@ class TeacherCard extends Component {
         */
 
     return (
-      <React.Fragment>
-        <div className="">
-          <div className="studentcard" key={this.props.teacher.id}>
-            <div className="studentname">{this.props.teacher.name}</div>
-          </div>
-        </div>
-      </React.Fragment>
+    
+        
+          <div className="teacherlistname">
+        <Link className="teacher-link" to={`/teachers/${this.props.teacher.id}`}>
+                  {this.props.teacher.name} 
+                </Link>
+                </div>
+        
+      
     );
   }
 }

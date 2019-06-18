@@ -15,41 +15,21 @@ class StudentCard extends Component {
 
     return (
       <React.Fragment>
-        <div className="studentcard" key={this.props.student.id}>
-          <div className="studentname">
-            {this.props.student.name}
-
-            {/*
-              ({ownerStringArray.join(", ")}) */}
-
-            <div className="buttons">
-              <button
-                type="button"
-                className=""
-                onClick={() => {
-                  this.props.history.push(
-                    `/students/${this.props.student.id}/edit`
-                  );
-                }}
-              >
-                Edit
-              </button>
-              <button
-                onClick={() => this.props.deleteStudent(this.props.student.id)}
-                className=""
-              >
-                Delete
-              </button>
-
+        <section className="">
+          <div className="teacherlistname" key={this.props.student.id}>
+            <div className="">
               <Link
-                className="nav-link"
+                className="teacher-link"
                 to={`/students/${this.props.student.id}`}
               >
-                Details
+                {this.props.student.name}
               </Link>
             </div>
           </div>
-        </div>
+
+          {/*
+              ({ownerStringArray.join(", ")}) */}
+        </section>
       </React.Fragment>
     );
   }

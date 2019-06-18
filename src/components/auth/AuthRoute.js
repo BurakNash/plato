@@ -1,10 +1,10 @@
 import React from "react"
-import { Route } from "react-router-dom"
-import Login from "./Login";
+import { Route, Redirect } from "react-router-dom"
+//import Login from "../../users/Login"
 
 const isAuthenticated = () =>
-    localStorage.getItem("credentials") !== null ||
-    sessionStorage.getItem("credentials") !== null
+    
+    sessionStorage.getItem("Fullname") !== null
 
 const AuthRoute = ({ path, Destination, ...superProps} ) => {
     return (
@@ -12,7 +12,7 @@ const AuthRoute = ({ path, Destination, ...superProps} ) => {
             if (isAuthenticated()) {
                 return <Destination {...props} {...superProps} />
             } else {
-                return <Login />
+                return <Redirect to="/" />
             }
         }} />
     )

@@ -1,28 +1,95 @@
-import React, { Component } from "react"
-import { Link } from "react-router-dom"
-import "bootstrap/dist/css/bootstrap.min.css"
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
+  DropdownToggle
+} from "reactstrap";
 import "./NavBar.css";
-
+import LOGO from "./LOGO.jpg";
 
 class NavBar extends Component {
-    render() {
-        return (
-            <nav className="navbar navbar-dark bg-dark fixed-top  flex-md-nowrap p-0 shadow">
-                <ul className="nav nav-pills">
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/">Schools</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/teachers">Teachers</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/students">Students</Link>
-                    </li>
-                   
-                </ul>
-            </nav>
-        )
-    }
+ 
+
+  constructor(props) {
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.onMouseEnter = this.onMouseEnter.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
+    this.state = {
+      dropdownOpen: false
+    };
+  }
+
+  toggle() {
+    this.setState((prevState) => ({
+      dropdownOpen: !prevState.dropdownOpen
+    }));
+  }
+
+  onMouseEnter() {
+    this.setState({ dropdownOpen: true });
+  }
+
+  onMouseLeave() {
+    this.setState({ dropdownOpen: false });
+  }
+  render() {
+    return (
+      <nav>
+        <ul
+          className="nav  mr-auto nav-justified font-weight-bold bg-muted
+       "
+        >
+          <img className="img" src={LOGO} alt="" />
+          <Dropdown
+            id="Dropdown"
+            className=" font-weight-bold"
+            onMouseOver={this.onMouseEnter}
+            onMouseLeave={this.onMouseLeave}
+            isOpen={this.state.dropdownOpen}
+            toggle={this.toggle}
+          >
+            <DropdownToggle id="Dropdown" caret>
+              <strong>Database</strong>
+            </DropdownToggle>
+            <DropdownMenu className="DropdownMenu">
+              <DropdownItem header>The Plato</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem className="DropdownItem" tag={Link} to="/schools">
+                Schools
+              </DropdownItem>
+
+              <DropdownItem className="DropdownItem" tag={Link} to="/teachers">
+                Teachers
+              </DropdownItem>
+
+              <DropdownItem className="DropdownItem" tag={Link} to="/students">
+                Students
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+          <li className="nav-item">
+            <Link id=" " className="link-1" to="/schools">
+              Schools
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="link-1" to="/teachers">
+              Teachers
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="link-1" to="/students">
+              Students
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    );
+  }
 }
 
-export default NavBar
+export default NavBar;

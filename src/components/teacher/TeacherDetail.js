@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import "../teacher/Teacher.css";
+import "./Teacher.css";
+import StudentCard from "../student/StudentCard";
+
 
 //import StudentCard from '../student/StudentCard';
 
@@ -13,22 +15,41 @@ export default class TeacherDetail extends Component {
       <section className="student">
         <div key={teacher.id} className="card">
           <div className="card-body">
-            <h4 className="card-title">{teacher.name}</h4>
-            <h6 className="card-title">E-mail: {teacher.email}</h6>
-            <h6 className="card-title">Subjects: {teacher.subjects}</h6>
-            <h6 className="card-title">School: {teacher.school.name}</h6>
+            <div className="teacherdata">
+              <h4 className="teachername">
+                {teacher.name}
 
-            <center><button className="deleteButton"
-              onClick={() =>
-                this.props
-                  .deleteTeacher(teacher.id)
-                  .then(() => this.props.history.push("/teachers"))
-              }
-              
-            >
-              Fire the Teacher
-            </button></center>
+                <span
+                  className="octicon octicon-trashcan"
+                  onClick={() =>
+                    this.props
+                      .deleteTeacher(teacher.id)
+                      .then(() => this.props.history.push("/teachers"))
+                  }
+                />
+                <span
+                  className="octicon octicon-pencil"
+                  onClick={() => {
+                    this.props.history.push(`/teachers/${teacher.id}/edit`);
+                  }}
+                />
+              </h4>
+              <div className="teacherinfo">
+                <h6 className="card-title">E-mail: {teacher.email}</h6>
+                <h6 className="card-title">Subjects: {teacher.subjects}</h6>
+                {/*<h6 className="card-title">School: {teacher.school.name}</h6>*/}
+              </div>
+            </div>
+
             <div className="" />
+
+            <h6 className="page-header studentdetails">Students:</h6>
+
+            {this.props.students
+              .filter((std) => std.teacherId === teacher.id)
+              .map((std) => (
+                <StudentCard key={std.id} student={std} {...this.props} />
+              ))}
           </div>
         </div>
       </section>

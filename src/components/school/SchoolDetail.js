@@ -21,9 +21,10 @@ export default class SchoolDetail extends Component {
               Number of Students: {school.numberStudents}
             </h6>
 
-            <section className="">
-              <h6 className="">Teachers:</h6>
+            <section className="card">
               <div className="">
+              <h5 className="card text-white">Teachers:</h5>
+              <div className="card-body">
                 {this.props.teachers
                   .filter((std) => std.schoolId === school.id )
                   .map((std) => (
@@ -31,7 +32,7 @@ export default class SchoolDetail extends Component {
                   ))}
               </div>
 
-             
+              </div>
 
 
 

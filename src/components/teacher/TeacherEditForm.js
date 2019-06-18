@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TeacherManager from "../../modules/TeacherManager";
+import "./Teacher.css";
 
 export default class TeacherEditForm extends Component {
   state = {
@@ -52,13 +53,13 @@ export default class TeacherEditForm extends Component {
   }
   render() {
     return (
-      <form className="teacherForm">
+      <form className="inputteacher teacherForm">
         <div className="form-group">
           <label htmlFor="name">Teacher name</label>
           <input
             type="text"
             required
-            // className="form-control"
+            className="form-control"
             onChange={this.handleFieldChange}
             id="name"
             value={this.state.name || ""}
@@ -69,7 +70,7 @@ export default class TeacherEditForm extends Component {
           <input
             type="text"
             required
-            // className="form-control"
+            className="form-control"
             onChange={this.handleFieldChange}
             id="email"
             value={this.state.email || ""}
@@ -80,7 +81,7 @@ export default class TeacherEditForm extends Component {
           <input
             type="text"
             required
-            // className="form-control"
+            className="form-control"
             onChange={this.handleFieldChange}
             id="subjects"
             value={this.state.subjects || ""}
@@ -105,8 +106,15 @@ export default class TeacherEditForm extends Component {
         <div>
           <button
             type="submit"
-            color="danger"
+            className="btn btn-warning"
             size="sm"
+            disabled={
+              !this.state.name ||
+              !this.state.email ||
+              !this.state.subjects ||
+              !this.state.schoolId 
+              
+            }
             onClick={this.updateTeacher}
           >
             Submit

@@ -47,7 +47,7 @@ export default class StudentForm extends Component {
   render() {
     return (
       <React.Fragment>
-        <form className="studentForm">
+        <form className="inputstudent studentForm">
           <div className="form-group">
             <label htmlFor="studentName">Student name</label>
             <input
@@ -68,7 +68,7 @@ export default class StudentForm extends Component {
               className="form-control"
               onChange={this.handleFieldChange}
               id="grade"
-              placeholder="Student Grade"
+              placeholder="Student grade"
             />
           </div>
           <div className="form-group">
@@ -79,7 +79,7 @@ export default class StudentForm extends Component {
               className="form-control"
               onChange={this.handleFieldChange}
               id="parentContact"
-              value={this.state.parentContact}
+              placeholder="Parent Information"
             />
           </div>
           <div className="form-group">

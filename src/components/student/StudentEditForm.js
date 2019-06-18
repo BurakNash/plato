@@ -52,7 +52,7 @@ export default class StudentEditForm extends Component {
     render() {
       return (
         <React.Fragment>
-          <form className="studentForm">
+          <form className="inputstudent studentForm">
             <div className="form-group">
               <label htmlFor="studentName">Student name</label>
               <input
@@ -111,7 +111,7 @@ export default class StudentEditForm extends Component {
                 !this.state.teacherId 
               }
               onClick={this.updateExistingStudent}
-              className="btn btn-primary"
+              className="btn btn-warning"
             >
               Submit
             </button>

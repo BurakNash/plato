@@ -1,17 +1,15 @@
 {
-  "name": "kennel",
+  "name": "keyboard-creator",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^3.4.1",
-    "jquery": "^3.4.1",
-    "mdbootstrap": "^4.8.2",
-    "react": "^16.8.3",
-    "react-bootstrap": "^1.0.0-beta.9",
-    "react-dom": "^16.8.3",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "^3.0.1",
-    "react-toastify": "^4.5.2"
+    "bootstrap": "^4.3.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-octicon": "^3.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "reactstrap": "^8.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,10 +20,16 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
