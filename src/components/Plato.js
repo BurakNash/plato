@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import NavBar from "./nav/NavBar";
 import ApplicationViews from "./ApplicationViews";
 import JsonManager from '../modules/JsonManager';
-
+//import { Link } from "react-router-dom";
 
 import "./Plato.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,6 +12,8 @@ class Plato extends Component {
     super(props);
     this.populateAppState = this.populateAppState.bind(this);
 }
+
+
 
 populateAppState() {
     JsonManager.getAll("users").then((users) => {
@@ -40,6 +42,7 @@ isAuthenticated = () => sessionStorage.getItem("User") !== null;
   render() {
     return (
       <React.Fragment>
+        
         <NavBar />
         <ApplicationViews
         populateAppState={this.populateAppState}

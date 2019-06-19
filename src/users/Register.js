@@ -44,10 +44,10 @@ export default class Register extends Component {
 
     render() {
         return (
-            <Container className="App">
+            <React.Fragment>
                 <p>Register a new account</p>
-                <Form className="form">
-                <Col>
+                <Form className="inputstudent form">
+               
                     <FormGroup>
                         <Label>Email:</Label>
                         <Input
@@ -59,8 +59,7 @@ export default class Register extends Component {
                         placeholder="myemail@email.com"
                         />
                     </FormGroup>
-                    </Col>
-                    <Col>
+                    
                     <FormGroup>
                         <Label>Password:</Label>
                         <Input 
@@ -72,8 +71,7 @@ export default class Register extends Component {
                         placeholder="********"
                           />
                     </FormGroup>
-                    </Col>
-                    <Col>
+                    
                     <FormGroup>
                         <Label>FullName:</Label>
                         <Input 
@@ -85,14 +83,14 @@ export default class Register extends Component {
                         placeholder="ex: Bryan Nilsen"
                           />
                     </FormGroup>
-                    </Col>
+                 
                     <Button 
                     type="button"
                     disabled={!this.state.email || !this.state.password || !this.state.fullname}
                     color="primary"
                      onClick={this.getAllUsers}> Register </Button>
                     </Form>
-            </Container>
+                    </React.Fragment>
         )
     }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 import { Route, Redirect } from "react-router-dom";
 import { withRouter } from "react-router";
 
@@ -34,6 +35,7 @@ class ApplicationViews extends Component {
     students: [],
     schools: []
   };
+
 
   _redirectToStudentList = async () => {
     const students = await StudentManager.getAll();

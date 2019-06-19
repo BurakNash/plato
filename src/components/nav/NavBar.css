@@ -38,6 +38,11 @@
   background-color: #df8107;
 }
 
+.logout {
+  margin-bottom: 10px
+}
+
+
 .nav {
   line-height: 80px;
   margin-bottom: 5%;

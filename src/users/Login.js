@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Container, Col, Form, FormGroup, Label, Input, Button, } from 'reactstrap';
 import { Link } from "react-router-dom";
-
+import "./Login.css"
 
 
 class Login extends Component {
@@ -52,26 +52,26 @@ class Login extends Component {
 
   render() {
     return (
-      <Container className="App">
+      
 
-
+<React.Fragment>
         <h2>Welcome</h2>
 
-        <Form className="form">
-          <Col>
+        <Form className="inputstudent form">
+          
             <FormGroup>
               <Label>Email</Label>
               <Input
                 type="email"
                 name="email"
+                
                 required
                 onChange={this.handleFieldChange}
                 id="email"
                 placeholder="myemail@email.com"
               />
             </FormGroup>
-          </Col>
-          <Col>
+          
             <FormGroup>
               <Label for="examplePassword">Password</Label>
               <Input
@@ -83,17 +83,18 @@ class Login extends Component {
                 placeholder="********"
               />
             </FormGroup>
-          </Col>
-          <Button className="" type="submit" onClick={this.onLogin}>
+         
+          <Button className="btn btn-warning" type="submit" onClick={this.onLogin}>
             Sign In
                 </Button>
           <br />
-          Not a User? <Link to="/register">Sign Up</Link>
+          Not a User? <Link className="registerlink" to="/register">Sign Up</Link>
         </Form>
-      </Container>
+        </React.Fragment>
     );
   }
 }
+
 
 
 

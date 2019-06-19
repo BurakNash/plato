@@ -11,8 +11,6 @@ import "./NavBar.css";
 import LOGO from "./LOGO.jpg";
 
 class NavBar extends Component {
- 
-
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -44,18 +42,30 @@ class NavBar extends Component {
   }
 
   logout() {
-    sessionStorage.clear()
-}
+    sessionStorage.clear();
+  }
+
+  showLogout = () => {
+    if (sessionStorage.getItem("Fullname") !== null) {
+      return (
+        
+        <Link className="logout btn btn-danger " to={"/"} onClick={this.logout}>
+          Log Out
+        </Link>
+        
+      );
+    }
+  };
+
   render() {
     return (
       <nav>
-    
-    <Link  to={"/"} onClick={this.logout}> 
-    
-        Log Out
-    </Link>
-     
+      
+      {this.showLogout()}
+        
+
         <ul
+        
           className="nav  mr-auto nav-justified font-weight-bold bg-muted
        "
         >
