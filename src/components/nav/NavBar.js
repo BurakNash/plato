@@ -18,9 +18,15 @@ class NavBar extends Component {
     this.toggle = this.toggle.bind(this);
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
+    this.routeChange = this.routeChange.bind(this);
     this.state = {
       dropdownOpen: false
     };
+  }
+
+  routeChange() {
+    let path = ``;
+    this.props.history.push(path);
   }
 
   toggle() {
@@ -36,12 +42,19 @@ class NavBar extends Component {
   onMouseLeave() {
     this.setState({ dropdownOpen: false });
   }
+
+  logout() {
+    sessionStorage.clear()
+}
   render() {
     return (
       <nav>
-        <button className="btn btn-danger">
-Log Out
-        </button>
+    
+    <Link  to={"/"} onClick={this.logout}> 
+    
+        Log Out
+    </Link>
+     
         <ul
           className="nav  mr-auto nav-justified font-weight-bold bg-muted
        "
