@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { Container, Col, Form, FormGroup, Label, Input, Button, } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { Link } from "react-router-dom";
-import "./Login.css"
-
+import "./Login.css";
 
 class Login extends Component {
-
   state = {
     email: "",
     password: ""
@@ -52,50 +50,48 @@ class Login extends Component {
 
   render() {
     return (
-      
-
-<React.Fragment>
+      <React.Fragment>
         <h2>Welcome</h2>
 
         <Form className="inputstudent form">
-          
-            <FormGroup>
-              <Label>Email</Label>
-              <Input
-                type="email"
-                name="email"
-                
-                required
-                onChange={this.handleFieldChange}
-                id="email"
-                placeholder="myemail@email.com"
-              />
-            </FormGroup>
-          
-            <FormGroup>
-              <Label for="examplePassword">Password</Label>
-              <Input
-                type="password"
-                name="password"
-                required
-                onChange={this.handleFieldChange}
-                id="password"
-                placeholder="********"
-              />
-            </FormGroup>
-         
-          <Button className="btn btn-warning" type="submit" onClick={this.onLogin}>
+          <FormGroup>
+            <Label>Email</Label>
+            <Input
+              type="email"
+              name="email"
+              required
+              onChange={this.handleFieldChange}
+              id="email"
+              placeholder="myemail@email.com"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label for="examplePassword">Password</Label>
+            <Input
+              type="password"
+              name="password"
+              required
+              onChange={this.handleFieldChange}
+              id="password"
+              placeholder="********"
+            />
+          </FormGroup>
+          <Button
+            className="btn btn-warning"
+            type="submit"
+            onClick={this.onLogin}
+          >
             Sign In
-                </Button>
+          </Button>
           <br />
-          Not a User? <Link className="registerlink" to="/register">Sign Up</Link>
+          Not a User?{" "}
+          <Link className="registerlink" to="/register">
+            Sign Up
+          </Link>
         </Form>
-        </React.Fragment>
+      </React.Fragment>
     );
   }
 }
-
-
-
 
 export default Login;
