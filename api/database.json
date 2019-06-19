@@ -1,25 +1,19 @@
 {
   "users": [
     {
-      "email": "ffff",
-      "password": "fff",
-      "fullname": "fff",
+      "email": "Burak@gmail.com",
+      "password": "123",
+      "fullname": "Burak Koc",
       "id": 1
-    },
-    {
-      "email": "aaa",
-      "password": "aaa",
-      "fullname": "aaa",
-      "id": 2
     }
   ],
   "students": [
     {
       "id": 1,
       "name": "Burak Kaya Koc",
-      "grade": "A",
+      "grade": "BA",
       "parentContact": "None",
-      "teacherId": 3
+      "teacherId": 4
     }
   ],
   "teachers": [
@@ -45,16 +39,16 @@
       "schoolId": 1
     },
     {
-      "name": "eter",
+      "id": 5,
+      "name": "etersss",
       "email": "terte",
       "subjects": "ertert",
-      "schoolId": 1,
-      "id": 5
+      "schoolId": 2
     },
     {
-      "name": "aaa",
-      "email": "aaa",
-      "subjects": "aaa",
+      "name": "AAAA",
+      "email": "AAA",
+      "subjects": "AAA",
       "schoolId": 1,
       "id": 6
     }

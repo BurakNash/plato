@@ -43,16 +43,19 @@ class NavBar extends Component {
 
   logout() {
     sessionStorage.clear();
+    window.location.href = "/";
   }
 
   showLogout = () => {
     if (sessionStorage.getItem("Fullname") !== null) {
       return (
-        
-        <Link className="logout btn btn-danger " to={"/"} onClick={this.logout}>
+        <button
+          className="logout btn btn-danger "
+          to={"/"}
+          onClick={this.logout}
+        >
           Log Out
-        </Link>
-        
+        </button>
       );
     }
   };
@@ -60,12 +63,9 @@ class NavBar extends Component {
   render() {
     return (
       <nav>
-      
-      {this.showLogout()}
-        
+        {this.showLogout()}
 
         <ul
-        
           className="nav  mr-auto nav-justified font-weight-bold bg-muted
        "
         >

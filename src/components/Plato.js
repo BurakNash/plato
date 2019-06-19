@@ -43,7 +43,9 @@ isAuthenticated = () => sessionStorage.getItem("User") !== null;
     return (
       <React.Fragment>
         
-        <NavBar />
+        <NavBar
+        
+         />
         <ApplicationViews
         populateAppState={this.populateAppState}
         registerIt={this.registerIt}
