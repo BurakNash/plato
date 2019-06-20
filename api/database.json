@@ -7,6 +7,36 @@
       "id": 1
     }
   ],
+  "classrooms": [
+    {
+      "id": 1,
+      "name":"cohort32",
+      "roomId":1,
+      "classroomTeacherId":1,
+      "classroomStudentId":1
+    }
+  ],
+  "classroomTeachers": [
+    {
+      "id": 1,
+      "teacherId":1,
+      "classroomId": 1 
+    }
+  ],
+  "classroomStudents": [
+    {
+      "id": 1,
+      "studentId":1,
+      "classroomId": 1,
+      "teacherId": 1
+    }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "classroomId": 1 
+    }
+  ],
   "students": [
     {
       "id": 1,
@@ -18,7 +48,7 @@
   ],
   "teachers": [
     {
-      "id": 2,
+      "id": 1,
       "name": "Mr.Adams",
       "email": "secret@gmail.com",
       "subjects": "Math, Science, Hat Art",
