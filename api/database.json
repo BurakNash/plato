@@ -10,23 +10,23 @@
   "classrooms": [
     {
       "id": 1,
-      "name":"cohort32",
-      "roomId":1,
-      "classroomTeacherId":1,
-      "classroomStudentId":1
+      "name": "cohort32",
+      "roomId": 1,
+      "classroomTeacherId": 1,
+      "classroomStudentId": 1
     }
   ],
   "classroomTeachers": [
     {
       "id": 1,
-      "teacherId":1,
-      "classroomId": 1 
+      "teacherId": 1,
+      "classroomId": 1
     }
   ],
   "classroomStudents": [
     {
       "id": 1,
-      "studentId":1,
+      "studentId": 1,
       "classroomId": 1,
       "teacherId": 1
     }
@@ -34,7 +34,7 @@
   "rooms": [
     {
       "id": 1,
-      "classroomId": 1 
+      "classroomId": 1
     }
   ],
   "students": [
@@ -43,7 +43,7 @@
       "name": "Burak Kaya Koc",
       "grade": "BA",
       "parentContact": "None",
-      "teacherId": 4
+      "teacherId": 6
     }
   ],
   "teachers": [

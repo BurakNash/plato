@@ -112,6 +112,20 @@ class NavBar extends Component {
               Students
             </Link>
           </li>
+          <li className="seperator">
+
+            </li>
+          <li className="search nav-item">
+            
+          <input
+                type="text"
+                placeholder="Search..."
+                className="form-control"
+                aria-label="Small"
+                aria-describedby="inputGroup-sizing-sm"
+                onKeyUp={e => this.handleSearch(e)}
+              />
+              </li>
         </ul>
       </nav>
     );
