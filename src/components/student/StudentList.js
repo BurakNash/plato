@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./StudentList.css";
 import StudentCard from "./StudentCard";
+import students from "./students.gif";
+//import Octicon from 'react-octicon'
 
 class StudentList extends Component {
   componentDidMount() {
@@ -12,9 +14,10 @@ class StudentList extends Component {
     return (
       <React.Fragment>
         <div className="centerChildren">
+        <img className="schoolgif" src={students} alt=""></img>
           <button
             type="button"
-            className="btn btn-success"
+            className="btn btn-warning"
             onClick={() => {
               this.props.history.push("/students/new");
             }}
@@ -22,12 +25,12 @@ class StudentList extends Component {
             Add a New Student
           </button>
         </div>
-        <article className="students">
+        <article className="list-group-item bg-transparent">
           {this.props.students.map((student) => (
             <StudentCard
               key={`student-${student.id}`}
               student={student}
-              dischargeStudent={this.props.dischargeStudent}
+              deleteStudent={this.props.deleteStudent}
               owners={this.props.owners}
               studentOwners={this.props.studentOwners}
               history={this.props.history}

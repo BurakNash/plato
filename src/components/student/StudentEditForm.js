@@ -6,6 +6,7 @@ export default class StudentEditForm extends Component {
     state = {
       studentName: "",
       grade: "",
+      parentContact: "",
       teacherId: ""
     }
 
@@ -26,6 +27,7 @@ export default class StudentEditForm extends Component {
           id: this.props.match.params.studentId,
           name: this.state.studentName,
           grade: this.state.grade,
+          parentContact: this.state.parentContact,
           teacherId: parseInt(this.state.teacherId)
         };
 
@@ -40,6 +42,7 @@ export default class StudentEditForm extends Component {
         this.setState({
           studentName: student.name,
           grade: student.grade,
+          parentContact: student.parentContact,
           teacherId: student.teacherId
         });
       });
@@ -49,7 +52,7 @@ export default class StudentEditForm extends Component {
     render() {
       return (
         <React.Fragment>
-          <form className="studentForm">
+          <form className="inputstudent studentForm">
             <div className="form-group">
               <label htmlFor="studentName">Student name</label>
               <input
@@ -73,6 +76,17 @@ export default class StudentEditForm extends Component {
               />
             </div>
             <div className="form-group">
+              <label htmlFor="parentContact">Parent Information</label>
+              <input
+                type="text"
+                required
+                className="form-control"
+                onChange={this.handleFieldChange}
+                id="parentContact"
+                value = {this.state.parentContact}
+              />
+            </div>
+            <div className="form-group">
               <label htmlFor="teacher">Assign to a Teacher</label>
               <select
                 name="teacher"
@@ -80,7 +94,7 @@ export default class StudentEditForm extends Component {
                 onChange={this.handleFieldChange}
                 value = {this.state.teacherId}
               >
-                <option value="">Select an teacher</option>
+                <option value="undefined">Select an teacher</option>
                 {this.props.teachers.map(e => (
                   <option key={e.id} id={e.id} value={e.id}>
                     {e.name}
@@ -89,9 +103,15 @@ export default class StudentEditForm extends Component {
               </select>
             </div>
             <button
-              type="submit"
+              type="button"
+              disabled={
+                !this.state.studentName ||
+                !this.state.grade ||
+                !this.state.parentContact ||
+                !this.state.teacherId 
+              }
               onClick={this.updateExistingStudent}
-              className="btn btn-primary"
+              className="btn btn-warning"
             >
               Submit
             </button>

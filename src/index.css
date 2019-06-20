@@ -1,11 +1,17 @@
 body {
-  margin: 75px 0 0 20px;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  background-image: url("./background.jpg");
+    
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  margin: 0px 15px 0 15px;
+  padding: 10%;
+  font-family:  "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -14,5 +20,5 @@ code {
 }
 
 .centerChildren {
-    text-align: center;
+  text-align: center;
 }

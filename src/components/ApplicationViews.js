@@ -1,24 +1,31 @@
 import React, { Component } from "react";
+
+
 import { Route, Redirect } from "react-router-dom";
 import { withRouter } from "react-router";
 
-import StudentList from "./student/StudentList";
-import LocationList from "./location/LocationList";
-import TeacherList from "./teacher/TeacherList";
+import OwnerManager from "../modules/OwnerManager";
+import SchoolManager from "../modules/SchoolManager";
+import TeacherManager from "../modules/TeacherManager";
 
+import StudentForm from "./student/StudentForm";
+import StudentEditForm from "./student/StudentEditForm";
+import StudentManager from "../modules/StudentManager";
+import StudentList from "./student/StudentList";
 import StudentDetail from "./student/StudentDetail";
+
+import SchoolList from "./school/SchoolList";
+import SchoolDetail from "./school/SchoolDetail";
+
+import TeacherList from "./teacher/TeacherList";
+import TeacherEditForm from "./teacher/TeacherEditForm";
 import TeacherDetail from "./teacher/TeacherDetail";
 import TeacherForm from "./teacher/TeacherForm";
 
-import StudentManager from "../modules/StudentManager";
-import OwnerManager from "../modules/OwnerManager";
-import LocationManager from "../modules/LocationManager";
-import TeacherManager from "../modules/TeacherManager";
-import StudentForm from "./student/StudentForm";
-import StudentEditForm from "./student/StudentEditForm";
-import Login from "./auth/Login";
+import Login from "../users/Login";
+import Register from "../users/Register";
 import AuthRoute from "./auth/AuthRoute";
-
+import "./App.css";
 
 class ApplicationViews extends Component {
   state = {
@@ -26,8 +33,9 @@ class ApplicationViews extends Component {
     studentOwners: [],
     teachers: [],
     students: [],
-    locations: []
+    schools: []
   };
+
 
   _redirectToStudentList = async () => {
     const students = await StudentManager.getAll();
@@ -40,8 +48,12 @@ class ApplicationViews extends Component {
     this.setState({ teachers: teachers });
   };
 
-  dischargeStudent = (id) => {
+  deleteStudent = (id) => {
     StudentManager.delete(id).then(this._redirectToStudentList);
+  };
+
+  deleteTeacher = async (id) => {
+    await TeacherManager.delete(id).then(this._redirectToTeacherList);
   };
 
   addStudent = async (student) => {
@@ -49,19 +61,27 @@ class ApplicationViews extends Component {
     this._redirectToStudentList();
   };
 
-  updateStudent = async (student) => {
-    await StudentManager.updateStudent(student);
-    this._redirectToStudentList();
-  };
   addTeacher = async (teacher) => {
     await TeacherManager.addTeacher(teacher);
     this._redirectToTeacherList();
   };
 
-  fireTeacher = async (id) => {
-    await TeacherManager.delete(id);
-    const teachers = await TeacherManager.getAll();
-    this.setState({ teachers: teachers });
+  updateStudent = async (student) => {
+    await StudentManager.updateStudent(student);
+    this._redirectToStudentList();
+  };
+
+  updateTeacher = async (teacher) => {
+    await TeacherManager.updateTeacher(teacher);
+    this._redirectToTeacherList();
+  };
+
+  getOneTeacher = async () => {
+    this.setState({ students: await TeacherManager.get() });
+  };
+
+  getAllSchools = async () => {
+    this.setState({ students: await SchoolManager.getAll() });
   };
 
   getAllStudents = async () => {
@@ -71,21 +91,29 @@ class ApplicationViews extends Component {
     this.setState({ teachers: await TeacherManager.getAll() });
   };
 
-  componentDidUpdate() {
-  }
+  componentDidUpdate() {}
 
   componentDidMount() {
     const newState = {};
 
+    SchoolManager.getAll()
+      .then((schools) => (newState.schools = schools))
+      .then((schools) => (newState.schools = schools))
+      .then(() => SchoolManager.getAll());
+
     TeacherManager.getAll()
       .then((teachers) => (newState.teachers = teachers))
+      .then(() => SchoolManager.getAll())
+      .then((schools) => (newState.schools = schools));
 
     StudentManager.getAll()
       .then((students) => (newState.students = students))
       .then(() => TeacherManager.getAll())
       .then((teachers) => (newState.teachers = teachers))
-      .then(() => LocationManager.getAll())
-      .then((locations) => (newState.locations = locations))
+      .then(() => SchoolManager.getAll())
+      .then((schools) => (newState.schools = schools))
+
+      //OWNERS
       .then(() => OwnerManager.getAll())
       .then((owners) => (newState.owners = owners))
       .then(() =>
@@ -95,42 +123,67 @@ class ApplicationViews extends Component {
       .then(() => this.setState(newState));
   }
 
-  isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+  isAuthenticated = () => sessionStorage.getItem("Fullname") !== null;
 
   render() {
-    
     return (
       <React.Fragment>
-        <Route path="/login" component={Login} />
-
         <AuthRoute
-          path="/"
-          Destination={LocationList}
-          locations={this.state.locations}
+          path="/schools"
+          Destination={SchoolList}
+          schools={this.state.schools}
         />
-
         <AuthRoute
           path="/students"
           Destination={StudentList}
           owners={this.state.owners}
           students={this.state.students}
           studentOwners={this.state.studentOwners}
-          dischargeStudent={this.dischargeStudent}
+          deleteStudent={this.deleteStudent}
           loadStudents={this.getAllStudents}
         />
-
         <Route
+          path="/register"
+          render={(props) => {
+            return (
+              <Register
+                {...props}
+                addUser={this.props.addUser}
+                users={this.props.users}
+                registerIt={this.props.registerIt}
+                getAll={this.props.getAllUsers}
+              />
+            );
+          }}
+        />
+        <Route
+          exact
+          path="/"
+          render={(props) => {
+            return (
+              <Login
+                {...props}
+                populateAppState={this.props.populateAppState}
+                registerIt={this.props.registerIt}
+              />
+            );
+          }}
+        />
+        <Route
+          Exact
           path="/students/:studentId(\d+)"
           render={(props) => {
             if (this.isAuthenticated()) {
               const student = this.state.students.find(
                 (a) => a.id === parseInt(props.match.params.studentId)
-              ) || { id: 404, name: "404", grade: "Student Grade not found" };
+              ) || { id: 404, name: "404", grade: "Student not found" };
 
               return (
                 <StudentDetail
+                  {...props}
                   student={student}
-                  dischargeStudent={this.dischargeStudent}
+                  deleteStudent={this.deleteStudent}
+                  students={this.state.students}
                 />
               );
             } else {
@@ -138,7 +191,22 @@ class ApplicationViews extends Component {
             }
           }}
         />
-
+        <Route
+          path="/teachers/:teacherId(\d+)/edit"
+          render={(props) => {
+            if (this.isAuthenticated()) {
+              return (
+                <TeacherEditForm
+                  {...props}
+                  schools={this.state.schools}
+                  updateTeacher={this.updateTeacher}
+                />
+              );
+            } else {
+              return <Redirect to="/" />;
+            }
+          }}
+        />
         <Route
           path="/students/:studentId(\d+)/edit"
           render={(props) => {
@@ -151,11 +219,10 @@ class ApplicationViews extends Component {
                 />
               );
             } else {
-              return <Redirect to="/login" />;
+              return <Redirect to="/" />;
             }
           }}
         />
-
         <Route
           path="/students/new"
           render={(props) => {
@@ -168,7 +235,7 @@ class ApplicationViews extends Component {
                 />
               );
             } else {
-              return <Redirect to="/login" />;
+              return <Redirect to="/" />;
             }
           }}
         />
@@ -176,35 +243,19 @@ class ApplicationViews extends Component {
           path="/teachers/new"
           render={(props) => {
             if (this.isAuthenticated()) {
-              return <TeacherForm {...props} addTeacher={this.addTeacher} teachers={this.state.teachers}/>;
-            } else {
-              return <Redirect to="/login" />;
-            }
-          }}
-        />
-
-        <Route
-          exact
-          path="/teachers"
-          render={(props) => {
-            if (this.isAuthenticated()) {
               return (
-                <TeacherList
-                  students={this.state.students}
-                  fireTeacher={this.fireTeacher}
-                  teachers={this.state.teachers}
-                  owners={this.state.owners}
-                  studentOwners={this.state.studentOwners}
-                  loadTeachers={this.getAllTeachers}
+                <TeacherForm
                   {...props}
+                  addTeacher={this.addTeacher}
+                  schools={this.state.schools}
+                  teachers={this.state.teachers}
                 />
               );
             } else {
-              return <Redirect to="/login" />;
+              return <Redirect to="/" />;
             }
           }}
         />
-
         <Route
           exact
           path="/teachers/:teacherId(\d+)"
@@ -213,12 +264,50 @@ class ApplicationViews extends Component {
               return (
                 <TeacherDetail
                   {...props}
-                  fireTeacher={this.fireTeacher}
+                  deleteTeacher={this.deleteTeacher}
                   teachers={this.state.teachers}
+                  students={this.state.students}
+                  schools={this.state.schools}
                 />
               );
             } else {
-              return <Redirect to="/login" />;
+              return <Redirect to="/" />;
+            }
+          }}
+        />
+        <Route
+          exact
+          path="/teachers"
+          render={(props) => {
+            if (this.isAuthenticated()) {
+              return (
+                <TeacherList
+                  schools={this.state.schools}
+                  teachers={this.state.teachers}
+                  loadTeachers={this.getAllTeachers}
+                  {...props}
+                />
+              );
+            } else {
+              return <Redirect to="/" />;
+            }
+          }}
+        />
+        <Route
+          exact
+          path="/schools/:schoolId(\d+)"
+          render={(props) => {
+            if (this.isAuthenticated()) {
+              return (
+                <SchoolDetail
+                  {...props}
+                  schools={this.state.schools}
+                  teachers={this.state.teachers}
+                  students={this.state.students}
+                />
+              );
+            } else {
+              return <Redirect to="/" />;
             }
           }}
         />

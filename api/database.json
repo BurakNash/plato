@@ -1,58 +1,116 @@
 {
+  "users": [
+    {
+      "email": "Burak@gmail.com",
+      "password": "123",
+      "fullname": "Burak Koc",
+      "id": 1
+    }
+  ],
+  "classrooms": [
+    {
+      "id": 1,
+      "name":"cohort32",
+      "roomId":1,
+      "classroomTeacherId":1,
+      "classroomStudentId":1
+    }
+  ],
+  "classroomTeachers": [
+    {
+      "id": 1,
+      "teacherId":1,
+      "classroomId": 1 
+    }
+  ],
+  "classroomStudents": [
+    {
+      "id": 1,
+      "studentId":1,
+      "classroomId": 1,
+      "teacherId": 1
+    }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "classroomId": 1 
+    }
+  ],
   "students": [
     {
       "id": 1,
       "name": "Burak Kaya Koc",
-      "grade": "A",
-      "teacherId": 2
-    },
-    {
-      "id": 2,
-      "name": "Mr Jag",
-      "grade": "Ba",
-      "teacherId": 3
-    },
-    {
-      "name": "Nicole",
-      "grade": "C",
-      "teacherId": 2,
-      "id": 3
-    },
-    {
-      "name": "Tuesday boy",
-      "grade": "8",
-      "teacherId": 3,
-      "id": 4
-    },
-    {
-      "name": "SSSS",
-      "grade": "SSS",
-      "teacherId": 3,
-      "id": 5
+      "grade": "BA",
+      "parentContact": "None",
+      "teacherId": 4
     }
   ],
   "teachers": [
     {
-      "id": 2,
-      "name": "Mr.Adam"
+      "id": 1,
+      "name": "Mr.Adams",
+      "email": "secret@gmail.com",
+      "subjects": "Math, Science, Hat Art",
+      "schoolId": 2
     },
     {
       "id": 3,
-      "name": "Mr.Bryan"
+      "name": "Bryan",
+      "email": "asdnaisdas",
+      "subjects": "gdgd",
+      "schoolId": 1
     },
     {
-      "name": "Burak",
-      "id": 4
+      "id": 4,
+      "name": "tyt",
+      "email": "tyty",
+      "subjects": "tyty",
+      "schoolId": 1
+    },
+    {
+      "id": 5,
+      "name": "etersss",
+      "email": "terte",
+      "subjects": "ertert",
+      "schoolId": 2
+    },
+    {
+      "name": "AAAA",
+      "email": "AAA",
+      "subjects": "AAA",
+      "schoolId": 1,
+      "id": 6
     }
   ],
-  "locations": [
+  "schools": [
     {
       "id": 1,
-      "name": "Norman Binkley Elementary School"
+      "name": "Collège Alpin Beau Soleil",
+      "location": "Rue du Village 1, 1884 Ollon, Switzerland",
+      "phone": "+41 24 496 26 26",
+      "numberStudents": "230"
     },
     {
       "id": 2,
-      "name": "Nashville Software School"
+      "name": "Nashville Software School",
+      "location": "500 Interstate Blvd S #300, Nashville, TN 37210",
+      "phone": "(615) 838-8188",
+      "numberStudents": "120"
+    },
+    {
+      "id": 3,
+      "name": "Marymount International School Rome",
+      "location": "Via di Villa Lauchli, 180, 00191 Roma RM, Italy",
+      "phone": "+39 06 362 9101",
+      "numberStudents": "675"
+    },
+    {
+      "id": 4,
+      "name": " Port Moresby, Papua New Guinea",
+      "location": "Port Moresby, Papua New Guinea",
+      "phone": "+675 325 3166",
+      "numberStudents": "950"
     }
   ],
   "owners": [
@@ -81,11 +139,5 @@
       "name": ""
     }
   ],
-  "studentOwners": [
-    {
-      "id": 1,
-      "studentId": 1,
-      "ownerId": 5
-    }
-  ]
+  "studentOwners": []
 }

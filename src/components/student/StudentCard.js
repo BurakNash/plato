@@ -4,55 +4,32 @@ import { Link } from "react-router-dom";
 import "./Student.css";
 
 class StudentCard extends Component {
-  componentDidMount() {
-    
-  }
+  componentDidMount() {}
 
   render() {
-    
-
-    const ownerStringArray = this.props.studentOwners
-      .filter((ao) => ao.studentId === this.props.student.id)
-      .map((ao) => this.props.owners.find((o) => o.id === ao.ownerId).name);
+    /* Reference Code
+      const ownerStringArray = this.props.studentOwners
+    .filter((ao) => ao.studentId === this.props.student.id)
+    .map((ao) => this.props.owners.find((o) => o.id === ao.ownerId).name);
+    */
 
     return (
       <React.Fragment>
-        <div className="studentcard"
-        key={this.props.student.id}>
- 
-          <div className="studentname">
-              {this.props.student.name}
-              ({ownerStringArray.join(", ")})
-              <div className="buttons">
-              <button
-                type="button"
-                className=""
-                onClick={() => {
-                  this.props.history.push(
-                    `/students/${this.props.student.id}/edit`
-                  );
-                }}
+        <section className="">
+          <div className="teacherlistname" key={this.props.student.id}>
+            <div className="">
+              <Link
+                className="teacher-link"
+                to={`/students/${this.props.student.id}`}
               >
-                Edit
-              </button>
-              <button
-                onClick={() =>
-                  this.props.dischargeStudent(this.props.student.id)
-                }
-                className=""
-              >
-                Delete
-              </button>
-            
-            <Link className="nav-link" to={`/students/${this.props.student.id}`}>
-            Details
-          </Link>
+                {this.props.student.name}
+              </Link>
+            </div>
           </div>
-          </div>
-          </div>
-          
-        
-        
+
+          {/*
+              ({ownerStringArray.join(", ")}) */}
+        </section>
       </React.Fragment>
     );
   }

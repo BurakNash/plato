@@ -1,4 +1,31 @@
-.icon--person {
-    width: 50px;
-    height: 50px;
+.deleteButton {
+  color: white;
+  background-color: red;
+  margin-right: 15px;
+}
+
+.octicon {
+  cursor: pointer;
+  color: rgb(226, 210, 210);
+  margin-left: 10px;
+  display: inline;
+}
+.inputteacher {
+  width: 55%;
+}
+.teachername {
+  float: left;
+}
+
+.teacherdata {
+}
+.teacherinfo {
+  float: right;
+}
+
+.studentdetails {
+  margin-top: 95px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  text-underline: 10px;
 }

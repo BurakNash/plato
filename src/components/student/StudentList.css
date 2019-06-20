@@ -3,11 +3,17 @@
     justify-content: space-evenly;
     flex-direction: column;
     flex-wrap: row-wrap;
-    border-style: solid;
+   
     flex-grow: 3;
     align-self: auto;
-    margin: 5%;
-    
+    margin: 5%; 
+}
+
+.studentname {
+    display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  
 }
 
 .studentButton {
