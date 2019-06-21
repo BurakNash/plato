@@ -62,7 +62,7 @@ class Login extends Component {
               required
               onChange={this.handleFieldChange}
               id="email"
-              placeholder="myemail@email.com"
+              placeholder="Email"
             />
           </FormGroup>
           <FormGroup>

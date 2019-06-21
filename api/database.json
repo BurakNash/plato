@@ -5,81 +5,84 @@
       "password": "123",
       "fullname": "Burak Koc",
       "id": 1
-    }
-  ],
-  "classrooms": [
+    },
     {
-      "id": 1,
-      "name": "cohort32",
-      "roomId": 1,
-      "classroomTeacherId": 1,
-      "classroomStudentId": 1
+      "email": "Burak@gmail.com1",
+      "password": "1232",
+      "fullname": "111",
+      "id": 2
     }
   ],
-  "classroomTeachers": [
-    {
-      "id": 1,
-      "teacherId": 1,
-      "classroomId": 1
-    }
-  ],
-  "classroomStudents": [
-    {
-      "id": 1,
-      "studentId": 1,
-      "classroomId": 1,
-      "teacherId": 1
-    }
-  ],
-  "rooms": [
-    {
-      "id": 1,
-      "classroomId": 1
-    }
-  ],
+  "classrooms": [],
+  "classroomTeachers": [],
+  "classroomStudents": [],
+  "rooms": [],
   "students": [
     {
       "id": 1,
-      "name": "Burak Kaya Koc",
-      "grade": "BA",
+      "name": "Burak Koc",
+      "grade": "A",
+      "parentContact": "Obama",
+      "teacherId": 3
+    },
+    {
+      "id": 2,
+      "name": "Logan Unknown",
+      "grade": "A",
       "parentContact": "None",
-      "teacherId": 6
+      "teacherId": 3
+    },
+    {
+      "name": "Hughes Speer",
+      "grade": "F",
+      "parentContact": "Secret",
+      "teacherId": 3,
+      "schoolId": 2,
+      "id": 3
+    },
+    {
+      "name": "Too smart Student",
+      "grade": "A+",
+      "parentContact": "Nobel",
+      "teacherId": 3,
+      "schoolId": 2,
+      "id": 4
     }
   ],
   "teachers": [
     {
       "id": 1,
-      "name": "Mr.Adams",
+      "name": "Adam Sheaffer",
       "email": "secret@gmail.com",
       "subjects": "Math, Science, Hat Art",
       "schoolId": 2
     },
     {
       "id": 3,
-      "name": "Bryan",
-      "email": "asdnaisdas",
-      "subjects": "gdgd",
+      "name": "Bryan Pilsen",
+      "email": "highfive@aol.com",
+      "subjects": "High Five",
       "schoolId": 1
     },
     {
-      "id": 4,
-      "name": "tyt",
-      "email": "tyty",
-      "subjects": "tyty",
-      "schoolId": 1
+      "name": "Brenda Long",
+      "email": "sunnyroom@gmail.com",
+      "subjects": "Candies",
+      "schoolId": 2,
+      "id": 4
     },
     {
-      "id": 5,
-      "name": "etersss",
-      "email": "terte",
-      "subjects": "ertert",
-      "schoolId": 2
+      "name": "Robby Hecht",
+      "email": "robby@robby.com",
+      "subjects": "Hacking",
+      "schoolId": 2,
+      "id": 5
     },
     {
-      "name": "AAAA",
-      "email": "AAA",
-      "subjects": "AAA",
-      "schoolId": 1,
+      "name": "Bad Teacher",
+      "email": "msn@msn.com",
+      "subjects": "Nothing",
+      "schoolId": 2,
       "id": 6
     }
   ],

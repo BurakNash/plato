@@ -2,16 +2,47 @@ import React, { Component } from "react";
 import NavBar from "./nav/NavBar";
 import ApplicationViews from "./ApplicationViews";
 import JsonManager from '../modules/JsonManager';
+
 //import { Link } from "react-router-dom";
 
 import "./Plato.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class Plato extends Component {
+
+  state = {
+    searchResults: [],
+    searchInput: "",
+   
+  };
+
   constructor(props) {
     super(props);
     this.populateAppState = this.populateAppState.bind(this);
 }
+handleSearch(input) {
+  console.log(input.target.value);
+  // only search on enter/return keypress
+  if (input.keyCode === 13) {
+    console.log("HANDLE SEARCH - INPUT TARGET VALUE:", input.target.value);
+    this.props.getSearchResults(input.target.value);
+    this.props.history.push("/search");
+  }
+}
+
+getSearchResults = input => {
+  // console.log("GETSEARCH INPUT:", input);
+  this.setState({ searchInput: input });
+  let newSearchResults = [];
+  JsonManager.search("students", input)
+    .then(results => (newSearchResults = results))
+    //  * include search across all sections below
+    //.then(() => JsonManager.search("teachers", input))
+    //.then(results => results.forEach(result => newSearchResults.push(result)))
+    //.then(() => JsonManager.search("schools", input))
+    //.then(results => results.forEach(result => newSearchResults.push(result)))
+    .then(() => this.setState({ searchResults: newSearchResults }));
+};
 
 
 
@@ -44,13 +75,16 @@ isAuthenticated = () => sessionStorage.getItem("User") !== null;
       <React.Fragment>
         
         <NavBar
-        
+        getSearchResults={this.getSearchResults}
          />
         <ApplicationViews
         populateAppState={this.populateAppState}
         registerIt={this.registerIt}
         getAllUsers={this.getAllUsers}
-        addUser={this.addUser} />
+        addUser={this.addUser} 
+        searchResults={this.state.searchResults}
+          searchInput={this.state.searchInput}
+          />
       </React.Fragment>
     );
   }

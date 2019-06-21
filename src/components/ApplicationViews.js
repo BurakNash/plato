@@ -17,6 +17,8 @@ import StudentDetail from "./student/StudentDetail";
 import SchoolList from "./school/SchoolList";
 import SchoolDetail from "./school/SchoolDetail";
 
+import SearchResults from "./search/SearchResults";
+
 import TeacherList from "./teacher/TeacherList";
 import TeacherEditForm from "./teacher/TeacherEditForm";
 import TeacherDetail from "./teacher/TeacherDetail";
@@ -47,6 +49,8 @@ class ApplicationViews extends Component {
     this.props.history.push("/teachers");
     this.setState({ teachers: teachers });
   };
+
+
 
   deleteStudent = (id) => {
     StudentManager.delete(id).then(this._redirectToStudentList);
@@ -311,6 +315,28 @@ class ApplicationViews extends Component {
             }
           }}
         />
+       <Route
+      
+          path="/search"
+         
+          render={props => {
+            if (this.isAuthenticated()) {
+            return (
+              <SearchResults
+                {...props}
+                {...this.props}
+                
+                searchResults={this.props.searchResults}
+               searchInput={this.props.searchInput}
+              />
+              
+            );
+          }else {
+            return <Redirect to="/" />;
+            }}}
+            />
+       
+        
       </React.Fragment>
     );
   }
