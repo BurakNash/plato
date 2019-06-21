@@ -75,7 +75,7 @@ export default class Register extends Component {
               value={this.state.fullname}
               name="fullname"
               id="fullname"
-              placeholder="ex: Bryan Nilsen"
+              placeholder="Full Name"
             />
           </FormGroup>
 

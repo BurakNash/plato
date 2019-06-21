@@ -23,6 +23,10 @@
   border-color: #df8107;
 }
 
+.searchlinks{
+  color: white
+}
+
 .list-group-item {
   margin-top: 50px;
   border-width: 30px;

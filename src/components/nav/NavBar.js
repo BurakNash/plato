@@ -22,6 +22,17 @@ class NavBar extends Component {
     };
   }
 
+  handleSearch(input) {
+    console.log(input.target.value);
+    // only search on enter/return keypress
+    if (input.keyCode === 13) {
+      //this.props.history.push("/search");
+      console.log("HANDLE SEARCH - INPUT TARGET VALUE:", input.target.value);
+      this.props.getSearchResults(input.target.value);
+      //
+    }
+  }
+
   routeChange() {
     let path = ``;
     this.props.history.push(path);
@@ -112,20 +123,24 @@ class NavBar extends Component {
               Students
             </Link>
           </li>
-          <li className="seperator">
-
-            </li>
-          <li className="search nav-item">
+          <li className="nav-item seperator" />
+          <li className="nav-item">
+           
             
-          <input
-                type="text"
-                placeholder="Search..."
-                className="form-control"
-                aria-label="Small"
-                aria-describedby="inputGroup-sizing-sm"
-                onKeyUp={e => this.handleSearch(e)}
+              
+                  <Link className="link-1 " to="/search">Search</Link>
+               
+             
+              <input
+              
+                type=""
+                className="search "
+                aria-label=""
+                aria-describedby=""
+                onKeyUp={(e) => this.handleSearch(e)}
               />
-              </li>
+            
+          </li>
         </ul>
       </nav>
     );

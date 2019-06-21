@@ -27,5 +27,13 @@ export default {
     return fetch(
       `http://localhost:5002/users?email=${email}&password=${password}`
     ).then((response) => response.json());
-  }
-};
+    },
+
+
+    search(resource, input) {
+      return fetch(`${remoteURL}/${resource}?name_like=${input}`).then(e =>
+        e.json()
+      );
+    }
+
+}
