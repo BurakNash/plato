@@ -39,6 +39,8 @@ class ApplicationViews extends Component {
   };
 
 
+
+
   _redirectToStudentList = async () => {
     const students = await StudentManager.getAll();
     this.props.history.push("/students");
@@ -326,8 +328,12 @@ class ApplicationViews extends Component {
                 {...props}
                 {...this.props}
                 
-                searchResults={this.props.searchResults}
-               searchInput={this.props.searchInput}
+
+                schools={this.state.schools}
+                teachers={this.state.teachers}
+                students={this.state.students}
+               // searchResults={this.props.searchResults}
+               //searchInput={this.props.searchInput}
               />
               
             );

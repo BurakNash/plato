@@ -10,10 +10,17 @@ class SearchResults extends Component {
           <h2 className="page_title ">
             Search Results for: "{this.props.searchInput}"
           </h2>
-          {this.props.searchResults.map((result) => (
-            <div key={`${result.id}${result.name}`} className="result_card">
-              <Link className="searchlinks" to={`/students/${result.id}`}>{result.name}</Link>
+          {this.props.students.map((result) => (
+            <div key={`${result}${result.id}${result.name}`} className="result_card">
+              [STUDENT]<Link className="searchlinks" to={`Students/${result.id}`}>{result.name}</Link>
             </div>
+            
+          ))}
+               {this.props.teachers.map((result) => (
+            <div key={`${result}${result.id}${result.name}`} className="result_card">
+              [TEACHER]<Link className="searchlinks" to={`teachers/${result.id}`}>{result.name}</Link>
+            </div>
+            
           ))}
         </section>
       );
