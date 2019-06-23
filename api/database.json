@@ -5,12 +5,6 @@
       "password": "123",
       "fullname": "Burak Koc",
       "id": 1
-    },
-    {
-      "email": "Burak@gmail.com1",
-      "password": "1232",
-      "fullname": "111",
-      "id": 2
     }
   ],
   "classrooms": [],
