@@ -37,10 +37,10 @@ getSearchResults = input => {
   JsonManager.search("students", input)
     .then(results => (newSearchResults = results))
     //  * include search across all sections below
-    //.then(() => JsonManager.search("teachers", input))
-    //.then(results => results.forEach(result => newSearchResults.push(result)))
-    //.then(() => JsonManager.search("schools", input))
-    //.then(results => results.forEach(result => newSearchResults.push(result)))
+    .then(() => JsonManager.search("teachers", input))
+    .then(results => results.forEach(result => newSearchResults.push(result)))
+    .then(() => JsonManager.search("schools", input))
+    .then(results => results.forEach(result => newSearchResults.push(result)))
     .then(() => this.setState({ searchResults: newSearchResults }));
 };
 

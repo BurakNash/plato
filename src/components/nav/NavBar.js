@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
@@ -26,10 +27,9 @@ class NavBar extends Component {
     console.log(input.target.value);
     // only search on enter/return keypress
     if (input.keyCode === 13) {
-      //this.props.history.push("/search");
       console.log("HANDLE SEARCH - INPUT TARGET VALUE:", input.target.value);
       this.props.getSearchResults(input.target.value);
-      //
+      this.props.history.push("/search");
     }
   }
 
@@ -70,12 +70,14 @@ class NavBar extends Component {
       );
     }
   };
+ 
+
 
   render() {
     return (
       <nav>
         {this.showLogout()}
-
+       
         <ul
           className="nav  mr-auto nav-justified font-weight-bold bg-muted
        "
@@ -128,17 +130,17 @@ class NavBar extends Component {
            
             
               
-                  <Link className="link-1 " to="/search">Search</Link>
-               
-             
-              <input
+                  <Link className="link-1 " to="/search">Search
+                  </Link>
+                  <input
               
-                type=""
-                className="search "
-                aria-label=""
-                aria-describedby=""
-                onKeyUp={(e) => this.handleSearch(e)}
-              />
+        type=""
+        className="search "
+        
+        aria-label=""
+        aria-describedby=""
+        onKeyUp={(e) => this.handleSearch(e)}></input>
+                  
             
           </li>
         </ul>
@@ -147,4 +149,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export default withRouter (NavBar);
