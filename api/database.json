@@ -1,4 +1,4 @@
-{
+﻿{
   "users": [
     {
       "email": "Burak@gmail.com",
@@ -7,9 +7,24 @@
       "id": 1
     }
   ],
-  "classrooms": [],
-  "classroomTeachers": [],
-  "classroomStudents": [],
+  "classes": [
+    {
+      "id":1,
+      "name": "Cohort-32",
+      "position": "CLASS",
+      "category": "classes",
+      "teachers":["teacherId:1"]
+     
+    }
+  ],
+  "classTeachers": [
+   { "id":1,
+      "teacherId":1,
+      "studentId":1,
+      "classId": 2
+   }
+  ],
+  "classStudents": [],
   "rooms": [],
   "students": [
     {
@@ -125,33 +140,10 @@
       "numberStudents": "950",
       "position": "SCHOOL",
       "category": "teachers"
-    }
-  ],
+    }]
+    ,
   "owners": [
-    {
-      "id": 1,
-      "name": ""
-    },
-    {
-      "id": 2,
-      "name": ""
-    },
-    {
-      "id": 3,
-      "name": ""
-    },
-    {
-      "id": 4,
-      "name": ""
-    },
-    {
-      "id": 5,
-      "name": ""
-    },
-    {
-      "id": 6,
-      "name": ""
-    }
-  ],
-  "studentOwners": []
+  ] ,
+  "studentOwners": [
+  ]
 }
