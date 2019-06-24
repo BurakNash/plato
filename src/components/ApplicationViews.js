@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 
-
 import { Route, Redirect } from "react-router-dom";
 import { withRouter } from "react-router";
 
 import OwnerManager from "../modules/OwnerManager";
 import SchoolManager from "../modules/SchoolManager";
 import TeacherManager from "../modules/TeacherManager";
+import ClassManager from "../modules/ClassManager";
+
+import ClassList from "./class/ClassList"
 
 import StudentForm from "./student/StudentForm";
 import StudentEditForm from "./student/StudentEditForm";
@@ -36,11 +38,8 @@ class ApplicationViews extends Component {
     teachers: [],
     students: [],
     schools: [],
-    classrooms,
+    classes:[]
   };
-
-
-
 
   _redirectToStudentList = async () => {
     const students = await StudentManager.getAll();
@@ -52,8 +51,6 @@ class ApplicationViews extends Component {
     this.props.history.push("/teachers");
     this.setState({ teachers: teachers });
   };
-
-
 
   deleteStudent = (id) => {
     StudentManager.delete(id).then(this._redirectToStudentList);
@@ -87,6 +84,10 @@ class ApplicationViews extends Component {
     this.setState({ students: await TeacherManager.get() });
   };
 
+  getAllClasses = async () => {
+    this.setState({ classes: await ClassManager.getAll() });
+  };
+
   getAllSchools = async () => {
     this.setState({ students: await SchoolManager.getAll() });
   };
@@ -102,6 +103,11 @@ class ApplicationViews extends Component {
 
   componentDidMount() {
     const newState = {};
+
+    ClassManager.getAll()
+    .then((classes) => (newState.classes = classes))
+    .then((classes) => (newState.classes = classes))
+    .then(() => ClassManager.getAll());
 
     SchoolManager.getAll()
       .then((schools) => (newState.schools = schools))
@@ -149,6 +155,20 @@ class ApplicationViews extends Component {
           deleteStudent={this.deleteStudent}
           loadStudents={this.getAllStudents}
         />
+        <Route
+          path="/classes"
+          render={(props) => {
+            return (
+              <ClassList
+                {...props}
+                
+                getAll={this.props.getAllClasses}
+                classes= {this.state.classes}
+              />
+            );
+          }}
+        />
+
         <Route
           path="/register"
           render={(props) => {
@@ -318,32 +338,26 @@ class ApplicationViews extends Component {
             }
           }}
         />
-       <Route
-      
+        <Route
           path="/search"
-         
-          render={props => {
+          render={(props) => {
             if (this.isAuthenticated()) {
-            return (
-              <SearchResults
-                {...props}
-                {...this.props}
-                
-
-                schools={this.state.schools}
-                teachers={this.state.teachers}
-                students={this.state.students}
-               //searchResults={this.props.searchResults}
-               //searchInput={this.props.searchInput}
-              />
-              
-            );
-          }else {
-            return <Redirect to="/" />;
-            }}}
-            />
-       
-        
+              return (
+                <SearchResults
+                  {...props}
+                  {...this.props}
+                  schools={this.state.schools}
+                  teachers={this.state.teachers}
+                  students={this.state.students}
+                  //searchResults={this.props.searchResults}
+                  //searchInput={this.props.searchInput}
+                />
+              );
+            } else {
+              return <Redirect to="/" />;
+            }
+          }}
+        />
       </React.Fragment>
     );
   }
