@@ -70,14 +70,12 @@ class NavBar extends Component {
       );
     }
   };
- 
-
 
   render() {
     return (
       <nav>
         {this.showLogout()}
-       
+
         <ul
           className="nav  mr-auto nav-justified font-weight-bold bg-muted
        "
@@ -127,21 +125,16 @@ class NavBar extends Component {
           </li>
           <li className="nav-item seperator" />
           <li className="nav-item">
-           
-            
-              
-                  <Link className="link-1 " to="/search">Search
-                  </Link>
-                  <input
-              
-        type=""
-        className="search "
-        
-        aria-label=""
-        aria-describedby=""
-        onKeyUp={(e) => this.handleSearch(e)}></input>
-                  
-            
+            <Link className="link-1 " to="/search">
+              Search
+            </Link>
+            <input
+              type=""
+              className="search "
+              aria-label=""
+              aria-describedby=""
+              onKeyUp={(e) => this.handleSearch(e)}
+            />
           </li>
         </ul>
       </nav>
@@ -149,4 +142,4 @@ class NavBar extends Component {
   }
 }
 
-export default withRouter (NavBar);
+export default withRouter(NavBar);
