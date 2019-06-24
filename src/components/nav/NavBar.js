@@ -123,6 +123,11 @@ class NavBar extends Component {
               Students
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="link-1" to="/classrooms">
+              Classrooms
+            </Link>
+          </li>
           <li className="nav-item seperator" />
           <li className="nav-item">
             <Link className="link-1 " to="/search">
