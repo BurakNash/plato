@@ -30,9 +30,11 @@ export default class StudentForm extends Component {
     } else {
       const student = {
         name: this.state.studentName,
+        
         grade: this.state.grade,
         parentContact: this.state.parentContact,
-        // Make sure the teacherId is saved to the database as a number since it is a foreign key.
+        position: "STUDENT",
+        category: "students",
         teacherId: parseInt(this.state.teacherId),
         schoolId: parseInt()
       };

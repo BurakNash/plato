@@ -332,7 +332,7 @@ class ApplicationViews extends Component {
                 schools={this.state.schools}
                 teachers={this.state.teachers}
                 students={this.state.students}
-               // searchResults={this.props.searchResults}
+               //searchResults={this.props.searchResults}
                //searchInput={this.props.searchInput}
               />
               

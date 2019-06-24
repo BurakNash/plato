@@ -17,18 +17,24 @@
       "name": "Burak Koc",
       "grade": "A",
       "parentContact": "Obama",
+      "position": "STUDENT",
+      "category": "students",
       "teacherId": 3
     },
     {
       "id": 2,
-      "name": "Logan Unknown",
+      "name": "Logan",
       "grade": "A",
       "parentContact": "None",
+      "position": "STUDENT",
+      "category": "students",
       "teacherId": 3
     },
     {
       "name": "Hughes Speer",
       "grade": "F",
+      "position": "STUDENT",
+      "category": "students",
       "parentContact": "Secret",
       "teacherId": 3,
       "schoolId": 2,
@@ -37,6 +43,8 @@
     {
       "name": "Too smart Student",
       "grade": "A+",
+      "position": "STUDENT",
+      "category": "students",
       "parentContact": "Nobel",
       "teacherId": 3,
       "schoolId": 2,
@@ -49,6 +57,8 @@
       "name": "Adam Sheaffer",
       "email": "secret@gmail.com",
       "subjects": "Math, Science, Hat Art",
+      "position": "TEACHER",
+      "category": "teachers",
       "schoolId": 2
     },
     {
@@ -56,28 +66,27 @@
       "name": "Bryan Pilsen",
       "email": "highfive@aol.com",
       "subjects": "High Five",
+      "position": "TEACHER",
+      "category": "teachers",
       "schoolId": 1
     },
     {
+      "id": 4,
       "name": "Brenda Long",
       "email": "sunnyroom@gmail.com",
       "subjects": "Candies",
-      "schoolId": 2,
-      "id": 4
+      "position": "TEACHER",
+      "category": "teachers",
+      "schoolId": 2
     },
     {
+      "id": 5,
       "name": "Robby Hecht",
       "email": "robby@robby.com",
       "subjects": "Hacking",
-      "schoolId": 2,
-      "id": 5
-    },
-    {
-      "name": "Bad Teacher",
-      "email": "msn@msn.com",
-      "subjects": "Nothing",
-      "schoolId": 2,
-      "id": 6
+      "position": "TEACHER",
+      "category": "teachers",
+      "schoolId": 2
     }
   ],
   "schools": [
@@ -86,28 +95,36 @@
       "name": "Collège Alpin Beau Soleil",
       "location": "Rue du Village 1, 1884 Ollon, Switzerland",
       "phone": "+41 24 496 26 26",
-      "numberStudents": "230"
+      "numberStudents": "230",
+      "position": "SCHOOL",
+      "category": "teachers"
     },
     {
       "id": 2,
       "name": "Nashville Software School",
       "location": "500 Interstate Blvd S #300, Nashville, TN 37210",
       "phone": "(615) 838-8188",
-      "numberStudents": "120"
+      "numberStudents": "120",
+      "position": "SCHOOL",
+      "category": "teachers"
     },
     {
       "id": 3,
       "name": "Marymount International School Rome",
       "location": "Via di Villa Lauchli, 180, 00191 Roma RM, Italy",
       "phone": "+39 06 362 9101",
-      "numberStudents": "675"
+      "numberStudents": "675",
+      "position": "SCHOOL",
+      "category": "teachers"
     },
     {
       "id": 4,
       "name": " Port Moresby, Papua New Guinea",
       "location": "Port Moresby, Papua New Guinea",
       "phone": "+675 325 3166",
-      "numberStudents": "950"
+      "numberStudents": "950",
+      "position": "SCHOOL",
+      "category": "teachers"
     }
   ],
   "owners": [

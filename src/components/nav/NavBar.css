@@ -20,6 +20,9 @@
 .DropdownItem {
   color: #ffffff;
 }
+.buttonadjust{
+  
+}
 .link-1 {
   transition: 0.7s ease;
   background: transparent;
@@ -48,6 +51,16 @@
   width: 150px;
   margin-left: 20px;
   margin-right: 20px;
+}
+.searchbutton {
+  border-left: none;
+  border-right:none;
+  border-image: none;
+  -webkit-appearance:none;
+  line-height: none;
+  box-sizing: none;
+  height: 40px
+
 }
 .seperator {
   border-center: 6px dashed #df8107;
