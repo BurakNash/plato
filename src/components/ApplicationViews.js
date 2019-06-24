@@ -35,7 +35,8 @@ class ApplicationViews extends Component {
     studentOwners: [],
     teachers: [],
     students: [],
-    schools: []
+    schools: [],
+    classrooms,
   };
 
 
