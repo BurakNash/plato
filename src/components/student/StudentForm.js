@@ -8,7 +8,7 @@ export default class StudentForm extends Component {
     grade: "",
     parentContact: "",
     teacherId: "",
-    schoolId: "",
+    classId: "",
     saveEnabled: false
   };
 
@@ -36,7 +36,7 @@ export default class StudentForm extends Component {
         position: "STUDENT",
         category: "students",
         teacherId: parseInt(this.state.teacherId),
-        schoolId: parseInt()
+        classId: "Not Assigned",
       };
 
       // Create the student and redirect user to student list

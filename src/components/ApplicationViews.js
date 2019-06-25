@@ -59,6 +59,15 @@ class ApplicationViews extends Component {
   deleteTeacher = async (id) => {
     await TeacherManager.delete(id).then(this._redirectToTeacherList);
   };
+  deleteClass = (id) => {
+    ClassManager.delete(id)
+    //.then(this._redirectToStudentList);
+  };
+
+  addClass = async (student) => {
+    await ClassManager.addClass(student);
+    //this._redirectToStudentList();
+  };
 
   addStudent = async (student) => {
     await StudentManager.addStudent(student);
@@ -154,6 +163,7 @@ class ApplicationViews extends Component {
           studentOwners={this.state.studentOwners}
           deleteStudent={this.deleteStudent}
           loadStudents={this.getAllStudents}
+          teachers= {this.state.teachers}
         />
         <Route
           path="/classes"
@@ -161,9 +171,11 @@ class ApplicationViews extends Component {
             return (
               <ClassList
                 {...props}
-                
+                addClass={this.addClass}
                 getAll={this.props.getAllClasses}
                 classes= {this.state.classes}
+                teachers= {this.state.teachers}
+                students= {this.state.students}
               />
             );
           }}
