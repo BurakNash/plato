@@ -33,7 +33,7 @@ class ClassList extends Component {
             category: "classes",
 
           }
-          {this.props.history.push("/students/new")};
+         // {this.props.history.push("/students/new")};
     
           // Create the class and redirect user to class list
           this.props.addClass(_class);
