@@ -2,28 +2,47 @@ import React, { Component } from "react";
 //import { Link } from "react-router-dom";
 import "./Classes.css";
 
+
 class ClassList extends Component {
+    state = {
+        className: "",
+        position: "",
+        category: "",
+        saveEnabled: false
+      };
+    
+      // Update state whenever an input field is edited
+      handleFieldChange = (evt) => {
+        const stateToChange = {};
+        stateToChange[evt.target.id] = evt.target.value;
+        this.setState(stateToChange);
+      };
+    
+      /*
+            Local method for validation, creating class object, and
+            invoking the function reference passed from parent component
+         */
+      constructNewClass = (evt) => {
+        evt.preventDefault();
+        if (this.state.classId === null) {
+          window.alert("Please select a class");
+        } else {
+          const _class = {
+            name: this.state.className,
+            position: "CLASS",
+            category: "classes",
 
-
-  constructor(props) {
-    super(props);
-    //this.state = {value: 'coconut'};
-    this.state = {value: ['coconut']};
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    //this.setState({value: event.option});
-    this.setState({value: Array.from(event.target.selectedOptions, (item) => item.value)});
-  }
-
-  handleSubmit(event) {
-    alert('Your favorite flavor is: ' + this.state.value);
-    event.preventDefault();
-  }
-
+          }
+          {this.props.history.push("/students/new")};
+    
+          // Create the class and redirect user to class list
+          this.props.addClass(_class);
+    
+          this.setState({ saveEnabled: true });
+        }
+      };
+    
+  
   componentDidMount() {
   }
 
@@ -31,19 +50,32 @@ class ClassList extends Component {
   render() {
     return (
       <React.Fragment>
-     <form onSubmit={this.handleSubmit}>
-            <label>
-              Pick your favorite La Croix flavor:
-              <select multiple={true} value={this.state.value} onChange={this.handleChange}>
-              <option value="">Select an teacher</option>
-              {this.props.classes.map((e) => (
-                <option key={e.id} id={e.id} value={e.id}>
-                  {e.name}
-                </option>))}
-              </select>
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
+        <form className="inputclass classForm">
+          <div className="form-group">
+            <label htmlFor="className">Class name</label>
+            <input
+              type="text"
+              required
+              autoFocus
+              className="form-control"
+              onChange={this.handleFieldChange}
+              id="className"
+              placeholder="Class name"
+            />
+          </div>
+
+          <button
+            type="button"
+            disabled={
+              !this.state.className ||
+              this.state.saveEnabled
+            }
+            onClick={this.constructNewClass}
+            className="btn btn-primary"
+          >
+            Submit
+          </button>
+        </form>
       </React.Fragment>
     );
   }

@@ -9,20 +9,26 @@
   ],
   "classes": [
     {
-      "id":1,
+      "id": 1,
       "name": "Cohort-32",
       "position": "CLASS",
+      "category": "classes"
+    },
+    {
+      "name": "bbb",
+      "position": "CLASS",
       "category": "classes",
-      "teachers":["teacherId:1"]
-     
+      "id": 2
     }
+
   ],
   "classTeachers": [
-   { "id":1,
-      "teacherId":1,
-      "studentId":1,
+    {
+      "id": 1,
+      "teacherId": 1,
+      "studentId": 1,
       "classId": 2
-   }
+    }
   ],
   "classStudents": [],
   "rooms": [],
@@ -64,6 +70,27 @@
       "teacherId": 3,
       "schoolId": 2,
       "id": 4
+    },
+    {
+      "name": "hh",
+      "grade": "hh",
+      "parentContact": "hh",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 1,
+      "schoolId": 1,
+      "id": 5
+    },
+    {
+      "name": "uuu",
+      "grade": "uu",
+      "parentContact": "uu",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 4,
+      "schoolId": null,
+      "classId": "Not Assigned",
+      "id": 6
     }
   ],
   "teachers": [
@@ -140,10 +167,8 @@
       "numberStudents": "950",
       "position": "SCHOOL",
       "category": "teachers"
-    }]
-    ,
-  "owners": [
-  ] ,
-  "studentOwners": [
-  ]
+    }
+  ],
+  "owners": [],
+  "studentOwners": []
 }

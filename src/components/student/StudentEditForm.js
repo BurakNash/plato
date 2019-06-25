@@ -9,7 +9,8 @@ export default class StudentEditForm extends Component {
     parentContact: "",
     teacherId: "",
     position: "STUDENT",
-    category: "students"
+    category: "students",
+    classId: "Not Assigned",
   };
 
   handleFieldChange = (evt) => {
@@ -31,6 +32,7 @@ export default class StudentEditForm extends Component {
         parentContact: this.state.parentContact,
         position: "STUDENT",
         category: "students",
+        classId: "Not Assigned",
         teacherId: parseInt(this.state.teacherId)
       };
 
@@ -48,6 +50,7 @@ export default class StudentEditForm extends Component {
         parentContact: student.parentContact,
         teacherId: student.teacherId,
         position: "STUDENT",
+        classId: "Not Assigned",
       category: "students",
       });
     });
