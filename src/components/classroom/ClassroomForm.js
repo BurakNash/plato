@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 //import { Link } from "react-router-dom";
-import "./Classes.css";
-import SplitterLayout from 'react-splitter-layout';
-import 'react-splitter-layout/lib/index.css';
+import "./Classrooms.css";
 
-class ClassForm extends Component {
+
+class ClassroomForm extends Component {
   state = {
-    className: "",
+    classroomName: "",
     position: "",
     category: "",
     saveEnabled: false
@@ -23,21 +22,21 @@ class ClassForm extends Component {
             Local method for validation, creating class object, and
             invoking the function reference passed from parent component
          */
-  constructNewClass = (evt) => {
+  constructNewClassroom = (evt) => {
     evt.preventDefault();
-    if (this.state.classId === null) {
+    if (this.state.classroomId === null) {
       window.alert("Please select a class");
     } else {
-      const _class = {
-        name: this.state.className,
-        position: "CLASS",
-        category: "classes"
+      const classroom = {
+        name: this.state.classroomName,
+        position: "CLASSROOM",
+        category: "classrooms"
       };
       // {this.props.history.push("/students/new")};
 
       // Create the class and redirect user to class list
-      this.props.addClass(_class);
-      this.props.history.push("/classes");
+      this.props.addClassroom(classroom);
+      this.props.history.push("/classrooms");
       window.location.reload()
 
       this.setState({ saveEnabled: true });
@@ -48,9 +47,9 @@ class ClassForm extends Component {
 
   render() {
     return (
-      <SplitterLayout>
+      <React.Fragment>
         <form className="inputclass classForm">
-          <div className="classroomname form-group">
+          <div className="classname form-group">
             
             <input
               type="text"
@@ -58,23 +57,23 @@ class ClassForm extends Component {
               autoFocus
               className="inputsize form-control"
               onChange={this.handleFieldChange}
-              id="className"
-              placeholder="Class name"
+              id="classroomName"
+              placeholder="Classroom name"
             />
           </div>
 
           <button
             type="button"
-            disabled={!this.state.className || this.state.saveEnabled}
-            onClick={this.constructNewClass}
+            disabled={!this.state.classroomName || this.state.saveEnabled}
+            onClick={this.constructNewClassroom}
             className="submitnewclass btn btn-primary"
           >
             Submit
           </button>
         </form>
-      </SplitterLayout>
+      </React.Fragment>
     );
   }
 }
 
-export default ClassForm;
+export default ClassroomForm;

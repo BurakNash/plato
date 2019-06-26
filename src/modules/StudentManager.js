@@ -10,7 +10,7 @@ export default {
         }).then(e => e.json());
     },
     getAll() {
-        return fetch(`${Settings.remoteURL}/students?_expand=teacher`).then(e => e.json());
+        return fetch(`${Settings.remoteURL}/students?_expand=teacher&_expand=classroom`).then(e => e.json());
     },
     addStudent(newStudent) {
         return fetch(`${Settings.remoteURL}/students`, {

@@ -6,11 +6,11 @@ import { withRouter } from "react-router";
 import OwnerManager from "../modules/OwnerManager";
 import SchoolManager from "../modules/SchoolManager";
 import TeacherManager from "../modules/TeacherManager";
-import ClassManager from "../modules/ClassManager";
+import ClassroomManager from "../modules/ClassroomManager";
 
-import ClassList from "./class/ClassList";
-import ClassForm from "./class/ClassForm";
-import ClassAssignment from "./class/ClassAssignment";
+import ClassroomList from "./classroom/ClassroomList";
+import ClassroomForm from "./classroom/ClassroomForm";
+import ClassroomAssignment from "./classroom/ClassroomAssignment";
 
 import StudentForm from "./student/StudentForm";
 import StudentEditForm from "./student/StudentEditForm";
@@ -41,12 +41,12 @@ class ApplicationViews extends Component {
     teachers: [],
     students: [],
     schools: [],
-    classes: []
+    classrooms: []
   };
-  _redirectToClassList = async () => {
-    const classes = await ClassManager.getAll();
-    this.props.history.push("/classes");
-    this.setState({ classes: classes });
+  _redirectToClassroomList = async () => {
+    const classrooms = await ClassroomManager.getAll();
+    this.props.history.push("/classrooms");
+    this.setState({ classrooms: classrooms });
   };
   _redirectToStudentList = async () => {
     const students = await StudentManager.getAll();
@@ -66,13 +66,13 @@ class ApplicationViews extends Component {
   deleteTeacher = async (id) => {
     await TeacherManager.delete(id).then(this._redirectToTeacherList);
   };
-  deleteClass = (id) => {
-    ClassManager.delete(id);
+  deleteClassroom = (id) => {
+    ClassroomManager.delete(id);
     //.then(this._redirectToStudentList);
   };
 
-  addClass = async (student) => {
-    await ClassManager.addClass(student);
+  addClassroom = async (student) => {
+    await ClassroomManager.addClassroom(student);
     //this._redirectToStudentList();
   };
 
@@ -100,8 +100,8 @@ class ApplicationViews extends Component {
     this.setState({ students: await TeacherManager.get() });
   };
 
-  getAllClasses = async () => {
-    this.setState({ classes: await ClassManager.getAll() });
+  getAllClassrooms = async () => {
+    this.setState({ classrooms: await ClassroomManager.getAll() });
   };
 
   getAllSchools = async () => {
@@ -120,10 +120,10 @@ class ApplicationViews extends Component {
   componentDidMount() {
     const newState = {};
 
-    ClassManager.getAll()
-      .then((classes) => (newState.classes = classes))
-      .then((classes) => (newState.classes = classes))
-      .then(() => ClassManager.getAll());
+    ClassroomManager.getAll()
+      .then((classrooms) => (newState.classrooms = classrooms))
+      .then((classrooms) => (newState.classrooms = classrooms))
+      .then(() => ClassroomManager.getAll());
 
     SchoolManager.getAll()
       .then((schools) => (newState.schools = schools))
@@ -174,28 +174,28 @@ class ApplicationViews extends Component {
         />
         <Route
         exact
-          path="/classes"
+          path="/classrooms"
           render={(props) => {
             return (
-              <ClassList
+              <ClassroomList
                 {...props}
-                getAll={this.props.getAllClasses}
-                classes={this.state.classes}
-                addClass={this.addClass}
+                getAll={this.props.getAllClassrooms}
+                classrooms={this.state.classrooms}
+                addClassroom={this.addClassroom}
               />
             );
           }}
         />
         <Route
         exact
-          path="/classes/new"
+          path="/classrooms/new"
           render={(props) => {
             if (this.isAuthenticated()) {
               return (
-                <ClassForm
+                <ClassroomForm
                   {...props}
-                  addClass={this.addClass}
-                  classes={this.state.classes}
+                  addClassroom={this.addClassroom}
+                  classrooms={this.state.classrooms}
                 />
               );
             } else {
@@ -205,16 +205,22 @@ class ApplicationViews extends Component {
         />
         <Route
           exact
-          path="/classes/:classId(\d+)"
+          path="/classrooms/:classroomId(\d+)"
           render={(props) => {
             if (this.isAuthenticated()) {
+              const classroom = this.state.classrooms.find(
+                (a) => a.id === parseInt(props.match.params.classroomId)
+              ) || { id: 404, name: "404", grade: "Student not found" };
               return (
-                <ClassAssignment
+                <ClassroomAssignment
                   {...props}
                   deleteTeacher={this.deleteTeacher}
                   teachers={this.state.teachers}
                   students={this.state.students}
                   schools={this.state.schools}
+                  classrooms={this.state.classrooms}
+                  classroom={classroom}
+                  
                 />
               );
             } else {
