@@ -181,6 +181,7 @@ class ApplicationViews extends Component {
                 {...props}
                 getAll={this.props.getAllClasses}
                 classes={this.state.classes}
+                addClass={this.addClass}
               />
             );
           }}

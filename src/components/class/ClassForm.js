@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 //import { Link } from "react-router-dom";
 import "./Classes.css";
+import SplitterLayout from 'react-splitter-layout';
+import 'react-splitter-layout/lib/index.css';
 
 class ClassForm extends Component {
   state = {
@@ -46,15 +48,15 @@ class ClassForm extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <SplitterLayout>
         <form className="inputclass classForm">
-          <div className="form-group">
-            <label htmlFor="className">Class name</label>
+          <div className="classroomname form-group">
+            
             <input
               type="text"
               required
               autoFocus
-              className="form-control"
+              className="inputsize form-control"
               onChange={this.handleFieldChange}
               id="className"
               placeholder="Class name"
@@ -65,12 +67,12 @@ class ClassForm extends Component {
             type="button"
             disabled={!this.state.className || this.state.saveEnabled}
             onClick={this.constructNewClass}
-            className="btn btn-primary"
+            className="submitnewclass btn btn-primary"
           >
             Submit
           </button>
         </form>
-      </React.Fragment>
+      </SplitterLayout>
     );
   }
 }

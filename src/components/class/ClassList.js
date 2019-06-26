@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Classes.css";
-
-
+import SplitterLayout from "react-splitter-layout";
+import "react-splitter-layout/lib/index.css";
+import ClassForm from "./ClassForm";
 
 class ClassList extends Component {
   componentDidMount() {}
@@ -12,32 +13,31 @@ class ClassList extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="centerChildren">
-          
-          <div>
-            <button
-              type="button"
-              className="btn btn-warning"
-              onClick={() => {
-                this.props.history.push("/classes/new");
-              }}
-            >
-              Add a New Class
-            </button>
-          </div>
-        </div>
+        <center>
+          <h2>Classrooms</h2>
 
-        <section className="list-group-item bg-transparent" >
+          <button
+            type="button"
+            className="addnewclass btn btn-warning"
+            onClick={() => {
+              this.props.history.push("/classes/new");
+            }}
+          >
+            Add a New Class
+          </button>
+        </center>
+        <div className="right list-group-item bg-transparent">
           {this.props.classes.map((business) => (
             <div key={`class-${business.id}`} class={business}>
               <div className="teacherlistname">
                 <Link className="teacher-link" to={`/classes/${business.id}`}>
-                  {business.name} 
+                  {business.name}
                 </Link>
               </div>
             </div>
           ))}
-        </section>
+        </div>
+       
       </React.Fragment>
     );
   }
