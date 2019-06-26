@@ -8,7 +8,9 @@ import SchoolManager from "../modules/SchoolManager";
 import TeacherManager from "../modules/TeacherManager";
 import ClassManager from "../modules/ClassManager";
 
-import ClassList from "./class/ClassList"
+import ClassList from "./class/ClassList";
+import ClassForm from "./class/ClassForm";
+import ClassAssignment from "./class/ClassAssignment";
 
 import StudentForm from "./student/StudentForm";
 import StudentEditForm from "./student/StudentEditForm";
@@ -31,6 +33,7 @@ import Register from "../users/Register";
 import AuthRoute from "./auth/AuthRoute";
 import "./App.css";
 
+
 class ApplicationViews extends Component {
   state = {
     owners: [],
@@ -38,9 +41,13 @@ class ApplicationViews extends Component {
     teachers: [],
     students: [],
     schools: [],
-    classes:[]
+    classes: []
   };
-
+  _redirectToClassList = async () => {
+    const classes = await ClassManager.getAll();
+    this.props.history.push("/classes");
+    this.setState({ classes: classes });
+  };
   _redirectToStudentList = async () => {
     const students = await StudentManager.getAll();
     this.props.history.push("/students");
@@ -60,7 +67,7 @@ class ApplicationViews extends Component {
     await TeacherManager.delete(id).then(this._redirectToTeacherList);
   };
   deleteClass = (id) => {
-    ClassManager.delete(id)
+    ClassManager.delete(id);
     //.then(this._redirectToStudentList);
   };
 
@@ -114,9 +121,9 @@ class ApplicationViews extends Component {
     const newState = {};
 
     ClassManager.getAll()
-    .then((classes) => (newState.classes = classes))
-    .then((classes) => (newState.classes = classes))
-    .then(() => ClassManager.getAll());
+      .then((classes) => (newState.classes = classes))
+      .then((classes) => (newState.classes = classes))
+      .then(() => ClassManager.getAll());
 
     SchoolManager.getAll()
       .then((schools) => (newState.schools = schools))
@@ -163,7 +170,7 @@ class ApplicationViews extends Component {
           studentOwners={this.state.studentOwners}
           deleteStudent={this.deleteStudent}
           loadStudents={this.getAllStudents}
-          teachers= {this.state.teachers}
+          teachers={this.state.teachers}
         />
         <Route
           path="/classes"
@@ -171,13 +178,45 @@ class ApplicationViews extends Component {
             return (
               <ClassList
                 {...props}
-                addClass={this.addClass}
                 getAll={this.props.getAllClasses}
-                classes= {this.state.classes}
-                teachers= {this.state.teachers}
-                students= {this.state.students}
+                classes={this.state.classes}
               />
             );
+          }}
+        />
+        <Route
+          path="/classes/new"
+          render={(props) => {
+            if (this.isAuthenticated()) {
+              return (
+                <ClassForm
+                  {...props}
+                  addClass={this.addClass}
+                  classes={this.state.classes}
+                />
+              );
+            } else {
+              return <Redirect to="/" />;
+            }
+          }}
+        />
+        <Route
+          exact
+          path="/classes/:classId(\d+)"
+          render={(props) => {
+            if (this.isAuthenticated()) {
+              return (
+                <ClassAssignment
+                  {...props}
+                  deleteTeacher={this.deleteTeacher}
+                  teachers={this.state.teachers}
+                  students={this.state.students}
+                  schools={this.state.schools}
+                />
+              );
+            } else {
+              return <Redirect to="/" />;
+            }
           }}
         />
 
