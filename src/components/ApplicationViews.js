@@ -173,6 +173,7 @@ class ApplicationViews extends Component {
           teachers={this.state.teachers}
         />
         <Route
+        exact
           path="/classes"
           render={(props) => {
             return (
@@ -185,6 +186,7 @@ class ApplicationViews extends Component {
           }}
         />
         <Route
+        exact
           path="/classes/new"
           render={(props) => {
             if (this.isAuthenticated()) {
