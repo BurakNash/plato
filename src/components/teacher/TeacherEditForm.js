@@ -9,6 +9,7 @@ export default class TeacherEditForm extends Component {
     subjects:"",
     position: "TEACHER",
     category: "teachers",
+    classroom: "",
     school: "",
 
     //info: ""
@@ -33,6 +34,7 @@ export default class TeacherEditForm extends Component {
         subjects: this.state.subjects,
         position: "TEACHER",
     category: "teachers",
+    classroomId : parseInt(this.state.classroomId),
         schoolId: parseInt(this.state.schoolId)
 
         //info: this.state.info
@@ -52,7 +54,8 @@ export default class TeacherEditForm extends Component {
         subjects: teachers.subjects,
         position: "TEACHER",
     category: "teachers",
-        schoolId: teachers.schoolId
+        schoolId: teachers.schoolId,
+        classroomId: teachers.classroomId
         //info: teachers.info
       });
     });

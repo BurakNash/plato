@@ -10,6 +10,7 @@ export default class TeacherForm extends Component {
     schoolId: "",
     position: "TEACHER",
     category: "teachers",
+    classroomId: 1,
     saveEnabled: false
   };
 
@@ -34,7 +35,8 @@ export default class TeacherForm extends Component {
         email: this.state.email,
         subjects: this.state.subjects,
         // Make sure the teacherId is saved to the database as a number since it is a foreign key.
-        schoolId: parseInt(this.state.schoolId)
+        schoolId: parseInt(this.state.schoolId),
+        classroomId: parseInt(this.state.classroomId)
       };
 
       // Create the teacher and redirect user to teacher list
