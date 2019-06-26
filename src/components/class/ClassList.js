@@ -27,11 +27,11 @@ class ClassList extends Component {
           </div>
         </div>
 
-        <section >
+        <section className="list-group-item bg-transparent" >
           {this.props.classes.map((business) => (
             <div key={`class-${business.id}`} class={business}>
-              <div className="classlistname">
-                <Link className="" to={`/classes/${business.id}`}>
+              <div className="teacherlistname">
+                <Link className="teacher-link" to={`/classes/${business.id}`}>
                   {business.name} 
                 </Link>
               </div>
