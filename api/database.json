@@ -1,4 +1,4 @@
-﻿{
+{
   "users": [
     {
       "email": "Burak@gmail.com",
@@ -33,8 +33,7 @@
       "id": 4
     }
   ],
-  "classroomTeachers": [
-  ],
+  "classroomTeachers": [],
   "classroomStudents": [],
   "rooms": [],
   "students": [
@@ -79,28 +78,6 @@
       "schoolId": 2,
       "id": 4,
       "classroomId": 1
-    },
-    {
-      "name": "hh",
-      "grade": "hh",
-      "parentContact": "hh",
-      "position": "STUDENT",
-      "category": "students",
-      "teacherId": 1,
-      "schoolId": 1,
-      "id": 5,
-      "classroomId": 1
-    },
-    {
-      "name": "uuu",
-      "grade": "uu",
-      "parentContact": "uu",
-      "position": "STUDENT",
-      "category": "students",
-      "teacherId": 4,
-      "schoolId": null,
-      "classroomId": 1,
-      "id": 6
     }
   ],
   "teachers": [
@@ -113,7 +90,6 @@
       "category": "teachers",
       "schoolId": 2,
       "classroomId": 1
-      
     },
     {
       "id": 3,
