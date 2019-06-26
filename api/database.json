@@ -1,4 +1,4 @@
-{
+﻿{
   "users": [
     {
       "email": "Burak@gmail.com",
@@ -7,107 +7,35 @@
       "id": 1
     }
   ],
-  "classes": [
+  "classrooms": [
     {
       "id": 1,
       "name": "Cohort-32",
-      "position": "CLASS",
-      "category": "classes"
+      "position": "CLASSROOM",
+      "category": "classrooms"
     },
     {
-      "name": "bbb",
-      "position": "CLASS",
-      "category": "classes",
-      "id": 2
+      "id": 2,
+      "name": "Cohort-33",
+      "position": "CLASSROOM",
+      "category": "classrooms"
     },
     {
-      "name": "nmm",
-      "position": "CLASS",
-      "category": "classes",
+      "name": "xxx",
+      "position": "CLASSROOM",
+      "category": "classrooms",
       "id": 3
     },
     {
-      "name": "p",
-      "position": "CLASS",
-      "category": "classes",
+      "name": "sss",
+      "position": "CLASSROOM",
+      "category": "classrooms",
       "id": 4
-    },
-    {
-      "name": "pppppppp",
-      "position": "CLASS",
-      "category": "classes",
-      "id": 5
-    },
-    {
-      "name": ";",
-      "position": "CLASS",
-      "category": "classes",
-      "id": 6
-    },
-    {
-      "name": "bbbddd",
-      "position": "CLASS",
-      "category": "classes",
-      "id": 7
-    },
-    {
-      "name": "aaaaaa",
-      "position": "CLASS",
-      "category": "classes",
-      "id": 8
-    },
-    {
-      "name": "ccccc",
-      "position": "CLASS",
-      "category": "classes",
-      "id": 9
-    },
-    {
-      "name": "yyy",
-      "position": "CLASS",
-      "category": "classes",
-      "id": 10
-    },
-    {
-      "name": "6666",
-      "position": "CLASS",
-      "category": "classes",
-      "id": 11
-    },
-    {
-      "name": "yyyyyy",
-      "position": "CLASS",
-      "category": "classes",
-      "id": 12
-    },
-    {
-      "name": "uuuu",
-      "position": "CLASS",
-      "category": "classes",
-      "id": 13
-    },
-    {
-      "name": "new classroom",
-      "position": "CLASS",
-      "category": "classes",
-      "id": 14
-    },
-    {
-      "name": "nnnn",
-      "position": "CLASS",
-      "category": "classes",
-      "id": 15
     }
   ],
-  "classTeachers": [
-    {
-      "id": 1,
-      "teacherId": 1,
-      "studentId": 1,
-      "classId": 2
-    }
+  "classroomTeachers": [
   ],
-  "classStudents": [],
+  "classroomStudents": [],
   "rooms": [],
   "students": [
     {
@@ -117,7 +45,8 @@
       "parentContact": "Obama",
       "position": "STUDENT",
       "category": "students",
-      "teacherId": 3
+      "teacherId": 3,
+      "classroomId": 1
     },
     {
       "id": 2,
@@ -126,7 +55,8 @@
       "parentContact": "None",
       "position": "STUDENT",
       "category": "students",
-      "teacherId": 3
+      "teacherId": 3,
+      "classroomId": 1
     },
     {
       "name": "Hughes Speer",
@@ -136,7 +66,8 @@
       "parentContact": "Secret",
       "teacherId": 3,
       "schoolId": 2,
-      "id": 3
+      "id": 3,
+      "classroomId": 1
     },
     {
       "name": "Too smart Student",
@@ -146,7 +77,8 @@
       "parentContact": "Nobel",
       "teacherId": 3,
       "schoolId": 2,
-      "id": 4
+      "id": 4,
+      "classroomId": 1
     },
     {
       "name": "hh",
@@ -156,7 +88,8 @@
       "category": "students",
       "teacherId": 1,
       "schoolId": 1,
-      "id": 5
+      "id": 5,
+      "classroomId": 1
     },
     {
       "name": "uuu",
@@ -166,7 +99,7 @@
       "category": "students",
       "teacherId": 4,
       "schoolId": null,
-      "classId": "Not Assigned",
+      "classroomId": 1,
       "id": 6
     }
   ],
@@ -178,7 +111,9 @@
       "subjects": "Math, Science, Hat Art",
       "position": "TEACHER",
       "category": "teachers",
-      "schoolId": 2
+      "schoolId": 2,
+      "classroomId": 1
+      
     },
     {
       "id": 3,
@@ -187,7 +122,8 @@
       "subjects": "High Five",
       "position": "TEACHER",
       "category": "teachers",
-      "schoolId": 1
+      "schoolId": 1,
+      "classroomId": 1
     },
     {
       "id": 4,
@@ -196,7 +132,8 @@
       "subjects": "Candies",
       "position": "TEACHER",
       "category": "teachers",
-      "schoolId": 2
+      "schoolId": 2,
+      "classroomId": 1
     },
     {
       "id": 5,
@@ -205,7 +142,8 @@
       "subjects": "Hacking",
       "position": "TEACHER",
       "category": "teachers",
-      "schoolId": 2
+      "schoolId": 2,
+      "classroomId": 1
     }
   ],
   "schools": [

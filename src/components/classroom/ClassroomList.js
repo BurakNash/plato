@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./Classes.css";
-import SplitterLayout from "react-splitter-layout";
-import "react-splitter-layout/lib/index.css";
-import ClassForm from "./ClassForm";
+import "./Classrooms.css";
 
-class ClassList extends Component {
+//import ClassroomForm from "./ClassroomForm";
+
+class ClassroomList extends Component {
   componentDidMount() {}
 
   componentDidUpdate(prevProps, prevState) {}
@@ -20,17 +19,17 @@ class ClassList extends Component {
             type="button"
             className="addnewclass btn btn-warning"
             onClick={() => {
-              this.props.history.push("/classes/new");
+              this.props.history.push("/classrooms/new");
             }}
           >
-            Add a New Class
+            Add a New Classroom
           </button>
         </center>
         <div className="right list-group-item bg-transparent">
-          {this.props.classes.map((business) => (
-            <div key={`class-${business.id}`} class={business}>
+          {this.props.classrooms.map((business) => (
+            <div key={`classroom-${business.id}`} classroom={business}>
               <div className="teacherlistname">
-                <Link className="teacher-link" to={`/classes/${business.id}`}>
+                <Link className="teacher-link" to={`/classrooms/${business.id}`}>
                   {business.name}
                 </Link>
               </div>
@@ -43,4 +42,4 @@ class ClassList extends Component {
   }
 }
 
-export default ClassList;
+export default ClassroomList;
