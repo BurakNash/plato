@@ -7,6 +7,7 @@ import OwnerManager from "../modules/OwnerManager";
 import SchoolManager from "../modules/SchoolManager";
 import TeacherManager from "../modules/TeacherManager";
 import ClassroomManager from "../modules/ClassroomManager";
+import ClassroomTeacherManager from "../modules/ClassroomTeacherManager";
 
 import ClassroomList from "./classroom/ClassroomList";
 import ClassroomForm from "./classroom/ClassroomForm";
@@ -33,7 +34,6 @@ import Register from "../users/Register";
 import AuthRoute from "./auth/AuthRoute";
 import "./App.css";
 
-
 class ApplicationViews extends Component {
   state = {
     owners: [],
@@ -41,7 +41,8 @@ class ApplicationViews extends Component {
     teachers: [],
     students: [],
     schools: [],
-    classrooms: []
+    classrooms: [],
+    classroomTeachers: []
   };
   _redirectToClassroomList = async () => {
     const classrooms = await ClassroomManager.getAll();
@@ -71,8 +72,13 @@ class ApplicationViews extends Component {
     //.then(this._redirectToStudentList);
   };
 
-  addClassroom = async (student) => {
-    await ClassroomManager.addClassroom(student);
+  addClassroom = async (classroom) => {
+    await ClassroomManager.addClassroom(classroom);
+    //this._redirectToStudentList();
+  };
+
+  addClassroomTeacher = async (classroomTeacher) => {
+    await ClassroomTeacherManager.addClassroomTeacher(classroomTeacher);
     //this._redirectToStudentList();
   };
 
@@ -91,19 +97,32 @@ class ApplicationViews extends Component {
     this._redirectToStudentList();
   };
 
+  updateClassroomTeacher = async (student) => {
+    await ClassroomManager.updateClassroomTeacher(student);
+    //this._redirectToStudentList();
+  };
+
   updateTeacher = async (teacher) => {
     await TeacherManager.updateTeacher(teacher);
     this._redirectToTeacherList();
   };
 
   getOneTeacher = async () => {
-    this.setState({ students: await TeacherManager.get() });
+    this.setState({ teachers: await TeacherManager.get() });
+  };
+  getOneStudent = async () => {
+    this.setState({ students: await StudentManager.get() });
   };
 
   getAllClassrooms = async () => {
     this.setState({ classrooms: await ClassroomManager.getAll() });
   };
 
+  getAllClassroomTeachers = async () => {
+    this.setState({
+      classroomTeachers: await ClassroomTeacherManager.getAll()
+    });
+  };
   getAllSchools = async () => {
     this.setState({ students: await SchoolManager.getAll() });
   };
@@ -120,10 +139,13 @@ class ApplicationViews extends Component {
   componentDidMount() {
     const newState = {};
 
-    ClassroomManager.getAll()
-      .then((classrooms) => (newState.classrooms = classrooms))
-      .then((classrooms) => (newState.classrooms = classrooms))
-      .then(() => ClassroomManager.getAll());
+    ClassroomManager.getAll().then(
+      (classrooms) => (newState.classrooms = classrooms)
+    );
+
+    ClassroomTeacherManager.getAll().then(
+      (classroomTeachers) => (newState.classroomTeachers = classroomTeachers)
+    );
 
     SchoolManager.getAll()
       .then((schools) => (newState.schools = schools))
@@ -172,45 +194,41 @@ class ApplicationViews extends Component {
           loadStudents={this.getAllStudents}
           teachers={this.state.teachers}
         />
-        <Route
-        exact
+        <AuthRoute
           path="/classrooms"
-          render={(props) => {
-            return (
-              <ClassroomList
-                {...props}
-                getAll={this.props.getAllClassrooms}
-                classrooms={this.state.classrooms}
-                addClassroom={this.addClassroom}
-              />
-            );
-          }}
+          Destination={ClassroomList}
+          classrooms={this.state.classrooms}
+          classroomTeachers={this.state.classroomTeachers}
+          addClassroom={this.addClassroom}
+          loadClassrooms={this.getAllClassrooms}
+          students={this.state.students}
+          teachers={this.state.teachers}
+          schools={this.state.schools}
+          addClassroomTeacher={this.addClassroomTeacher}
+          loadClassroomTeachers={this.getAllClassroomTeachers}
         />
-        <Route
-        exact
+
+        <AuthRoute
           path="/classrooms/new"
-          render={(props) => {
-            if (this.isAuthenticated()) {
-              return (
-                <ClassroomForm
-                  {...props}
-                  addClassroom={this.addClassroom}
-                  classrooms={this.state.classrooms}
-                />
-              );
-            } else {
-              return <Redirect to="/" />;
-            }
-          }}
+          Destination={ClassroomForm}
+          classrooms={this.state.classrooms}
+          classroomTeachers={this.state.classroomTeachers}
+          addClassroomTeacher={this.addClassroomTeacher}
+          loadClassroomTeachers={this.getAllClassroomTeachers}
+          teachers={this.state.teachers}
+          students={this.state.students}
+          schools={this.state.schools}
         />
+
         <Route
-          exact
+          Exact
           path="/classrooms/:classroomId(\d+)"
           render={(props) => {
             if (this.isAuthenticated()) {
               const classroom = this.state.classrooms.find(
                 (a) => a.id === parseInt(props.match.params.classroomId)
-              ) || { id: 404, name: "404", grade: "Student not found" };
+              );
+
               return (
                 <ClassroomAssignment
                   {...props}
@@ -220,7 +238,7 @@ class ApplicationViews extends Component {
                   schools={this.state.schools}
                   classrooms={this.state.classrooms}
                   classroom={classroom}
-                  
+                  addClassroom={this.addClassroom}
                 />
               );
             } else {
