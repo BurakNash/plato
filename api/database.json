@@ -1,4 +1,4 @@
-{
+﻿{
   "users": [
     {
       "email": "Burak@gmail.com",
@@ -9,33 +9,42 @@
   ],
   "classrooms": [
     {
-      "id": 1,
-      "name": "Cohort-32",
-      "position": "CLASSROOM",
-      "category": "classrooms"
-    },
-    {
-      "id": 2,
-      "name": "Cohort-33",
-      "position": "CLASSROOM",
-      "category": "classrooms"
-    },
-    {
-      "name": "xxx",
-      "position": "CLASSROOM",
-      "category": "classrooms",
+      "teacherId": 1,
+      "studentId": 1,
+      "schoolId": 1,
       "id": 3
     },
     {
-      "name": "sss",
-      "position": "CLASSROOM",
-      "category": "classrooms",
+      "teacherId": 1,
+      "studentId": 1,
+      "schoolId": 1,
       "id": 4
+    },
+    {
+      "teacherId": 5,
+      "studentId": 1,
+      "schoolId": 2,
+      "id": 5
+    },
+    {
+      "teacherId": 1,
+      "studentId": 3,
+      "schoolId": 1,
+      "id": 6
+    },
+    {
+      "teacherId": 4,
+      "studentId": 2,
+      "schoolId": 2,
+      "id": 7
     }
   ],
-  "classroomTeachers": [],
-  "classroomStudents": [],
-  "rooms": [],
+  "classroomTeachers": [
+    {
+      "teacherId": 1,
+      "id": 1
+    }
+  ],
   "students": [
     {
       "id": 1,
@@ -120,6 +129,14 @@
       "category": "teachers",
       "schoolId": 2,
       "classroomId": 1
+    },
+    {
+      "name": "zzz",
+      "email": "zzz",
+      "subjects": "zzz",
+      "schoolId": 1,
+      "classroomId": 1,
+      "id": 6
     }
   ],
   "schools": [

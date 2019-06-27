@@ -31,6 +31,7 @@ export default class TeacherForm extends Component {
       window.alert("Please select a teacher");
     } else {
       const teacher = {
+      
         name: this.state.teacherName,
         email: this.state.email,
         subjects: this.state.subjects,

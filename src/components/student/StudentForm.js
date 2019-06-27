@@ -57,7 +57,7 @@ export default class StudentForm extends Component {
               required
               autoFocus
               className="form-control"
-              onChange={this.handleFieldChange}
+              
               id="studentName"
               placeholder="Student name"
             />
@@ -68,7 +68,7 @@ export default class StudentForm extends Component {
               type="text"
               required
               className="form-control"
-              onChange={this.handleFieldChange}
+              
               id="grade"
               placeholder="Student grade"
             />
@@ -79,7 +79,7 @@ export default class StudentForm extends Component {
               type="text"
               required
               className="form-control"
-              onChange={this.handleFieldChange}
+             
               id="parentContact"
               placeholder="Parent Information"
             />
@@ -90,7 +90,7 @@ export default class StudentForm extends Component {
               defaultValue=""
               name="teacher"
               id="teacherId"
-              onChange={this.handleFieldChange}
+             
             >
               <option value="">Select an teacher</option>
               {this.props.teachers.map((e) => (

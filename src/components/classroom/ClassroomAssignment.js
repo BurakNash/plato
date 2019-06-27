@@ -1,8 +1,42 @@
 import React, { Component } from "react";
 //import { Link } from "react-router-dom";
 import "./Classrooms.css";
+//import StudentManager from "../../modules/StudentManager";
+
 
 class ClassroomAssignment extends Component {
+  state = {
+    classroomName: "",
+    teacherId: "",
+    studentId: "",
+    saveEnabled: false
+  };
+
+  // Update state whenever an input field is edited
+  handleFieldChange = (evt) => {
+    const stateToChange = {};
+    stateToChange[evt.target.id] = evt.target.value;
+    this.setState(stateToChange);
+  };
+
+
+  constructNewClassroom = (evt) => {
+    evt.preventDefault();
+    
+      const classroom = {
+        name: this.state.teacherName,
+        teacherId: parseInt(this.state.teacherId),
+        studentId: parseInt(this.state.studentId),
+        
+      };
+
+      // Create the teacher and redirect user to teacher list
+      this.props.addClassroom(classroom);
+
+      this.setState({ saveEnabled: true });
+    
+  };
+
   constructor(props) {
     super(props);
     //this.state = {value: 'coconut'};
@@ -24,16 +58,27 @@ class ClassroomAssignment extends Component {
     event.preventDefault();
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    
+  }
 
   render() {
 
     const classroom = this.props.classrooms.find(
       (a) => a.id === parseInt(this.props.match.params.classroomId)
-    ) || { id: 404, name: "404", grade: "School not found" };
+    );
 
     return (
       <React.Fragment>
+        <button
+            type="button"
+            
+            onClick={this.constructNewClassroom}
+            className="submitnewclass btn btn-primary"
+            
+          >
+            Submit
+          </button>
         <div className="form-group">
           <h4>Assign to a Teacher</h4>
           <select
@@ -71,13 +116,13 @@ class ClassroomAssignment extends Component {
         </div>
 
         <div className="">
-          <h4>Assign to a Student</h4>
+          <h4>Assign to a Teacher</h4>
           <select
             className="selectlist"
             multiple={true}
             value={this.props.value}
-            name="student"
-            id="studentId"
+            name="teacher"
+            id="teacherId"
             onChange={this.handleFieldChange}
           >
             {this.props.teachers

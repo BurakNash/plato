@@ -1,9 +1,9 @@
 import Settings from "./Settings";
 
 export default {
-    get(id) {
-        return fetch(`${Settings.remoteURL}/students/${id}`).then(e => e.json());
-    },
+  get(id) {
+    return fetch(`${Settings.remoteURL}/students/${id}`).then((e) => e.json());
+  },
     delete(id) {
         return fetch(`${Settings.remoteURL}/students/${id}`, {
             "method": "DELETE"
