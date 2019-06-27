@@ -38,7 +38,7 @@ class ClassroomList extends Component {
                     className="teacher-link"
                     to={`/classrooms/${business.id}`}
                   >
-                    {business.teacher.name}
+                    {business.name}
                   </Link>
                 </div>
               </div>

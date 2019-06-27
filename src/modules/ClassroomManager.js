@@ -10,7 +10,7 @@ delete(id) {
     }).then(e => e.json());
 },
 getAll() {
-    return fetch(`${Settings.remoteURL}/classrooms?_expand=school&_expand=student&_expand=teacher`).then(e => e.json());
+    return fetch(`${Settings.remoteURL}/classrooms`).then(e => e.json());
 },
 addClassroom(newClassroom) {
     return fetch(`${Settings.remoteURL}/classrooms`, {

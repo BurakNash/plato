@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 //import { Link } from "react-router-dom";
 import "./Classrooms.css";
-//import StudentManager from "../../modules/StudentManager";
 
 
-class ClassroomAssignment extends Component {
+class ClassroomAssignments extends Component {
   state = {
-    classroomName: "",
+    classroomId:"",
     teacherId: "",
-    studentId: "",
+  
     saveEnabled: false
   };
 
@@ -19,66 +18,36 @@ class ClassroomAssignment extends Component {
     this.setState(stateToChange);
   };
 
-
-  constructNewClassroom = (evt) => {
+  /*
+            Local method for validation, creating class object, and
+            invoking the function reference passed from parent component
+         */
+  constructNewClassroomTeacher = (evt) => {
     evt.preventDefault();
-    
-      const classroom = {
-        name: this.state.teacherName,
-        teacherId: parseInt(this.state.teacherId),
-        studentId: parseInt(this.state.studentId),
+    if (this.state.classroomId === null) {
+      window.alert("Please select a class");
+    } else {
+      const classroomTeacher = {
         
+        teacherId: parseInt(this.state.teacherId),
+        classroomId: this.props.match.params.classroomId
       };
-
-      // Create the teacher and redirect user to teacher list
-      this.props.addClassroom(classroom);
-
+     
+      this.props.addClassroomTeacher(classroomTeacher);
+      this.props.loadClassroomTeachers()
+      
+      //this.props.history.push("/classrooms");
+      //window.location.href = "/classrooms";
       this.setState({ saveEnabled: true });
-    
+    }
   };
 
-  constructor(props) {
-    super(props);
-    //this.state = {value: 'coconut'};
-    this.state = { value: ["coconut"] };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    //this.setState({value: event.option});
-    this.setState({
-      value: Array.from(event.target.selectedOptions, (item) => item.value)
-    });
-  }
-
-  handleSubmit(event) {
-    alert("Your favorite flavor is: " + this.state.value);
-    event.preventDefault();
-  }
-
-  componentDidMount() {
-    
-  }
+  componentDidMount() {}
 
   render() {
-
-    const classroom = this.props.classrooms.find(
-      (a) => a.id === parseInt(this.props.match.params.classroomId)
-    );
-
     return (
       <React.Fragment>
-        <button
-            type="button"
-            
-            onClick={this.constructNewClassroom}
-            className="submitnewclass btn btn-primary"
-            
-          >
-            Submit
-          </button>
+        <form className="inputclass classForm">
         <div className="form-group">
           <h4>Assign to a Teacher</h4>
           <select
@@ -90,72 +59,61 @@ class ClassroomAssignment extends Component {
             onChange={this.handleFieldChange}
           >
             {this.props.teachers.map((e) => (
-              <option key={e.id} id={e.id} value={e.id}>
+              <option 
+              
+              onDoubleClick= {this.constructNewClassroomTeacher}
+              
+              
+              key={e.id}
+              
+              id={e.id} value={e.id}>
                 {e.name}
+                
               </option>
             ))}
           </select>
         </div>
-
-        <div className="">
-          <h4>Assign to a Student</h4>
-          <select
-            className="selectlist"
-            multiple={true}
-            value={this.props.value}
-            name="student"
-            id="studentId"
-            onChange={this.handleFieldChange}
-          >
-            {this.props.students.map((e) => (
-              <option key={e.id} id={e.id} value={e.id}>
-                {e.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="">
+            
+        <div className="form-group">
           <h4>Assign to a Teacher</h4>
           <select
             className="selectlist"
             multiple={true}
             value={this.props.value}
-            name="teacher"
-            id="teacherId"
+            name="classroomTeacher"
+            id="classroomTeacherId"
             onChange={this.handleFieldChange}
           >
-            {this.props.teachers
-              .filter((e) => e.classroomId === classroom.id)
-              .map((e) => (
-                <option key={e.id} teacher={e} id={e.id} value={e.id}>
-                  {e.name}
-                </option>
-              ))}
+            {this.props.classroomTeachers.map((e) => (
+              <option 
+              onDoubleClick= {this.constructNewClassroomTeacher }
+              
+              
+              key={e.id}
+              
+              id={e.id} value={e.id}>
+                {e.teacher.name}
+                
+              </option>
+            ))}
           </select>
         </div>
-        <div className="">
-          <h4>Assign to a Student</h4>
-          <select
-            className="selectlist"
-            multiple={true}
-            value={this.props.value}
-            name="student"
-            id="studentId"
-            onChange={this.handleFieldChange}
+
+      
+
+          <button
+            type="button"
+            disabled={!this.state.teacherId || this.state.saveEnabled}
+            onClick={this.constructNewClassroom}
+            className="submitnewclass btn btn-primary"
+            href='/classrooms'
           >
-            {this.props.students
-              .filter((e) => e.classroomId === classroom.id)
-              .map((e) => (
-                <option key={e.id} student={e} id={e.id} value={e.id}>
-                  {e.name}
-                </option>
-              ))}
-          </select>
-        </div>
+            Submit
+          </button>
+        </form>
       </React.Fragment>
     );
   }
 }
 
-export default ClassroomAssignment;
+export default ClassroomAssignments;
