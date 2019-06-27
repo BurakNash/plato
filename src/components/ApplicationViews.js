@@ -8,6 +8,7 @@ import SchoolManager from "../modules/SchoolManager";
 import TeacherManager from "../modules/TeacherManager";
 import ClassroomManager from "../modules/ClassroomManager";
 import ClassroomTeacherManager from "../modules/ClassroomTeacherManager";
+import ClassroomStudentManager from "../modules/ClassroomStudentManager";
 
 import ClassroomList from "./classroom/ClassroomList";
 import ClassroomForm from "./classroom/ClassroomForm";
@@ -42,7 +43,8 @@ class ApplicationViews extends Component {
     students: [],
     schools: [],
     classrooms: [],
-    classroomTeachers: []
+    classroomTeachers: [],
+    classroomStudents: []
   };
   _redirectToClassroomList = async () => {
     const classrooms = await ClassroomManager.getAll();
@@ -79,9 +81,13 @@ class ApplicationViews extends Component {
 
   addClassroomTeacher = async (classroomTeacher) => {
     await 
-    
-    
     ClassroomTeacherManager.addClassroomTeacher(classroomTeacher);
+    //this._redirectToStudentList();
+  };
+
+  addClassroomStudent = async (classroomStudent) => {
+    await 
+    ClassroomStudentManager.addClassroomStudent(classroomStudent);
     //this._redirectToStudentList();
   };
 
@@ -102,6 +108,11 @@ class ApplicationViews extends Component {
 
   updateClassroomTeacher = async (student) => {
     await ClassroomManager.updateClassroomTeacher(student);
+    //this._redirectToStudentList();
+  };
+
+  updateClassroomStudent = async (student) => {
+    await ClassroomManager.updateClassroomStudent(student);
     //this._redirectToStudentList();
   };
 
@@ -126,6 +137,12 @@ class ApplicationViews extends Component {
       classroomTeachers: await ClassroomTeacherManager.getAll()
     });
   };
+
+  getAllClassroomStudents = async () => {
+    this.setState({
+      classroomStudents: await ClassroomStudentManager.getAll()
+    });
+  };
   getAllSchools = async () => {
     this.setState({ students: await SchoolManager.getAll() });
   };
@@ -148,6 +165,10 @@ class ApplicationViews extends Component {
 
     ClassroomTeacherManager.getAll().then(
       (classroomTeachers) => (newState.classroomTeachers = classroomTeachers)
+    );
+
+    ClassroomStudentManager.getAll().then(
+      (classroomStudents) => (newState.classroomStudents = classroomStudents)
     );
 
     SchoolManager.getAll()
@@ -202,6 +223,7 @@ class ApplicationViews extends Component {
           Destination={ClassroomList}
           classrooms={this.state.classrooms}
           classroomTeachers={this.state.classroomTeachers}
+          classroomStudents={this.state.classroomStudents}
           addClassroom={this.addClassroom}
           loadClassrooms={this.getAllClassrooms}
           students={this.state.students}
@@ -209,6 +231,8 @@ class ApplicationViews extends Component {
           schools={this.state.schools}
           addClassroomTeacher={this.addClassroomTeacher}
           loadClassroomTeachers={this.getAllClassroomTeachers}
+          addClassroomStudent={this.addClassroomStudent}
+          loadClassroomStudents={this.getAllClassroomStudents}
         />
 
         <AuthRoute
@@ -218,6 +242,9 @@ class ApplicationViews extends Component {
           classroomTeachers={this.state.classroomTeachers}
           addClassroomTeacher={this.addClassroomTeacher}
           loadClassroomTeachers={this.getAllClassroomTeachers}
+          classroomStudents={this.state.classroomStudents}
+          addClassroomStudent={this.addClassroomStudent}
+          loadClassroomStudents={this.getAllClassroomStudents}
           teachers={this.state.teachers}
           students={this.state.students}
           schools={this.state.schools}
@@ -239,6 +266,9 @@ class ApplicationViews extends Component {
           classroomTeachers={this.state.classroomTeachers}
           addClassroomTeacher={this.addClassroomTeacher}
           loadClassroomTeachers={this.getAllClassroomTeachers}
+          classroomStudents={this.state.classroomStudents}
+          addClassroomStudent={this.addClassroomStudent}
+          loadClassroomStudents={this.getAllClassroomStudents}
           teachers={this.state.teachers}
           students={this.state.students}
           schools={this.state.schools}

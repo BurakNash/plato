@@ -18,69 +18,85 @@
   "classroomTeachers": [
     {
       "teacherId": 1,
+      "classroomId": "1",
       "id": 1
     },
     {
-      "teacherId": 4,
+      "teacherId": 5,
+      "classroomId": "1",
       "id": 2
     },
     {
-      "teacherId": 4,
+      "teacherId": 5,
+      "classroomId": "1",
       "id": 3
     },
     {
-      "teacherId": 4,
+      "teacherId": 1,
+      "classroomId": "1",
       "id": 4
     },
     {
-      "teacherId": 6,
+      "teacherId": 1,
+      "classroomId": "1",
       "id": 5
     },
     {
-      "teacherId": 6,
+      "teacherId": 4,
+      "classroomId": "1",
       "id": 6
     },
     {
-      "teacherId": 3,
+      "teacherId": 4,
+      "classroomId": "1",
       "id": 7
     },
     {
-      "teacherId": 1,
+      "teacherId": 3,
+      "classroomId": "1",
       "id": 8
-    },
+    }
+  ],
+  "classroomStudents": [
     {
-      "teacherId": 1,
-      "id": 9
-    },
-    {
-      "teacherId": 4,
-      "id": 10
-    },
-    {
-      "teacherId": 6,
-      "id": 11
-    },
-    {
-      "teacherId": 6,
-      "id": 12
-    },
-    {
-      "teacherId": 5,
-      "id": 13
-    },
-    {
-      "teacherId": 5,
-      "id": 14
-    },
-    {
-      "teacherId": 4,
+      "studentId": 1,
       "classroomId": "1",
-      "id": 15
+      "id": 1
     },
     {
-      "teacherId": 5,
+      "studentId": 3,
       "classroomId": "1",
-      "id": 16
+      "id": 2
+    },
+    {
+      "studentId": 1,
+      "classroomId": "1",
+      "id": 3
+    },
+    {
+      "studentId": 2,
+      "classroomId": "1",
+      "id": 4
+    },
+    {
+      "studentId": 4,
+      "classroomId": "1",
+      "id": 5
+    },
+    {
+      "studentId": 4,
+      "classroomId": "1",
+      "id": 6
+    },
+    {
+      "studentId": 1,
+      "classroomId": "1",
+      "id": 7
+    },
+    {
+      "studentId": 1,
+      "classroomId": "1",
+      "id": 8
     }
   ],
   "students": [
