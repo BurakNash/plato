@@ -78,7 +78,10 @@ class ApplicationViews extends Component {
   };
 
   addClassroomTeacher = async (classroomTeacher) => {
-    await ClassroomTeacherManager.addClassroomTeacher(classroomTeacher);
+    await 
+    
+    
+    ClassroomTeacherManager.addClassroomTeacher(classroomTeacher);
     //this._redirectToStudentList();
   };
 
@@ -232,13 +235,13 @@ class ApplicationViews extends Component {
               return (
                 <ClassroomAssignment
                   {...props}
-                  deleteTeacher={this.deleteTeacher}
-                  teachers={this.state.teachers}
-                  students={this.state.students}
-                  schools={this.state.schools}
                   classrooms={this.state.classrooms}
-                  classroom={classroom}
-                  addClassroom={this.addClassroom}
+          classroomTeachers={this.state.classroomTeachers}
+          addClassroomTeacher={this.addClassroomTeacher}
+          loadClassroomTeachers={this.getAllClassroomTeachers}
+          teachers={this.state.teachers}
+          students={this.state.students}
+          schools={this.state.schools}
                 />
               );
             } else {

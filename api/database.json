@@ -1,4 +1,4 @@
-﻿{
+{
   "users": [
     {
       "email": "Burak@gmail.com",
@@ -9,40 +9,78 @@
   ],
   "classrooms": [
     {
-      "teacherId": 1,
+      "name": "Cohort-32",
       "studentId": 1,
       "schoolId": 1,
-      "id": 3
-    },
-    {
-      "teacherId": 1,
-      "studentId": 1,
-      "schoolId": 1,
-      "id": 4
-    },
-    {
-      "teacherId": 5,
-      "studentId": 1,
-      "schoolId": 2,
-      "id": 5
-    },
-    {
-      "teacherId": 1,
-      "studentId": 3,
-      "schoolId": 1,
-      "id": 6
-    },
-    {
-      "teacherId": 4,
-      "studentId": 2,
-      "schoolId": 2,
-      "id": 7
+      "id": 1
     }
   ],
   "classroomTeachers": [
     {
       "teacherId": 1,
       "id": 1
+    },
+    {
+      "teacherId": 4,
+      "id": 2
+    },
+    {
+      "teacherId": 4,
+      "id": 3
+    },
+    {
+      "teacherId": 4,
+      "id": 4
+    },
+    {
+      "teacherId": 6,
+      "id": 5
+    },
+    {
+      "teacherId": 6,
+      "id": 6
+    },
+    {
+      "teacherId": 3,
+      "id": 7
+    },
+    {
+      "teacherId": 1,
+      "id": 8
+    },
+    {
+      "teacherId": 1,
+      "id": 9
+    },
+    {
+      "teacherId": 4,
+      "id": 10
+    },
+    {
+      "teacherId": 6,
+      "id": 11
+    },
+    {
+      "teacherId": 6,
+      "id": 12
+    },
+    {
+      "teacherId": 5,
+      "id": 13
+    },
+    {
+      "teacherId": 5,
+      "id": 14
+    },
+    {
+      "teacherId": 4,
+      "classroomId": "1",
+      "id": 15
+    },
+    {
+      "teacherId": 5,
+      "classroomId": "1",
+      "id": 16
     }
   ],
   "students": [

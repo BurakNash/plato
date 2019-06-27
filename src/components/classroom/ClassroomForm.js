@@ -34,6 +34,7 @@ class ClassroomForm extends Component {
       };
      
       this.props.addClassroomTeacher(classroomTeacher);
+      this.props.loadClassroomTeachers()
       
       //this.props.history.push("/classrooms");
       //window.location.href = "/classrooms";
