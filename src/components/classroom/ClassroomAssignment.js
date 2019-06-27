@@ -11,6 +11,12 @@ class ClassroomAssignments extends Component {
     saveEnabled: false
   };
 
+  state = {
+    studentId: "",
+    classroomId:"",
+    saveEnabled: false
+  };
+
   // Update state whenever an input field is edited
   handleFieldChange = (evt) => {
     const stateToChange = {};
@@ -35,6 +41,26 @@ class ClassroomAssignments extends Component {
      
       this.props.addClassroomTeacher(classroomTeacher);
       this.props.loadClassroomTeachers()
+      
+      //this.props.history.push("/classrooms");
+      //window.location.href = "/classrooms";
+      this.setState({ saveEnabled: true });
+    }
+  };
+
+  constructNewClassroomStudent = (evt) => {
+    evt.preventDefault();
+    if (this.state.classroomId === null) {
+      window.alert("Please select a class");
+    } else {
+      const classroomStudent = {
+        
+        studentId: parseInt(this.state.studentId),
+        classroomId: this.props.match.params.classroomId
+      };
+     
+      this.props.addClassroomStudent(classroomStudent);
+      this.props.loadClassroomStudents()
       
       //this.props.history.push("/classrooms");
       //window.location.href = "/classrooms";
@@ -100,10 +126,63 @@ class ClassroomAssignments extends Component {
         </div>
 
       
+{/*----------------------------------------*/}
+
+
+<div className="form-group">
+          <h4>Assign to a Student</h4>
+          <select
+            className="selectlist"
+            multiple={true}
+            value={this.props.value}
+            name="student"
+            id="studentId"
+            onChange={this.handleFieldChange}
+          >
+            {this.props.students.map((e) => (
+              <option 
+              
+              onDoubleClick= {this.constructNewClassroomStudent}
+              
+              
+              key={e.id}
+              
+              id={e.id} value={e.id}>
+                {e.name}
+                
+              </option>
+            ))}
+          </select>
+        </div>
+            
+        <div className="form-group">
+          <h4>Assign to a Student</h4>
+          <select
+            className="selectlist"
+            multiple={true}
+            value={this.props.value}
+            name="classroomStudent"
+            id="classroomStudentId"
+            onChange={this.handleFieldChange}
+          >
+            {this.props.classroomStudents.map((e) => (
+              <option 
+              onDoubleClick= {this.constructNewClassroomStudent }
+              
+              
+              key={e.id}
+              
+              id={e.id} value={e.id}>
+                {e.student.name}
+                
+              </option>
+            ))}
+          </select>
+        </div>
 
           <button
             type="button"
-            disabled={!this.state.teacherId || this.state.saveEnabled}
+            disabled={!this.state.studentId || this.state.saveEnabled}
             onClick={this.constructNewClassroom}
             className="submitnewclass btn btn-primary"
             href='/classrooms'
