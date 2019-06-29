@@ -69,6 +69,12 @@ class ApplicationViews extends Component {
   deleteTeacher = async (id) => {
     await TeacherManager.delete(id).then(this._redirectToTeacherList);
   };
+  deleteClassroomTeacher = async (id) => {
+    await ClassroomTeacherManager.delete(id).then(this.getAllClassroomTeachers);
+  };
+  deleteClassroomStudent = async (id) => {
+    await ClassroomStudentManager.delete(id).then(this.getAllClassroomStudents);
+  };
   deleteClassroom = (id) => {
     ClassroomManager.delete(id);
     //.then(this._redirectToStudentList);
@@ -80,15 +86,15 @@ class ApplicationViews extends Component {
   };
 
   addClassroomTeacher = async (classroomTeacher) => {
-    await 
-    ClassroomTeacherManager.addClassroomTeacher(classroomTeacher);
-    //this._redirectToStudentList();
+    await ClassroomTeacherManager.addClassroomTeacher(classroomTeacher).then(
+      this.getAllClassroomTeachers
+    );
   };
 
   addClassroomStudent = async (classroomStudent) => {
-    await 
-    ClassroomStudentManager.addClassroomStudent(classroomStudent);
-    //this._redirectToStudentList();
+    await ClassroomStudentManager.addClassroomStudent(classroomStudent).then(
+      this.getAllClassroomStudents
+    );
   };
 
   addStudent = async (student) => {
@@ -225,6 +231,7 @@ class ApplicationViews extends Component {
           classroomTeachers={this.state.classroomTeachers}
           classroomStudents={this.state.classroomStudents}
           addClassroom={this.addClassroom}
+          deleteClassroomTeacher={this.deleteClassroomTeacher}
           loadClassrooms={this.getAllClassrooms}
           students={this.state.students}
           teachers={this.state.teachers}
@@ -245,6 +252,7 @@ class ApplicationViews extends Component {
           classroomStudents={this.state.classroomStudents}
           addClassroomStudent={this.addClassroomStudent}
           loadClassroomStudents={this.getAllClassroomStudents}
+          deleteClassroomTeacher={this.deleteClassroomTeacher}
           teachers={this.state.teachers}
           students={this.state.students}
           schools={this.state.schools}
@@ -255,23 +263,21 @@ class ApplicationViews extends Component {
           path="/classrooms/:classroomId(\d+)"
           render={(props) => {
             if (this.isAuthenticated()) {
-              const classroom = this.state.classrooms.find(
-                (a) => a.id === parseInt(props.match.params.classroomId)
-              );
-
               return (
                 <ClassroomAssignment
                   {...props}
                   classrooms={this.state.classrooms}
-          classroomTeachers={this.state.classroomTeachers}
-          addClassroomTeacher={this.addClassroomTeacher}
-          loadClassroomTeachers={this.getAllClassroomTeachers}
-          classroomStudents={this.state.classroomStudents}
-          addClassroomStudent={this.addClassroomStudent}
-          loadClassroomStudents={this.getAllClassroomStudents}
-          teachers={this.state.teachers}
-          students={this.state.students}
-          schools={this.state.schools}
+                  classroomTeachers={this.state.classroomTeachers}
+                  addClassroomTeacher={this.addClassroomTeacher}
+                  loadClassroomTeachers={this.getAllClassroomTeachers}
+                  classroomStudents={this.state.classroomStudents}
+                  deleteClassroomTeacher={this.deleteClassroomTeacher}
+                  deleteClassroomStudent={this.deleteClassroomStudent}
+                  addClassroomStudent={this.addClassroomStudent}
+                  loadClassroomStudents={this.getAllClassroomStudents}
+                  teachers={this.state.teachers}
+                  students={this.state.students}
+                  schools={this.state.schools}
                 />
               );
             } else {

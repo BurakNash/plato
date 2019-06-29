@@ -2,18 +2,16 @@ import React, { Component } from "react";
 //import { Link } from "react-router-dom";
 import "./Classrooms.css";
 
-
 class ClassroomAssignments extends Component {
   state = {
-    classroomId:"",
+    classroomId: "",
     teacherId: "",
-  
+
     saveEnabled: false
   };
-
   state = {
     studentId: "",
-    classroomId:"",
+    classroomId: "",
     saveEnabled: false
   };
 
@@ -28,25 +26,6 @@ class ClassroomAssignments extends Component {
             Local method for validation, creating class object, and
             invoking the function reference passed from parent component
          */
-  constructNewClassroomTeacher = (evt) => {
-    evt.preventDefault();
-    if (this.state.classroomId === null) {
-      window.alert("Please select a class");
-    } else {
-      const classroomTeacher = {
-        
-        teacherId: parseInt(this.state.teacherId),
-        classroomId: this.props.match.params.classroomId
-      };
-     
-      this.props.addClassroomTeacher(classroomTeacher);
-      this.props.loadClassroomTeachers()
-      
-      //this.props.history.push("/classrooms");
-      //window.location.href = "/classrooms";
-      this.setState({ saveEnabled: true });
-    }
-  };
 
   constructNewClassroomStudent = (evt) => {
     evt.preventDefault();
@@ -54,14 +33,31 @@ class ClassroomAssignments extends Component {
       window.alert("Please select a class");
     } else {
       const classroomStudent = {
-        
         studentId: parseInt(this.state.studentId),
         classroomId: this.props.match.params.classroomId
       };
-     
+
       this.props.addClassroomStudent(classroomStudent);
-      this.props.loadClassroomStudents()
-      
+      this.props.loadClassroomStudents();
+
+      //this.props.history.push("/classrooms");
+      //window.location.href = "/classrooms";
+      this.setState({ saveEnabled: true });
+    }
+  };
+
+  constructNewClassroomTeacher = (evt) => {
+    //evt.preventDefault();
+    if (this.state.classroomId === null) {
+      window.alert("Please select a class");
+    } else {
+      const classroomTeacher = {
+        teacherId: parseInt(this.state.teacherId),
+        classroomId: this.props.match.params.classroomId
+      };
+
+      this.props.addClassroomTeacher(classroomTeacher);
+
       //this.props.history.push("/classrooms");
       //window.location.href = "/classrooms";
       this.setState({ saveEnabled: true });
@@ -73,63 +69,57 @@ class ClassroomAssignments extends Component {
   render() {
     return (
       <React.Fragment>
-        <form className="inputclass classForm">
-        <div className="form-group">
-          <h4>Assign to a Teacher</h4>
-          <select
-            className="selectlist"
-            multiple={true}
-            value={this.props.value}
-            name="teacher"
-            id="teacherId"
-            onChange={this.handleFieldChange}
+        
+          <div className="form-group">
+            <h4>Assign to a Teacher</h4>
+            <select
+              className="selectlist"
+              multiple={true}
+              value={this.props.value}
+              name="teacher"
+              id="teacherId"
+              onChange={this.handleFieldChange}
+            >
+              {this.props.teachers.map((e) => (
+                <option
+                  onDoubleClick={this.constructNewClassroomTeacher}
+                  key={e.id}
+                  id={e.id}
+                  value={e.id}
+                >
+                  {e.name}
+                </option>
+              ))}
+            </select>
+          </div>
+       
+
+        {this.props.classroomTeachers.map((ct) => (
+          <div
+            className="studentcard"
+            key={ct.id}
+            id={ct.id}
+            value={ct.id}
+            history={this.props.history}
           >
-            {this.props.teachers.map((e) => (
-              <option 
-              
-              onDoubleClick= {this.constructNewClassroomTeacher}
-              
-              
-              key={e.id}
-              
-              id={e.id} value={e.id}>
-                {e.name}
-                
-              </option>
-            ))}
-          </select>
-        </div>
-            
+            <div className="studentname">
+              {ct.teacher.name}
+
+              <div className="buttons">
+                <button
+                  onClick={() => this.props.deleteClassroomTeacher(ct.id)}
+                  className=""
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/*----------------STUDENT------------------------*/}
+
         <div className="form-group">
-          <h4>Assign to a Teacher</h4>
-          <select
-            className="selectlist"
-            multiple={true}
-            value={this.props.value}
-            name="classroomTeacher"
-            id="classroomTeacherId"
-            onChange={this.handleFieldChange}
-          >
-            {this.props.classroomTeachers.map((e) => (
-              <option 
-              onDoubleClick= {this.constructNewClassroomTeacher }
-              
-              
-              key={e.id}
-              
-              id={e.id} value={e.id}>
-                {e.teacher.name}
-                
-              </option>
-            ))}
-          </select>
-        </div>
-
-      
-{/*----------------------------------------*/}
-
-
-<div className="form-group">
           <h4>Assign to a Student</h4>
           <select
             className="selectlist"
@@ -140,56 +130,40 @@ class ClassroomAssignments extends Component {
             onChange={this.handleFieldChange}
           >
             {this.props.students.map((e) => (
-              <option 
-              
-              onDoubleClick= {this.constructNewClassroomStudent}
-              
-              
-              key={e.id}
-              
-              id={e.id} value={e.id}>
+              <option
+                onDoubleClick={this.constructNewClassroomStudent}
+                key={e.id}
+                id={e.id}
+                value={e.id}
+              >
                 {e.name}
-                
-              </option>
-            ))}
-          </select>
-        </div>
-            
-        <div className="form-group">
-          <h4>Assign to a Student</h4>
-          <select
-            className="selectlist"
-            multiple={true}
-            value={this.props.value}
-            name="classroomStudent"
-            id="classroomStudentId"
-            onChange={this.handleFieldChange}
-          >
-            {this.props.classroomStudents.map((e) => (
-              <option 
-              onDoubleClick= {this.constructNewClassroomStudent }
-              
-              
-              key={e.id}
-              
-              id={e.id} value={e.id}>
-                {e.student.name}
-                
               </option>
             ))}
           </select>
         </div>
 
-          <button
-            type="button"
-            disabled={!this.state.studentId || this.state.saveEnabled}
-            onClick={this.constructNewClassroom}
-            className="submitnewclass btn btn-primary"
-            href='/classrooms'
+        {this.props.classroomStudents.map((ct) => (
+          <div
+            className="studentcard"
+            key={ct.id}
+            id={ct.id}
+            value={ct.id}
+            history={this.props.history}
           >
-            Submit
-          </button>
-        </form>
+            <div className="studentname">
+              {ct.student.name}
+
+              <div className="buttons">
+                <button
+                  onClick={() => this.props.deleteClassroomStudent(ct.id)}
+                  className=""
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
       </React.Fragment>
     );
   }
