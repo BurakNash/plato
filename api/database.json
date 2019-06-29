@@ -7,14 +7,7 @@
       "id": 1
     }
   ],
-  "classrooms": [
-    {
-      "name": "Cohort-32",
-      "studentId": 1,
-      "schoolId": 1,
-      "id": 1
-    }
-  ],
+  "classrooms": [],
   "classroomTeachers": [
     {
       "teacherId": 3,
@@ -34,27 +27,12 @@
   ],
   "classroomStudents": [
     {
-      "studentId": 1,
-      "classroomId": "1",
-      "id": 1
-    },
-    {
       "studentId": 4,
       "classroomId": "1",
       "id": 4
     }
   ],
   "students": [
-    {
-      "id": 1,
-      "name": "Burak Koc",
-      "grade": "A",
-      "parentContact": "Obama",
-      "position": "STUDENT",
-      "category": "students",
-      "teacherId": 3,
-      "classroomId": 1
-    },
     {
       "id": 2,
       "name": "Logan",
@@ -128,14 +106,6 @@
       "category": "teachers",
       "schoolId": 2,
       "classroomId": 1
-    },
-    {
-      "name": "zzz",
-      "email": "zzz",
-      "subjects": "zzz",
-      "schoolId": 1,
-      "classroomId": 1,
-      "id": 6
     }
   ],
   "schools": [
