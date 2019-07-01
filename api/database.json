@@ -19,7 +19,17 @@
       "id": 3
     }
   ],
-  "classrooms": [],
+  "classrooms": [
+    {
+      "name": "Cohort32",
+      "room": "21 ",
+      "days": "M-F",
+      "hours": "8-5",
+      "position": "CLASSROOM",
+      "category": "classrooms",
+      "id": 1
+    }
+  ],
   "classroomTeachers": [],
   "classroomStudents": [],
   "students": [],
