@@ -6,13 +6,10 @@ export default class TeacherEditForm extends Component {
   state = {
     name: "",
     email: "",
-    subjects:"",
+    subjects: "",
     position: "TEACHER",
     category: "teachers",
-    classroom: "",
-    school: "",
-
-    //info: ""
+    school: ""
   };
 
   handleFieldChange = (evt) => {
@@ -33,8 +30,7 @@ export default class TeacherEditForm extends Component {
         email: this.state.email,
         subjects: this.state.subjects,
         position: "TEACHER",
-    category: "teachers",
-    classroomId : parseInt(this.state.classroomId),
+        category: "teachers",
         schoolId: parseInt(this.state.schoolId)
 
         //info: this.state.info
@@ -46,17 +42,14 @@ export default class TeacherEditForm extends Component {
     }
   };
   componentDidMount() {
-    TeacherManager.get(this.props.match.params.teacherId)
-    .then((teachers) => {
+    TeacherManager.get(this.props.match.params.teacherId).then((teachers) => {
       this.setState({
         name: teachers.name,
         email: teachers.email,
         subjects: teachers.subjects,
         position: "TEACHER",
-    category: "teachers",
-        schoolId: teachers.schoolId,
-        classroomId: teachers.classroomId
-        //info: teachers.info
+        category: "teachers",
+        schoolId: teachers.schoolId
       });
     });
   }
@@ -97,21 +90,20 @@ export default class TeacherEditForm extends Component {
           />
         </div>
         <div className="form-group">
-              <label htmlFor="school">Assign to a School</label>
-              <select
-                name="school"
-                id="schoolId"
-                onChange={this.handleFieldChange}
-                value = {this.state.schoolId}
-              >
-                
-                {this.props.schools.map(e => (
-                  <option key={e.id} id={e.id} value={e.id}>
-                    {e.name}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <label htmlFor="school">Assign to a School</label>
+          <select
+            name="school"
+            id="schoolId"
+            onChange={this.handleFieldChange}
+            value={this.state.schoolId}
+          >
+            {this.props.schools.map((e) => (
+              <option key={e.id} id={e.id} value={e.id}>
+                {e.name}
+              </option>
+            ))}
+          </select>
+        </div>
         <div>
           <button
             type="submit"
@@ -121,8 +113,7 @@ export default class TeacherEditForm extends Component {
               !this.state.name ||
               !this.state.email ||
               !this.state.subjects ||
-              !this.state.schoolId 
-              
+              !this.state.schoolId
             }
             onClick={this.updateTeacher}
           >

@@ -32,8 +32,28 @@
   ],
   "classroomTeachers": [],
   "classroomStudents": [],
-  "students": [],
-  "teachers": [],
+  "students": [
+    {
+      "name": "ssds",
+      "grade": "dsdsds",
+      "parentContact": "dsdsd",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 1,
+      "id": 1
+    }
+  ],
+  "teachers": [
+    {
+      "name": "aaa",
+      "email": "aaa",
+      "subjects": "aa",
+      "position": "TEACHER",
+      "category": "teachers",
+      "schoolId": 1,
+      "id": 1
+    }
+  ],
   "schools": [
     {
       "id": 1,

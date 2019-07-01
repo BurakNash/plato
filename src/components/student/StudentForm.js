@@ -8,7 +8,8 @@ export default class StudentForm extends Component {
     grade: "",
     parentContact: "",
     teacherId: "",
-    classroomId: "",
+    position: "STUDENT",
+    category: "students",
     saveEnabled: false
   };
 
@@ -30,7 +31,6 @@ export default class StudentForm extends Component {
     } else {
       const student = {
         name: this.state.studentName,
-        
         grade: this.state.grade,
         parentContact: this.state.parentContact,
         position: "STUDENT",
