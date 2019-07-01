@@ -14,3 +14,13 @@ This capstone project will address the problem of accessing  student data in one
 </p>
 
 <p>Tech Stack: ReactJS, Javascript, Html, CSS, JSON, Bootsrap, </p>
+
+
+<h6>How to Run the App</h6>
+<ul>
+<li>git clone https://github.com/BurakNash/capstone_presentation.git</li>
+<li>npm install</li>
+<li>Go to api folder and click "start"</li>
+<li>Go to main directory and click "start the project"</li>
+</ul>
+
