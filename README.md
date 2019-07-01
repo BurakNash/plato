@@ -4,7 +4,7 @@
 
 ![alt text](readme.gif)
 
-![alt text](readme.gif)
+![alt text](diagram.gif)
 
 </div>
 
