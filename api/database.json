@@ -11,169 +11,19 @@
       "password": "123l",
       "fullname": "llll",
       "id": 2
-    }
-  ],
-  "classrooms": [
-    {
-      "name": "Cohort-32",
-      "studentId": 1,
-      "schoolId": 1,
-      "id": 1
     },
     {
-      "name": "asas",
-      "room": "asas",
-      "days": "asa",
-      "hours": "asa",
-      "position": "CLASSROOM",
-      "category": "classrooms",
-      "id": 2
-    },
-    {
-      "name": "fdsfsd",
-      "room": "fdsfdsf",
-      "days": "dsfdsfdsfds",
-      "hours": "fsdfsf",
-      "position": "CLASSROOM",
-      "category": "classrooms",
-      "id": 4
-    }
-  ],
-  "classroomTeachers": [
-    {
-      "teacherId": 3,
-      "classroomId": 1,
+      "email": "burakkoc@gmail.com",
+      "password": "123",
+      "fullname": "Burak Kaya Koc",
       "id": 3
-    },
-    {
-      "teacherId": 4,
-      "classroomId": 2,
-      "id": 12
-    },
-    {
-      "teacherId": 1,
-      "classroomId": 2,
-      "id": 13
-    },
-    {
-      "teacherId": 4,
-      "classroomId": 1,
-      "id": 14
     }
   ],
-  "classroomStudents": [
-    {
-      "studentId": 3,
-      "classroomId": 1,
-      "id": 6
-    },
-    {
-      "studentId": 1,
-      "classroomId": 1,
-      "id": 7
-    },
-    {
-      "studentId": 4,
-      "classroomId": 2,
-      "id": 13
-    },
-    {
-      "studentId": 2,
-      "classroomId": 2,
-      "id": 14
-    },
-    {
-      "studentId": 4,
-      "classroomId": 2,
-      "id": 15
-    }
-  ],
-  "students": [
-    {
-      "id": 1,
-      "name": "Burak Koc",
-      "grade": "A",
-      "parentContact": "Obama",
-      "position": "STUDENT",
-      "category": "students",
-      "teacherId": 3,
-      "classroomId": 1
-    },
-    {
-      "id": 2,
-      "name": "Logan",
-      "grade": "A",
-      "parentContact": "None",
-      "position": "STUDENT",
-      "category": "students",
-      "teacherId": 3,
-      "classroomId": 1
-    },
-    {
-      "name": "Hughes Speer",
-      "grade": "F",
-      "position": "STUDENT",
-      "category": "students",
-      "parentContact": "Secret",
-      "teacherId": 3,
-      "schoolId": 2,
-      "id": 3,
-      "classroomId": 1
-    },
-    {
-      "name": "Too smart Student",
-      "grade": "A+",
-      "position": "STUDENT",
-      "category": "students",
-      "parentContact": "Nobel",
-      "teacherId": 3,
-      "schoolId": 2,
-      "id": 4,
-      "classroomId": 1
-    }
-  ],
-  "teachers": [
-    {
-      "id": 1,
-      "name": "Adam Sheaffer",
-      "email": "secret@gmail.com",
-      "subjects": "Math, Science, Hat Art",
-      "position": "TEACHER",
-      "category": "teachers",
-      "schoolId": 2,
-      "classroomId": 1
-    },
-    {
-      "id": 3,
-      "name": "Bryan Pilsen",
-      "email": "highfive@aol.com",
-      "subjects": "High Five",
-      "position": "TEACHER",
-      "category": "teachers",
-      "schoolId": 1,
-      "classroomId": 1
-    },
-    {
-      "id": 4,
-      "name": "Brenda Long",
-      "email": "sunnyroom@gmail.com",
-      "subjects": "Candies",
-      "position": "TEACHER",
-      "category": "teachers",
-      "schoolId": 2,
-      "classroomId": 1
-    },
-    {
-      "id": 5,
-      "name": "Robby Hecht",
-      "email": "robby@robby.com",
-      "subjects": "Hacking",
-      "position": "TEACHER",
-      "category": "teachers",
-      "schoolId": 2,
-      "classroomId": 1
-    }
-  ],
+  "classrooms": [],
+  "classroomTeachers": [],
+  "classroomStudents": [],
+  "students": [],
+  "teachers": [],
   "schools": [
     {
       "id": 1,
