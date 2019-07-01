@@ -1,18 +1,29 @@
-/* Control the right side */
 
-.alignright {
+.column {
+  float: left;
   width: 50%;
-  float: right;
-
-  background-color: #0080ff;
-
+  border-style: solid;
+  border-width: 7px;
+ padding: 50px;
+ border-color: #df8107;
+ margin-top:20px;
 }
 
-.aligntleft {
-  position: fixed;
-  width: 50%;
-  float: left;
+/* Clear floats after the columns */
 
-  background-color: #282828;
+
+.classdetails{
+  margin-bottom: "200px";
+  color: #ffffff
+}
+
+.row:after {
+ 
+  content: "";
+  display: table;
+  clear: both;
+}
+.selectlist {
+width:340px
 
 }

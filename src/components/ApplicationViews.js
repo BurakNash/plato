@@ -76,8 +76,8 @@ class ApplicationViews extends Component {
     await ClassroomStudentManager.delete(id).then(this.getAllClassroomStudents);
   };
   deleteClassroom = (id) => {
-    ClassroomManager.delete(id);
-    //.then(this._redirectToStudentList);
+    ClassroomManager.delete(id)
+    .then(this._redirectToClassroomList);
   };
 
   addClassroom = async (classroom) => {
@@ -275,6 +275,7 @@ class ApplicationViews extends Component {
                   loadClassroomTeachers={this.getAllClassroomTeachers}
                   classroomStudents={this.state.classroomStudents}
                   deleteClassroomTeacher={this.deleteClassroomTeacher}
+                  deleteClassroom={this.deleteClassroom}
                   deleteClassroomStudent={this.deleteClassroomStudent}
                   addClassroomStudent={this.addClassroomStudent}
                   loadClassroomStudents={this.getAllClassroomStudents}
@@ -472,6 +473,7 @@ class ApplicationViews extends Component {
                   schools={this.state.schools}
                   teachers={this.state.teachers}
                   students={this.state.students}
+                  classrooms={this.state.classrooms}
                   //searchResults={this.props.searchResults}
                   //searchInput={this.props.searchInput}
                 />
