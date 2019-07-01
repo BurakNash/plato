@@ -30,28 +30,180 @@
       "id": 1
     }
   ],
-  "classroomTeachers": [],
-  "classroomStudents": [],
+  "classroomTeachers": [
+    {
+      "teacherId": 1,
+      "classroomId": 1,
+      "id": 1
+    },
+    {
+      "teacherId": 2,
+      "classroomId": 1,
+      "id": 2
+    },
+    {
+      "teacherId": 3,
+      "classroomId": 1,
+      "id": 3
+    },
+    {
+      "teacherId": 4,
+      "classroomId": 1,
+      "id": 4
+    }
+  ],
+  "classroomStudents": [
+    {
+      "studentId": 1,
+      "classroomId": 1,
+      "id": 1
+    },
+    {
+      "studentId": 2,
+      "classroomId": 1,
+      "id": 2
+    },
+    {
+      "studentId": 3,
+      "classroomId": 1,
+      "id": 3
+    },
+    {
+      "studentId": 4,
+      "classroomId": 1,
+      "id": 4
+    },
+    {
+      "studentId": 5,
+      "classroomId": 1,
+      "id": 5
+    },
+    {
+      "studentId": 6,
+      "classroomId": 1,
+      "id": 6
+    },
+    {
+      "studentId": 7,
+      "classroomId": 1,
+      "id": 7
+    },
+    {
+      "studentId": 8,
+      "classroomId": 1,
+      "id": 8
+    }
+  ],
   "students": [
     {
-      "name": "ssds",
-      "grade": "dsdsds",
-      "parentContact": "dsdsd",
+      "name": "Colin Sandlin",
+      "grade": "A",
+      "parentContact": "secret",
       "position": "STUDENT",
       "category": "students",
       "teacherId": 1,
       "id": 1
+    },
+    {
+      "name": "Carly Bergthold",
+      "grade": "F",
+      "parentContact": "secret",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 1,
+      "id": 2
+    },
+    {
+      "name": "Dan Storm",
+      "grade": "A",
+      "parentContact": "secret",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 1,
+      "id": 3
+    },
+    {
+      "name": "Dek Haji",
+      "grade": "A",
+      "parentContact": "secret",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 1,
+      "id": 4
+    },
+    {
+      "name": "Eliot Clarke",
+      "grade": "A",
+      "parentContact": "secret",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 2,
+      "id": 5
+    },
+    {
+      "name": "Deep Patel",
+      "grade": "F",
+      "parentContact": "Indian",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 2,
+      "id": 6
+    },
+    {
+      "name": "Hughes Speer",
+      "grade": "A",
+      "parentContact": "secret",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 3,
+      "id": 7
+    },
+    {
+      "name": "Logan Palmer",
+      "grade": "A",
+      "parentContact": "secret",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 4,
+      "id": 8
     }
   ],
   "teachers": [
     {
-      "name": "aaa",
-      "email": "aaa",
-      "subjects": "aa",
+      "name": "Bryan Pilsen",
+      "email": "bryan@nss.com",
+      "subjects": "High Five Mastery",
       "position": "TEACHER",
       "category": "teachers",
       "schoolId": 1,
       "id": 1
+    },
+    {
+      "name": "Adam Sheaffer",
+      "email": "Adam@gmail.com",
+      "subjects": "Coding",
+      "position": "TEACHER",
+      "category": "teachers",
+      "schoolId": 2,
+      "id": 2
+    },
+    {
+      "name": "Brenda Long",
+      "email": "Brenda@nss.com",
+      "subjects": "Coding",
+      "position": "TEACHER",
+      "category": "teachers",
+      "schoolId": 2,
+      "id": 3
+    },
+    {
+      "name": "Robby Hecht",
+      "email": "Robby@gmail.com",
+      "subjects": "Coding",
+      "position": "TEACHER",
+      "category": "teachers",
+      "schoolId": 2,
+      "id": 4
     }
   ],
   "schools": [

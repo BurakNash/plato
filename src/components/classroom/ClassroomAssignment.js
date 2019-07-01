@@ -127,10 +127,7 @@ class ClassroomAssignments extends Component {
                     history={this.props.history}
                   >
                     <div className="studentname">
-                      <Link
-                        className=""
-                        to={`/teachers/${ct.teacherId}`}
-                      >
+                      <Link className="" to={`/teachers/${ct.teacherId}`}>
                         {ct.teacher.name}
                       </Link>
 
@@ -185,10 +182,7 @@ class ClassroomAssignments extends Component {
                     history={this.props.history}
                   >
                     <div className="studentname">
-                      <Link
-                        className=""
-                        to={`/students/${ct.studentId}`}
-                      >
+                      <Link className="" to={`/students/${ct.studentId}`}>
                         {ct.student.name}
                       </Link>
 
