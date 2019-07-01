@@ -69,31 +69,35 @@ class ClassroomAssignments extends Component {
   render() {
     return (
       <React.Fragment>
-        
-          <div className="form-group">
-            <h4>Assign to a Teacher</h4>
-            <select
-              className="selectlist"
-              multiple={true}
-              value={this.props.value}
-              name="teacher"
-              id="teacherId"
-              onChange={this.handleFieldChange}
-            >
-              {this.props.teachers.map((e) => (
-                <option
-                  onDoubleClick={this.constructNewClassroomTeacher}
-                  key={e.id}
-                  id={e.id}
-                  value={e.id}
-                >
-                  {e.name}
-                </option>
-              ))}
-            </select>
-          </div>
-       
 
+      <div>
+        <div className="alignleft"
+        >
+        {this.props.classroomStudents.map((ct) => (
+          <div
+            className="studentcard"
+            key={ct.id}
+            id={ct.id}
+            value={ct.id}
+            history={this.props.history}
+          >
+            <div className="studentname">
+              {ct.student.name}
+
+              <div className="buttons">
+                <button
+                  onClick={() => this.props.deleteClassroomStudent(ct.id)}
+                  className=""
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+</div>
+<div className="alignright"
+        >
         {this.props.classroomTeachers.map((ct) => (
           <div
             className="studentcard"
@@ -116,7 +120,8 @@ class ClassroomAssignments extends Component {
             </div>
           </div>
         ))}
-
+</div>
+</div>
         {/*----------------STUDENT------------------------*/}
 
         <div className="form-group">
@@ -141,29 +146,28 @@ class ClassroomAssignments extends Component {
             ))}
           </select>
         </div>
-
-        {this.props.classroomStudents.map((ct) => (
-          <div
-            className="studentcard"
-            key={ct.id}
-            id={ct.id}
-            value={ct.id}
-            history={this.props.history}
+        <div className="form-group">
+          <h4>Assign to a Teacher</h4>
+          <select
+            className="selectlist"
+            multiple={true}
+            value={this.props.value}
+            name="teacher"
+            id="teacherId"
+            onChange={this.handleFieldChange}
           >
-            <div className="studentname">
-              {ct.student.name}
-
-              <div className="buttons">
-                <button
-                  onClick={() => this.props.deleteClassroomStudent(ct.id)}
-                  className=""
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </div>
-        ))}
+            {this.props.teachers.map((e) => (
+              <option
+                onDoubleClick={this.constructNewClassroomTeacher}
+                key={e.id}
+                id={e.id}
+                value={e.id}
+              >
+                {e.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </React.Fragment>
     );
   }
