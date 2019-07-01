@@ -259,7 +259,9 @@ class ApplicationViews extends Component {
           schools={this.state.schools}
         />
 
-        <Route
+
+
+<Route
           Exact
           path="/classrooms/:classroomId(\d+)"
           render={(props) => {
@@ -286,6 +288,9 @@ class ApplicationViews extends Component {
             }
           }}
         />
+
+
+
 
         <Route
           path="/register"
