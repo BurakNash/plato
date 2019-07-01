@@ -1,0 +1,33 @@
+.ownerList {
+  font-size: 0.75em;
+}
+
+.studentcard {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  flex-wrap: row-wrap;
+  width: 335px;
+  flex-grow: 3;
+  align-self: auto;
+  background-color: lightblue;
+  margin-bottom: 1%;
+}
+.inputstudent {
+  width: 55%;
+}
+
+.studentlink {
+  background-color: rgb(44, 37, 39);
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.buttons {
+  float: right;
+}
+.deletedetails {
+  margin-bottom: 5%;
+}

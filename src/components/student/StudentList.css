@@ -1,0 +1,27 @@
+.students {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    flex-wrap: row-wrap;
+   
+    flex-grow: 3;
+    align-self: auto;
+    margin: 5%; 
+}
+
+.studentname {
+    display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  
+}
+
+.studentButton {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 0 10px 0;
+}
+
+.toastContainer {
+    max-width: 300px;
+}

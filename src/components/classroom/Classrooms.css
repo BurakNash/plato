@@ -1,0 +1,18 @@
+/* Control the right side */
+
+.alignright {
+  width: 50%;
+  float: right;
+
+  background-color: #0080ff;
+
+}
+
+.aligntleft {
+  position: fixed;
+  width: 50%;
+  float: left;
+
+  background-color: #282828;
+
+}
