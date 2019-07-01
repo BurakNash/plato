@@ -4,6 +4,12 @@
 
 ![alt text](readme.gif)
 
+![alt text](readme.gif)
+
+</div>
+
+<div>
+
 <h2>The Plato</h2>
 <h4>District Student Database</h4>
 
@@ -15,6 +21,9 @@ This capstone project will address the problem of accessing  student data in one
 
 <p>Tech Stack: ReactJS, Javascript, Html, CSS, JSON, Bootsrap, </p>
 
+</div>
+
+<div>
 
 <h6>How to Run the App</h6>
 <ul>
@@ -24,3 +33,4 @@ This capstone project will address the problem of accessing  student data in one
 <li>Go to main directory and click "start the project"</li>
 </ul>
 
+</div>
