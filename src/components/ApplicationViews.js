@@ -82,7 +82,7 @@ class ApplicationViews extends Component {
 
   addClassroom = async (classroom) => {
     await ClassroomManager.addClassroom(classroom);
-    //this._redirectToStudentList();
+    this._redirectToClassroomList();
   };
 
   addClassroomTeacher = async (classroomTeacher) => {
@@ -247,6 +247,7 @@ class ApplicationViews extends Component {
           Destination={ClassroomForm}
           classrooms={this.state.classrooms}
           classroomTeachers={this.state.classroomTeachers}
+          addClassroom={this.addClassroom}
           addClassroomTeacher={this.addClassroomTeacher}
           loadClassroomTeachers={this.getAllClassroomTeachers}
           classroomStudents={this.state.classroomStudents}

@@ -5,9 +5,49 @@
       "password": "123",
       "fullname": "Burak Koc",
       "id": 1
+    },
+    {
+      "email": "Burak@gmail.coml",
+      "password": "123l",
+      "fullname": "llll",
+      "id": 2
     }
   ],
-  "classrooms": [],
+  "classrooms": [
+    {
+      "name": "Cohort-32",
+      "studentId": 1,
+      "schoolId": 1,
+      "id": 1
+    },
+    {
+      "name": "asas",
+      "room": "asas",
+      "days": "asa",
+      "hours": "asa",
+      "position": "CLASSROOM",
+      "category": "classrooms",
+      "id": 2
+    },
+    {
+      "name": "qqqqqqq",
+      "room": "qqqqq",
+      "days": "qqq",
+      "hours": "qqq",
+      "position": "CLASSROOM",
+      "category": "classrooms",
+      "id": 3
+    },
+    {
+      "name": "fdsfsd",
+      "room": "fdsfdsf",
+      "days": "dsfdsfdsfds",
+      "hours": "fsdfsf",
+      "position": "CLASSROOM",
+      "category": "classrooms",
+      "id": 4
+    }
+  ],
   "classroomTeachers": [
     {
       "teacherId": 3,
@@ -18,21 +58,46 @@
       "teacherId": 4,
       "classroomId": "1",
       "id": 10
-    },
-    {
-      "teacherId": 1,
-      "classroomId": "1",
-      "id": 11
     }
   ],
   "classroomStudents": [
     {
+      "studentId": 1,
+      "classroomId": "1",
+      "id": 1
+    },
+    {
       "studentId": 4,
       "classroomId": "1",
       "id": 4
+    },
+    {
+      "studentId": 2,
+      "classroomId": "1",
+      "id": 5
+    },
+    {
+      "studentId": 3,
+      "classroomId": "1",
+      "id": 6
+    },
+    {
+      "studentId": 1,
+      "classroomId": "1",
+      "id": 7
     }
   ],
   "students": [
+    {
+      "id": 1,
+      "name": "Burak Koc",
+      "grade": "A",
+      "parentContact": "Obama",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 3,
+      "classroomId": 1
+    },
     {
       "id": 2,
       "name": "Logan",
@@ -106,6 +171,14 @@
       "category": "teachers",
       "schoolId": 2,
       "classroomId": 1
+    },
+    {
+      "name": "zzz",
+      "email": "zzz",
+      "subjects": "zzz",
+      "schoolId": 1,
+      "classroomId": 1,
+      "id": 6
     }
   ],
   "schools": [

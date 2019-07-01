@@ -36,7 +36,6 @@ export default class StudentForm extends Component {
         position: "STUDENT",
         category: "students",
         teacherId: parseInt(this.state.teacherId),
-        classroomId: "Not Assigned",
       };
 
       // Create the student and redirect user to student list
@@ -57,7 +56,7 @@ export default class StudentForm extends Component {
               required
               autoFocus
               className="form-control"
-              
+              onChange={this.handleFieldChange}
               id="studentName"
               placeholder="Student name"
             />
@@ -68,7 +67,7 @@ export default class StudentForm extends Component {
               type="text"
               required
               className="form-control"
-              
+              onChange={this.handleFieldChange}
               id="grade"
               placeholder="Student grade"
             />
@@ -79,7 +78,7 @@ export default class StudentForm extends Component {
               type="text"
               required
               className="form-control"
-             
+              onChange={this.handleFieldChange}
               id="parentContact"
               placeholder="Parent Information"
             />
@@ -90,7 +89,7 @@ export default class StudentForm extends Component {
               defaultValue=""
               name="teacher"
               id="teacherId"
-             
+              onChange={this.handleFieldChange}
             >
               <option value="">Select an teacher</option>
               {this.props.teachers.map((e) => (
@@ -105,7 +104,7 @@ export default class StudentForm extends Component {
             disabled={
               !this.state.studentName ||
               !this.state.grade ||
-              !this.state.parentContact ||
+              !this.state.parentContact|| 
               !this.state.teacherId ||
               this.state.saveEnabled
             }
