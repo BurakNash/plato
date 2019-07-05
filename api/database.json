@@ -21,79 +21,17 @@
   ],
   "classrooms": [
     {
-      "name": "Cohort32",
-      "room": "21 ",
+      "name": "Cohort 50",
+      "room": "Unknown",
       "days": "M-F",
-      "hours": "8-5",
+      "hours": "9-4",
       "position": "CLASSROOM",
       "category": "classrooms",
       "id": 1
     }
   ],
-  "classroomTeachers": [
-    {
-      "teacherId": 1,
-      "classroomId": 1,
-      "id": 1
-    },
-    {
-      "teacherId": 2,
-      "classroomId": 1,
-      "id": 2
-    },
-    {
-      "teacherId": 3,
-      "classroomId": 1,
-      "id": 3
-    },
-    {
-      "teacherId": 4,
-      "classroomId": 1,
-      "id": 4
-    }
-  ],
-  "classroomStudents": [
-    {
-      "studentId": 1,
-      "classroomId": 1,
-      "id": 1
-    },
-    {
-      "studentId": 2,
-      "classroomId": 1,
-      "id": 2
-    },
-    {
-      "studentId": 3,
-      "classroomId": 1,
-      "id": 3
-    },
-    {
-      "studentId": 4,
-      "classroomId": 1,
-      "id": 4
-    },
-    {
-      "studentId": 5,
-      "classroomId": 1,
-      "id": 5
-    },
-    {
-      "studentId": 6,
-      "classroomId": 1,
-      "id": 6
-    },
-    {
-      "studentId": 7,
-      "classroomId": 1,
-      "id": 7
-    },
-    {
-      "studentId": 8,
-      "classroomId": 1,
-      "id": 8
-    }
-  ],
+  "classroomTeachers": [],
+  "classroomStudents": [],
   "students": [
     {
       "name": "Colin Sandlin",
@@ -170,13 +108,13 @@
   ],
   "teachers": [
     {
+      "id": 1,
       "name": "Bryan Pilsen",
       "email": "bryan@nss.com",
       "subjects": "High Five Mastery",
       "position": "TEACHER",
       "category": "teachers",
-      "schoolId": 1,
-      "id": 1
+      "schoolId": 1
     },
     {
       "name": "Adam Sheaffer",
@@ -188,13 +126,13 @@
       "id": 2
     },
     {
+      "id": 3,
       "name": "Brenda Long",
       "email": "Brenda@nss.com",
       "subjects": "Coding",
       "position": "TEACHER",
       "category": "teachers",
-      "schoolId": 2,
-      "id": 3
+      "schoolId": 2
     },
     {
       "name": "Robby Hecht",
