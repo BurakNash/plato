@@ -5,9 +5,11 @@
 </div>
 
 <div>
-
+<h1>PREVIEW</h1>
 
 ![alt text](readme.gif)
+
+<h1>DIAGRAM</h1>
 
 ![alt text](diagram.png)
 
