@@ -21,10 +21,10 @@
   ],
   "classrooms": [
     {
-      "name": "Cohort32",
-      "room": "21 ",
+      "name": "Cohort 50",
+      "room": "Unknown",
       "days": "M-F",
-      "hours": "8-5",
+      "hours": "9-4",
       "position": "CLASSROOM",
       "category": "classrooms",
       "id": 1
@@ -74,12 +74,12 @@
       "id": 4
     },
     {
-      "studentId": 5,
+      "studentId": 6,
       "classroomId": 1,
       "id": 5
     },
     {
-      "studentId": 6,
+      "studentId": 5,
       "classroomId": 1,
       "id": 6
     },
@@ -87,11 +87,6 @@
       "studentId": 7,
       "classroomId": 1,
       "id": 7
-    },
-    {
-      "studentId": 8,
-      "classroomId": 1,
-      "id": 8
     }
   ],
   "students": [
@@ -170,13 +165,13 @@
   ],
   "teachers": [
     {
-      "name": "Bryan Pilsen",
+      "id": 1,
+      "name": "Bryan Nilsen (Teacher)",
       "email": "bryan@nss.com",
       "subjects": "High Five Mastery",
       "position": "TEACHER",
       "category": "teachers",
-      "schoolId": 1,
-      "id": 1
+      "schoolId": 1
     },
     {
       "name": "Adam Sheaffer",
@@ -188,13 +183,13 @@
       "id": 2
     },
     {
+      "id": 3,
       "name": "Brenda Long",
       "email": "Brenda@nss.com",
       "subjects": "Coding",
       "position": "TEACHER",
       "category": "teachers",
-      "schoolId": 2,
-      "id": 3
+      "schoolId": 2
     },
     {
       "name": "Robby Hecht",
