@@ -1,15 +1,15 @@
-<h1>WELCOME TO PLATO</h1>
+<center><h1>WELCOME TO PLATO</h1></center>
 
 <div>
 <img src="readmeonesheet.png" alt="Logo">
 </div>
 
 <div>
-<h1>PREVIEW</h1>
+<center><h1>PREVIEW</h1></center>
 
 ![alt text](readme.gif)
 
-<h1>DIAGRAM</h1>
+<center><h1>DIAGRAM</h1></center>
 
 ![alt text](diagram.png)
 
@@ -17,7 +17,7 @@
 
 <div>
 
-<h2>The Plato</h2>
+<center><h2>The Plato</h2></center>
 <h4>District Student Database</h4>
 
 <h6>OVERVIEW</h6>
