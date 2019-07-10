@@ -1,10 +1,11 @@
 <h1>WELCOME TO PLATO</h1>
 
 <div>
-![alt text](readmeonesheet.png)
+
 </div>
 
 <div>
+  ![alt text](readmeonesheet.png)
 
 ![alt text](readme.gif)
 
