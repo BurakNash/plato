@@ -30,8 +30,65 @@
       "id": 1
     }
   ],
-  "classroomTeachers": [],
-  "classroomStudents": [],
+  "classroomTeachers": [
+    {
+      "teacherId": 1,
+      "classroomId": 1,
+      "id": 1
+    },
+    {
+      "teacherId": 2,
+      "classroomId": 1,
+      "id": 2
+    },
+    {
+      "teacherId": 3,
+      "classroomId": 1,
+      "id": 3
+    },
+    {
+      "teacherId": 4,
+      "classroomId": 1,
+      "id": 4
+    }
+  ],
+  "classroomStudents": [
+    {
+      "studentId": 1,
+      "classroomId": 1,
+      "id": 1
+    },
+    {
+      "studentId": 2,
+      "classroomId": 1,
+      "id": 2
+    },
+    {
+      "studentId": 3,
+      "classroomId": 1,
+      "id": 3
+    },
+    {
+      "studentId": 4,
+      "classroomId": 1,
+      "id": 4
+    },
+    {
+      "studentId": 6,
+      "classroomId": 1,
+      "id": 5
+    },
+    {
+      "studentId": 5,
+      "classroomId": 1,
+      "id": 6
+    },
+    {
+      "studentId": 7,
+      "classroomId": 1,
+      "id": 7
+    }
+  ],
   "students": [
     {
       "name": "Colin Sandlin",
@@ -109,7 +166,7 @@
   "teachers": [
     {
       "id": 1,
-      "name": "Bryan Pilsen",
+      "name": "Bryan Nilsen (Teacher)",
       "email": "bryan@nss.com",
       "subjects": "High Five Mastery",
       "position": "TEACHER",
