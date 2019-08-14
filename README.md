@@ -9,9 +9,9 @@
 
 ![alt text](readme.gif)
 
-<center><h1>DIAGRAM</h1></center>
 
-![alt text](diagram.png)
+
+
 
 </div>
 
