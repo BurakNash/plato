@@ -1,7 +1,8 @@
 <h1>WELCOME TO PLATO</h1>
 
 <div>
-![alt text](readmeonesheet.png)
+<img src="readmeonesheet.png" alt="Logo">
+![alt text](readme.gif)
 </div>
 
 <div>
