@@ -17,12 +17,6 @@
       "password": "123",
       "fullname": "Burak Kaya Koc",
       "id": 3
-    },
-    {
-      "email": "burak@gmail.com",
-      "password": "123",
-      "fullname": "Burak",
-      "id": 4
     }
   ],
   "classrooms": [
@@ -34,15 +28,6 @@
       "position": "CLASSROOM",
       "category": "classrooms",
       "id": 1
-    },
-    {
-      "name": "Cohort 32",
-      "room": "5",
-      "days": "M-F",
-      "hours": "8-5",
-      "position": "CLASSROOM",
-      "category": "classrooms",
-      "id": 2
     }
   ],
   "classroomTeachers": [
@@ -50,6 +35,11 @@
       "teacherId": 1,
       "classroomId": 1,
       "id": 1
+    },
+    {
+      "teacherId": 2,
+      "classroomId": 1,
+      "id": 2
     },
     {
       "teacherId": 3,
@@ -60,21 +50,6 @@
       "teacherId": 4,
       "classroomId": 1,
       "id": 4
-    },
-    {
-      "teacherId": 3,
-      "classroomId": 2,
-      "id": 5
-    },
-    {
-      "teacherId": 4,
-      "classroomId": 2,
-      "id": 6
-    },
-    {
-      "teacherId": 1,
-      "classroomId": 2,
-      "id": 7
     }
   ],
   "classroomStudents": [
@@ -112,26 +87,6 @@
       "studentId": 7,
       "classroomId": 1,
       "id": 7
-    },
-    {
-      "studentId": 2,
-      "classroomId": 2,
-      "id": 8
-    },
-    {
-      "studentId": 3,
-      "classroomId": 2,
-      "id": 9
-    },
-    {
-      "studentId": 4,
-      "classroomId": 2,
-      "id": 10
-    },
-    {
-      "studentId": 8,
-      "classroomId": 2,
-      "id": 11
     }
   ],
   "students": [
@@ -172,6 +127,24 @@
       "id": 4
     },
     {
+      "name": "Eliot Clarke",
+      "grade": "A",
+      "parentContact": "secret",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 2,
+      "id": 5
+    },
+    {
+      "name": "Deep Patel",
+      "grade": "F",
+      "parentContact": "Indian",
+      "position": "STUDENT",
+      "category": "students",
+      "teacherId": 2,
+      "id": 6
+    },
+    {
       "name": "Hughes Speer",
       "grade": "A",
       "parentContact": "secret",
@@ -199,6 +172,15 @@
       "position": "TEACHER",
       "category": "teachers",
       "schoolId": 1
+    },
+    {
+      "name": "Adam Sheaffer",
+      "email": "Adam@gmail.com",
+      "subjects": "Coding",
+      "position": "TEACHER",
+      "category": "teachers",
+      "schoolId": 2,
+      "id": 2
     },
     {
       "id": 3,
