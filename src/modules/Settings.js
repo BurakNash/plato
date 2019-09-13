@@ -1,3 +1,5 @@
 export default {
-  remoteURL: "http://localhost:5002"
+  remoteURL: process.env.NODE_ENV === 'production'
+    ? "/api/"
+    : "http://localhost:5002/api/"
 }
