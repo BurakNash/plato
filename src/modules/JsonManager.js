@@ -1,20 +1,22 @@
-const remoteURL = "http://localhost:5002";
+import Settings from "./Settings";
 
 export default {
 
 
   getById(id, dataset, embedItem) {
-    return fetch(`${remoteURL}/${dataset}/${id}?${embedItem}`).then((r) =>
+    return fetch(`${Settings.remoteURL}/${dataset}/${id}?${embedItem}`).then((r) =>
       r.json()
     );
   },
 
   getAll(dataset, embedItem) {
-    return fetch(`${remoteURL}/${dataset}?${embedItem}`).then((r) => r.json());
+    return fetch(`${Settings.remoteURL}/${dataset}?${embedItem}`).then((r) =>
+      r.json()
+    );
   },
 
   post(dataset, newObject) {
-    return fetch(`${remoteURL}/${dataset}`, {
+    return fetch(`${Settings.remoteURL}/${dataset}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -25,14 +27,14 @@ export default {
 
   registerIt(email, password) {
     return fetch(
-      `http://localhost:5002/users?email=${email}&password=${password}`
+      `${Settings.remoteURL}/users?email=${email}&password=${password}`
     ).then((response) => response.json());
     },
 
 
     search(resource, input) {
-      return fetch(`${remoteURL}/${resource}?name_like=${input}`).then(e =>
-        e.json()
+      return fetch(`${Settings.remoteURL}/${resource}?name_like=${input}`).then(
+        (e) => e.json()
       );
     }
 
