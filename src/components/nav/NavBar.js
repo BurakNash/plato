@@ -108,7 +108,7 @@ class NavBar extends Component {
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
-          
+
           <li className="nav-item">
             <Link className="link-1" to="/classrooms">
               Classrooms
