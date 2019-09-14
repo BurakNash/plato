@@ -48,9 +48,10 @@
 .search {
   vertical-align: middle;
   height: 25px;
-  width: 150px;
-  margin-left: 10px;
-  margin-right: 10px;
+  width: 200px;
+  margin-left: 20px;
+  margin-right: 20px;
+
 }
 .searchbutton {
   border-left: none;

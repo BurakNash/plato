@@ -90,7 +90,7 @@ class NavBar extends Component {
             toggle={this.toggle}
           >
             <DropdownToggle id="Dropdown" caret>
-              <strong>Database</strong>
+              <strong>School Data</strong>
             </DropdownToggle>
             <DropdownMenu className="DropdownMenu">
               <DropdownItem header>The Plato</DropdownItem>
@@ -108,34 +108,19 @@ class NavBar extends Component {
               </DropdownItem>
             </DropdownMenu>
           </Dropdown>
-          <li className="nav-item">
-            <Link id=" " className="link-1" to="/schools">
-              Schools
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="link-1" to="/teachers">
-              Teachers
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="link-1" to="/students">
-              Students
-            </Link>
-          </li>
+          
           <li className="nav-item">
             <Link className="link-1" to="/classrooms">
               Classrooms
             </Link>
           </li>
-          <li className="nav-item seperator" />
           <li className="nav-item">
             <Link className="link-1 " to="/search">
               Search
             </Link>
             <input
               type=""
-              className="search "
+              className="search"
               aria-label=""
               aria-describedby=""
               onKeyUp={(e) => this.handleSearch(e)}
