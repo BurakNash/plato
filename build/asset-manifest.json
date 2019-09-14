@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d0cd005e.chunk.css",
+    "main.js": "/static/js/main.ed9c2fed.chunk.js",
+    "main.js.map": "/static/js/main.ed9c2fed.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.0601dd10.chunk.css": "/static/css/2.0601dd10.chunk.css",
+    "static/js/2.b4b4a572.chunk.js": "/static/js/2.b4b4a572.chunk.js",
+    "static/js/2.b4b4a572.chunk.js.map": "/static/js/2.b4b4a572.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.bc824a24dcc8589d3854851ff852dcca.js": "/precache-manifest.bc824a24dcc8589d3854851ff852dcca.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.0601dd10.chunk.css.map": "/static/css/2.0601dd10.chunk.css.map",
+    "static/css/main.d0cd005e.chunk.css.map": "/static/css/main.d0cd005e.chunk.css.map",
+    "static/media/LOGO.jpg": "/static/media/LOGO.75d208e9.jpg",
+    "static/media/index.css": "/static/media/background.210caef1.jpg",
+    "static/media/octicons.css": "/static/media/octicons.ee5b1bee.woff",
+    "static/media/schools.gif": "/static/media/schools.59a7254b.gif",
+    "static/media/students.gif": "/static/media/students.5178bbd6.gif",
+    "static/media/teachers.gif": "/static/media/teachers.a950f890.gif"
+  }
+}

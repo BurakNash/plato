@@ -49,8 +49,8 @@
   vertical-align: middle;
   height: 25px;
   width: 150px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .searchbutton {
   border-left: none;
@@ -61,9 +61,6 @@
   box-sizing: none;
   height: 40px
 
-}
-.seperator {
-  border-center: 6px dashed #df8107;
 }
 
 .nav {
