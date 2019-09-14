@@ -13,7 +13,7 @@ server.use(
     "/api/*": "/$1"
   })
 );
-
+/*
 server.use((req, res, next) => {
   // use originalUrl since other middleware is likely reassigning req.url
   const isApiRoute = req.originalUrl.includes("/api/");
@@ -22,7 +22,7 @@ server.use((req, res, next) => {
 
   return res.sendFile(path.join(__dirname, "./build/index.html"));
 });
-
+*/
 server.use(router);
 
 server.listen(port, () => {
