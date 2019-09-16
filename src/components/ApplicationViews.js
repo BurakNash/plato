@@ -195,7 +195,6 @@ class ApplicationViews extends Component {
       .then((schools) => (newState.schools = schools))
 
       //OWNERS
-      /*
       .then(() => OwnerManager.getAll())
       .then((owners) => (newState.owners = owners))
       .then(() =>
@@ -203,7 +202,6 @@ class ApplicationViews extends Component {
       )
       .then((studentOwners) => (newState.studentOwners = studentOwners))
       .then(() => this.setState(newState));
-      */
   }
 
   isAuthenticated = () => sessionStorage.getItem("Fullname") !== null;
