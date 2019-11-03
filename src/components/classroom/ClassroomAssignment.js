@@ -67,13 +67,24 @@ class ClassroomAssignments extends Component {
   componentDidMount() {}
 
   render() {
+    const classroom = this.props.classrooms.find(
+      (a) => a.id === parseInt(this.props.match.params.classroomId)
+    ) || { id: 404, name: "404", grade: "Teacher not found" };
+
+    const classroomStudent = this.props.classroomStudents.find(
+      (a) => a.id === parseInt(this.props.match.params.classroomStudent)
+    ) || { id: 404, name: "404", grade: "Teacher not found" };
+
+
     return (
       <React.Fragment>
 
       <div>
         <div className="alignleft"
         >
-        {this.props.classroomStudents.map((ct) => (
+        {this.props.classroomStudents
+        .filter((ct) => ct.classroomId == classroom.id)
+        .map((ct) => (
           <div
             className="studentcard"
             key={ct.id}
@@ -98,7 +109,9 @@ class ClassroomAssignments extends Component {
 </div>
 <div className="alignright"
         >
-        {this.props.classroomTeachers.map((ct) => (
+        {this.props.classroomTeachers
+        .filter((ct) => ct.classroomId == classroom.id)
+        .map((ct) => (
           <div
             className="studentcard"
             key={ct.id}

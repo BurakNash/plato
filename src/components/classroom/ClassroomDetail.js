@@ -26,7 +26,7 @@ export default class ClassroomDetail extends Component {
               <h5 className="card text-white">Teachers:</h5>
               <div className="card-body">
                 {this.props.teachers
-                  .filter((std) => std.schoolId === school.id )
+                 
                   .map((std) => (
                     <TeacherCard key={std.id} teacher={std} {...this.props} />
                   ))}
