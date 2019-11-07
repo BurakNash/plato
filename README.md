@@ -2,9 +2,6 @@
 
 
 
-<div>
-<center><h1>PREVIEW</h1></center>
-
 ![alt text](readme.gif)
 
 
