@@ -1,9 +1,6 @@
 <center><h1>WELCOME TO PLATO</h1></center>
 
-<div>
-<img src="readmeonesheet.png" alt="Logo">
 
-</div>
 
 <div>
 <center><h1>PREVIEW</h1></center>
