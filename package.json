@@ -1,7 +1,9 @@
+
 {
   "name": "keyboard-creator",
   "version": "0.1.0",
   "private": true,
+  "main": "server.js",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "build": "^0.1.4",
@@ -17,8 +19,8 @@
     "reactstrap": "^8.0.0"
   },
   "scripts": {
-    "start": "npm run build && npm run json-serve",
-    "json-serve": "node index.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -39,3 +41,5 @@
     ]
   }
 }
+
+
