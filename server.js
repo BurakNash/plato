@@ -4,7 +4,7 @@ const jsonServer = require('json-server');
 const server = jsonServer.create();
 const router = jsonServer.router(dbPath);
 const middlewares = jsonServer.defaults({ static: "./public" });
-const port = process.env.PORT || 8088;
+const port = process.env.PORT || 5002;
 
 server.use(middlewares);
 
