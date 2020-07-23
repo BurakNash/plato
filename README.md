@@ -1,5 +1,3 @@
-https://platoclass.herokuapp.com/
-
 <center><h1>WELCOME TO PLATO</h1></center>
 
 
@@ -23,7 +21,7 @@ The webpage will display the list of schools, teachers, and students in the dist
 This capstone project will address the problem of accessing  student data in one platform. 
 </p>
 
-<p>Tech Stack: ReactJS, Javascript, Html, CSS, JSON, Bootsrap, </p>
+<p>Tech Stack: JavaScript (React), Html, CSS, JSON:API, Bootstrap, </p>
 
 </div>
 
