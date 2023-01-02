@@ -12,7 +12,7 @@
     "react-octicon": "^3.0.1",
     "react-popup": "^0.10.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-select-checked": "^0.1.12",
     "react-splitter-layout": "^4.0.0",
     "reactstrap": "^8.4.1"
